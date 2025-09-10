@@ -1,0 +1,65 @@
+---
+description: Agent workflow rule for documentation-driven development
+globs:
+alwaysApply: true
+---
+
+## Agent Workflow Rule: Documentation-Driven Development
+
+The agent MUST follow this exact workflow for ALL tasks:
+
+### 1. Initial Documentation Review
+- **ALWAYS** read `docs/mission.md` first to understand the project's purpose and goals
+- **ALWAYS** read `docs/todo.md` to understand current tasks, priorities, and acceptance criteria
+- Review any other relevant documentation files in the `docs/` directory
+- Understand the current state of the project before proceeding
+
+### 2. Planning Phase
+- Create a detailed plan based on the task requirements and current documentation
+- Break down complex tasks into manageable steps
+- Identify dependencies and potential risks
+- Consider how the task aligns with the project mission
+
+### 3. Todo Evaluation and Update
+- **ALWAYS** evaluate if the planned task requires modification of `docs/todo.md`
+- If the task involves:
+  - Adding new features → Update todo.md with new tasks
+  - Completing existing tasks → Mark them as completed
+  - Changing priorities → Reorder tasks accordingly
+  - Discovering new requirements → Add them to the todo list
+- Update `docs/todo.md` BEFORE starting implementation
+
+### 4. Task Execution
+- Execute the planned tasks systematically
+- Follow the acceptance criteria defined in the documentation
+- Implement changes according to the project's standards and mission
+- Test functionality as appropriate
+
+### 5. Post-Task Evaluation
+- **ALWAYS** evaluate if the completed changes meet the acceptance criteria
+- Verify that the implementation aligns with the project mission
+- Check if any additional tasks were discovered during implementation
+
+### 6. Documentation Updates
+- **ALWAYS** update `docs/todo.md` to reflect:
+  - Completed tasks (mark as done)
+  - New tasks discovered during implementation
+  - Updated priorities or timelines
+  - Any blockers or issues encountered
+- Update other documentation files (`docs/mission.md`, etc.) if:
+  - The project scope or mission has evolved
+  - New features require documentation
+  - Architecture or approach changes need to be documented
+  - User-facing changes require updated instructions
+
+### 7. Final Verification
+- Ensure all documentation accurately reflects the current state of the code
+- Verify that the todo list is up-to-date and properly prioritized
+- Confirm that the mission statement still accurately describes the project
+
+### Key Principles:
+- **Documentation First**: Always start with reading existing docs
+- **Plan Before Acting**: Create a clear plan before implementation
+- **Continuous Documentation**: Keep docs updated throughout the process
+- **Acceptance Criteria Driven**: Always verify against defined criteria
+- **Mission Alignment**: Ensure all work aligns with project goals
