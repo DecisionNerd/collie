@@ -2,6 +2,9 @@
 
 ## Current Tasks
 
+### Project Structure
+- [x] Move code into src folder structure
+
 ### Ready to Run
 - [x] Application is ready to run with .env file configured
 
@@ -18,12 +21,16 @@
 - [x] Handle missing GOOGLE_API_KEY environment variable gracefully
 - [x] Add .env file loading capability (python-dotenv)
 - [x] Fix asyncio event loop issue in async calls
+- [x] Move code into src folder structure
 
 
 ## Notes
 - Project uses pydantic_ai with Google Gemini model
 - GOOGLE_API_KEY is configured in .env file
-- To run the application: `python main.py`
+- Code is organized in src/ folder structure
+- To run the application:
+  - Using script: `collie` (after `uv pip install -e .`)
+  - Using module: `PYTHONPATH=src python -m collie.main`
 - The app will now provide helpful error messages if the API key is missing
 - Application is fully functional and demonstrates:
   - Asynchronous agent call (Italy capital)

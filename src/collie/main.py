@@ -47,5 +47,9 @@ async def main():
             #> The capital of the UK is London.
 
 
-if __name__ == "__main__":
+def cli():
+    """Command line interface entry point."""
     asyncio.run(main())
+
+if __name__ == "__main__":
+    cli()
