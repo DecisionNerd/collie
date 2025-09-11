@@ -1,44 +1,37 @@
 [
   {
-    "id": "5113ec48-d4ef-47be-9788-22ce76814cb3",
+    "id": "14aedcbf-86e9-4baa-a9ce-c78d8e9e47b9",
     "class_code": "E21",
     "label": "Isaac Newton",
-    "notes": "Person mentioned in the text: Isaac Newton",
+    "notes": "Person mentioned in context: Isaac Newton discovered the laws of motion in England.",
     "type": []
   },
   {
-    "id": "61ee66ab-5b0f-4aa5-adb1-c7deef77280d",
-    "class_code": "E5",
-    "label": "Event involving discovered",
-    "notes": "Event mentioned in context: Isaac Newton discovered the laws of motion in England.",
-    "type": []
-  },
-  {
-    "id": "48532cf2-fde2-4b94-8e86-ebf9bcb88061",
+    "id": "2fbf2860-fcdc-4d0f-ab49-15e7cf7c01ff",
     "class_code": "E21",
     "label": "Galileo Galilei",
-    "notes": "Person mentioned in the text: Galileo Galilei",
+    "notes": "Person mentioned in context: Galileo Galilei was an Italian astronomer and physicist.",
     "type": []
   },
   {
-    "id": "e281bf34-8f85-4722-bbe9-90168cea8e96",
+    "id": "f85718ac-b67e-4fe5-9acc-ae15e5a4ea83",
+    "class_code": "E21",
+    "label": "Galileo Galilei",
+    "notes": "Person mentioned in context: Galileo Galilei was an Italian astronomer and physicist.",
+    "type": []
+  },
+  {
+    "id": "f774073f-a044-4716-9375-e038357e75d2",
     "class_code": "E21",
     "label": "Charles Darwin",
-    "notes": "Person mentioned in the text: Charles Darwin",
+    "notes": "Person mentioned in context: Charles Darwin developed the theory of evolution by natural selection.",
     "type": []
   },
   {
-    "id": "f9c0eca6-90ad-46b0-a530-f1701b04863d",
-    "class_code": "E5",
-    "label": "Event involving developed",
-    "notes": "Event mentioned in context: Charles Darwin developed the theory of evolution by natural selection.",
-    "type": []
-  },
-  {
-    "id": "dc1126b6-15c6-4ce3-96c8-4096ebc39f7d",
+    "id": "af1ec7b3-f5f9-4994-95a0-f9a05cb3d480",
     "class_code": "E22",
-    "label": "theory",
-    "notes": "Object or concept mentioned: theory",
+    "label": "theory of evolution by natural selection",
+    "notes": "Object or concept mentioned in context: Charles Darwin developed the theory of evolution by natural selection.",
     "type": []
   }
 ]

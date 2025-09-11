@@ -1,162 +1,126 @@
 [
   {
-    "id": "c682e9cf-344a-4868-8316-d323c7b4352e",
+    "id": "b050cb3e-1472-4384-b4d4-63d32cf3b1b2",
     "class_code": "E21",
     "label": "Albert Einstein",
-    "notes": "Person mentioned in the text: Albert Einstein",
+    "notes": "Person mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize i",
     "type": [
       "E21"
     ]
   },
   {
-    "id": "ab19b1e0-bd1b-494f-8075-4fe5364026e6",
+    "id": "36a43509-23b2-4726-b87b-7243b6ca6320",
     "class_code": "E21",
-    "label": "Nobel Prize",
-    "notes": "Person mentioned in the text: Nobel Prize",
+    "label": "relativity and",
+    "notes": "Person mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921.\nEinstein worked at the Institute for Advanced Study in Princeton",
     "type": [
       "E21"
     ]
   },
   {
-    "id": "8391dbbf-4402-4b6c-b94b-31473364a0f5",
-    "class_code": "E21",
-    "label": "Advanced Study",
-    "notes": "Person mentioned in the text: Advanced Study",
-    "type": [
-      "E21"
-    ]
-  },
-  {
-    "id": "8f0905d0-be1c-4ea2-a735-22ce305bc43b",
-    "class_code": "E21",
-    "label": "New Jersey",
-    "notes": "Person mentioned in the text: New Jersey",
-    "type": [
-      "E21"
-    ]
-  },
-  {
-    "id": "c8037576-07c3-4cec-b6de-768503c7aecb",
-    "class_code": "E21",
-    "label": "New Jersey",
-    "notes": "Person mentioned in the text: New Jersey",
-    "type": [
-      "E21"
-    ]
-  },
-  {
-    "id": "2fc47d3d-22f9-4da3-9601-5aa6fc5f7236",
-    "class_code": "E5",
-    "label": "Event involving born",
-    "notes": "Event mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed",
-    "type": [
-      "E5"
-    ]
-  },
-  {
-    "id": "58797a3a-85d7-4bc7-a02b-8a9fa4fc074e",
-    "class_code": "E5",
-    "label": "Event involving died",
-    "notes": "Event mentioned in context: our understanding of space, time, and gravity.\nHe died on April 18, 1955, in Princeton, New Jersey.",
-    "type": [
-      "E5"
-    ]
-  },
-  {
-    "id": "b63bdf6e-534f-4355-80ef-0b8c702e8424",
-    "class_code": "E5",
-    "label": "Event involving developed",
-    "notes": "Event mentioned in context: was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize",
-    "type": [
-      "E5"
-    ]
-  },
-  {
-    "id": "030a0b4c-b017-4111-8189-2c2b013a0a3a",
-    "class_code": "E5",
-    "label": "Event involving won",
-    "notes": "Event mentioned in context: rmany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921.\nEinstein work",
-    "type": [
-      "E5"
-    ]
-  },
-  {
-    "id": "731b25b2-d9bd-4aed-ba2c-35c61bdd3d35",
-    "class_code": "E53",
-    "label": "Germany",
-    "notes": "Place mentioned in the text: Germany",
-    "type": [
-      "E53"
-    ]
-  },
-  {
-    "id": "59c41d29-dfb8-4c69-b07c-6c8f4c27ef8f",
-    "class_code": "E53",
-    "label": "Princeton",
-    "notes": "Place mentioned in the text: Princeton",
-    "type": [
-      "E53"
-    ]
-  },
-  {
-    "id": "51f04aef-e16f-4c3b-aa2e-346c5a457764",
+    "id": "dde278ca-547c-4445-b174-6bdaca20256c",
     "class_code": "E53",
     "label": "Ulm",
-    "notes": "Place mentioned in the text: Ulm",
+    "notes": "Place mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity",
     "type": [
       "E53"
     ]
   },
   {
-    "id": "49b6c8be-5298-4786-a094-81f9a6782928",
+    "id": "43e6b4aa-82b6-49ca-a9d4-ddf9df265592",
+    "class_code": "E53",
+    "label": "Princeton",
+    "notes": "Place mentioned in context: ein worked at the Institute for Advanced Study in Princeton, New Jersey.\nHe is best known for his mass-energy",
+    "type": [
+      "E53"
+    ]
+  },
+  {
+    "id": "7126d8d5-4392-4a2e-a589-dbf29e21eaf6",
+    "class_code": "E53",
+    "label": "Princeton",
+    "notes": "Place mentioned in context: time, and gravity.\nHe died on April 18, 1955, in Princeton, New Jersey.",
+    "type": [
+      "E53"
+    ]
+  },
+  {
+    "id": "b36c9a8f-a514-4c98-9285-1872e2302b4d",
+    "class_code": "E53",
+    "label": "Germany",
+    "notes": "Place mentioned in context: bert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won t",
+    "type": [
+      "E53"
+    ]
+  },
+  {
+    "id": "fe312c8a-40c4-4886-a309-cc2329a4ab10",
     "class_code": "E22",
-    "label": "theory",
-    "notes": "Object or concept mentioned: theory",
+    "label": "theory of relativity and won the Nobel Prize in Physics in ",
+    "notes": "Object or concept mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921.\nEinstein worked at the Institute for Advanced Study in Princeton, New Jersey.\nHe is best known",
     "type": [
       "E22"
     ]
   },
   {
-    "id": "3f08aefb-d6d2-4a8f-88c6-5118f1c83985",
+    "id": "dc1f41a7-fb29-4233-99be-21c10e718f04",
     "class_code": "E22",
-    "label": "Nobel Prize",
-    "notes": "Object or concept mentioned: Nobel Prize",
+    "label": "Nobel Prize in Physics in ",
+    "notes": "Object or concept mentioned in context: ein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921.\nEinstein worked at the Institute for Advanced Study in Princeton, New Jersey.\nHe is best known",
     "type": [
       "E22"
     ]
   },
   {
-    "id": "4a41a892-b7a1-45b3-b68e-ad36a053ac5f",
+    "id": "a7c25fc4-8b1f-4dc4-9338-045b1846a4d4",
     "class_code": "E22",
-    "label": "relativity",
-    "notes": "Object or concept mentioned: relativity",
+    "label": "theory of relativity",
+    "notes": "Object or concept mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921.\nEinstein worked at the Institute for Advanced Study in",
     "type": [
       "E22"
     ]
   },
   {
-    "id": "87ddfa86-fa27-46ce-ae4d-f9c4141771f6",
+    "id": "cf542bf0-10de-4b3f-8f69-60d51d8dbc1b",
     "class_code": "E52",
-    "label": "Year 1879",
-    "notes": "Time period: 1879",
+    "label": "March 14, 1879",
+    "notes": "Time period mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921",
     "type": [
       "E52"
     ]
   },
   {
-    "id": "5040df55-adb5-4bc9-b249-17c7ca4b46f3",
+    "id": "71db5e31-8680-42be-84ba-33a32a506c30",
     "class_code": "E52",
-    "label": "Year 1921",
-    "notes": "Time period: 1921",
+    "label": "April 18, 1955",
+    "notes": "Time period mentioned in context: a E = mc\u00b2.\nEinstein's work revolutionized our understanding of space, time, and gravity.\nHe died on April 18, 1955, in Princeton, New Jersey.",
     "type": [
       "E52"
     ]
   },
   {
-    "id": "e40e8e8f-0b5f-4cee-bf44-fa9c19db0b78",
+    "id": "16a6a64c-c417-4c20-a210-6e471c6bc881",
     "class_code": "E52",
-    "label": "Year 1955",
-    "notes": "Time period: 1955",
+    "label": "1879",
+    "notes": "Time period mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921",
+    "type": [
+      "E52"
+    ]
+  },
+  {
+    "id": "bd7cca69-3e56-4c54-97a9-27a32b88d35e",
+    "class_code": "E52",
+    "label": "1921",
+    "notes": "Time period mentioned in context: 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921.\nEinstein worked at the Institute for Advanced Study in Princeton, New Jersey.\nHe is best known for",
+    "type": [
+      "E52"
+    ]
+  },
+  {
+    "id": "9a45f605-7191-4cc1-b087-1745a10b5849",
+    "class_code": "E52",
+    "label": "1955",
+    "notes": "Time period mentioned in context: Einstein's work revolutionized our understanding of space, time, and gravity.\nHe died on April 18, 1955, in Princeton, New Jersey.",
     "type": [
       "E52"
     ]

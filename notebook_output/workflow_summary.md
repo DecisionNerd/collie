@@ -9,12 +9,12 @@ Einstein worked at the Institute for Advanced Study in ...
 
 ## Extraction Results
 
-- Entities extracted: 18
-- Relationships extracted: 53
+- Entities extracted: 14
+- Relationships extracted: 0
 
 ## Network Analysis
 
-- Nodes: 18
+- Nodes: 14
 - Edges: 0
 - Density: 0.000
 - Communities: 0
