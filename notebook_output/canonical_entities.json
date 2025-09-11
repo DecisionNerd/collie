@@ -1,0 +1,164 @@
+[
+  {
+    "id": "c682e9cf-344a-4868-8316-d323c7b4352e",
+    "class_code": "E21",
+    "label": "Albert Einstein",
+    "notes": "Person mentioned in the text: Albert Einstein",
+    "type": [
+      "E21"
+    ]
+  },
+  {
+    "id": "ab19b1e0-bd1b-494f-8075-4fe5364026e6",
+    "class_code": "E21",
+    "label": "Nobel Prize",
+    "notes": "Person mentioned in the text: Nobel Prize",
+    "type": [
+      "E21"
+    ]
+  },
+  {
+    "id": "8391dbbf-4402-4b6c-b94b-31473364a0f5",
+    "class_code": "E21",
+    "label": "Advanced Study",
+    "notes": "Person mentioned in the text: Advanced Study",
+    "type": [
+      "E21"
+    ]
+  },
+  {
+    "id": "8f0905d0-be1c-4ea2-a735-22ce305bc43b",
+    "class_code": "E21",
+    "label": "New Jersey",
+    "notes": "Person mentioned in the text: New Jersey",
+    "type": [
+      "E21"
+    ]
+  },
+  {
+    "id": "c8037576-07c3-4cec-b6de-768503c7aecb",
+    "class_code": "E21",
+    "label": "New Jersey",
+    "notes": "Person mentioned in the text: New Jersey",
+    "type": [
+      "E21"
+    ]
+  },
+  {
+    "id": "2fc47d3d-22f9-4da3-9601-5aa6fc5f7236",
+    "class_code": "E5",
+    "label": "Event involving born",
+    "notes": "Event mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. \nHe developed",
+    "type": [
+      "E5"
+    ]
+  },
+  {
+    "id": "58797a3a-85d7-4bc7-a02b-8a9fa4fc074e",
+    "class_code": "E5",
+    "label": "Event involving died",
+    "notes": "Event mentioned in context: our understanding of space, time, and gravity.\nHe died on April 18, 1955, in Princeton, New Jersey.",
+    "type": [
+      "E5"
+    ]
+  },
+  {
+    "id": "b63bdf6e-534f-4355-80ef-0b8c702e8424",
+    "class_code": "E5",
+    "label": "Event involving developed",
+    "notes": "Event mentioned in context: was born on March 14, 1879, in Ulm, Germany. \nHe developed the theory of relativity and won the Nobel Prize",
+    "type": [
+      "E5"
+    ]
+  },
+  {
+    "id": "030a0b4c-b017-4111-8189-2c2b013a0a3a",
+    "class_code": "E5",
+    "label": "Event involving won",
+    "notes": "Event mentioned in context: rmany. \nHe developed the theory of relativity and won the Nobel Prize in Physics in 1921.\nEinstein work",
+    "type": [
+      "E5"
+    ]
+  },
+  {
+    "id": "731b25b2-d9bd-4aed-ba2c-35c61bdd3d35",
+    "class_code": "E53",
+    "label": "Germany",
+    "notes": "Place mentioned in the text: Germany",
+    "type": [
+      "E53"
+    ]
+  },
+  {
+    "id": "59c41d29-dfb8-4c69-b07c-6c8f4c27ef8f",
+    "class_code": "E53",
+    "label": "Princeton",
+    "notes": "Place mentioned in the text: Princeton",
+    "type": [
+      "E53"
+    ]
+  },
+  {
+    "id": "51f04aef-e16f-4c3b-aa2e-346c5a457764",
+    "class_code": "E53",
+    "label": "Ulm",
+    "notes": "Place mentioned in the text: Ulm",
+    "type": [
+      "E53"
+    ]
+  },
+  {
+    "id": "49b6c8be-5298-4786-a094-81f9a6782928",
+    "class_code": "E22",
+    "label": "theory",
+    "notes": "Object or concept mentioned: theory",
+    "type": [
+      "E22"
+    ]
+  },
+  {
+    "id": "3f08aefb-d6d2-4a8f-88c6-5118f1c83985",
+    "class_code": "E22",
+    "label": "Nobel Prize",
+    "notes": "Object or concept mentioned: Nobel Prize",
+    "type": [
+      "E22"
+    ]
+  },
+  {
+    "id": "4a41a892-b7a1-45b3-b68e-ad36a053ac5f",
+    "class_code": "E22",
+    "label": "relativity",
+    "notes": "Object or concept mentioned: relativity",
+    "type": [
+      "E22"
+    ]
+  },
+  {
+    "id": "87ddfa86-fa27-46ce-ae4d-f9c4141771f6",
+    "class_code": "E52",
+    "label": "Year 1879",
+    "notes": "Time period: 1879",
+    "type": [
+      "E52"
+    ]
+  },
+  {
+    "id": "5040df55-adb5-4bc9-b249-17c7ca4b46f3",
+    "class_code": "E52",
+    "label": "Year 1921",
+    "notes": "Time period: 1921",
+    "type": [
+      "E52"
+    ]
+  },
+  {
+    "id": "e40e8e8f-0b5f-4cee-bf44-fa9c19db0b78",
+    "class_code": "E52",
+    "label": "Year 1955",
+    "notes": "Time period: 1955",
+    "type": [
+      "E52"
+    ]
+  }
+]

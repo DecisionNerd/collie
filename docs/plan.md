@@ -1,6 +1,6 @@
 # Implementation Plan
 
-Comprehensive plan to deliver full Pydantic coverage of CIDOC CRM v7.1.3 with Markdown renderers and Cypher emitters, aligned with the repo mission (JSON ↔ Markdown ↔ Cypher; no RDF/OWL/JSON‑LD at runtime).
+Comprehensive plan to deliver full Pydantic coverage of CIDOC CRM v7.1.3 with AI-powered information extraction, NetworkX integration, interactive visualization, Markdown renderers and Cypher emitters, aligned with the repo mission (Text → AI Extraction → JSON ↔ NetworkX ↔ Visualization ↔ Markdown ↔ Cypher; no RDF/OWL/JSON‑LD at runtime).
 
 ---
 
@@ -8,8 +8,11 @@ Comprehensive plan to deliver full Pydantic coverage of CIDOC CRM v7.1.3 with Ma
 
 **In‑scope**
 
+* PydanticAI-powered information extraction from unstructured text.
 * Pydantic v2 models covering all CIDOC CRM **E‑classes** and **P‑properties** (7.1.3).
 * Canonical JSON schema (stable keys, IDs, references).
+* NetworkX integration for social network analysis and graph algorithms.
+* Interactive visualization tools for exploring extracted knowledge graphs.
 * Markdown renderers: cards, narratives, tables.
 * Cypher emitters: idempotent MERGE/UNWIND for nodes/relationships, optional indexes/constraints.
 * Validators for cardinalities, domain/range alignment; configurable severity (warn/raise).
@@ -282,26 +285,46 @@ MERGE (s)-[:`P108_WAS_PRODUCED_BY`]->(t);
 
 ---
 
-## 8) Testing Strategy
+## 8) Interactive Learning & Documentation
 
-### 8.1 Unit Tests
+### 8.1 Jupyter Notebook Demo
+
+* **Comprehensive Workflow**: Interactive notebook (`COLLIE_Demo_Notebook.ipynb`) with 31 cells covering complete workflow
+* **Step-by-step Execution**: All 10 workflow steps from AI extraction to graph database export
+* **Live Visualizations**: Interactive network plots and analysis with real-time output
+* **Educational Focus**: Perfect for learning, experimentation, and understanding COLLIE capabilities
+* **Sample Data**: Albert Einstein biography demonstration with canonical JSON serialization
+* **Advanced Examples**: Batch processing, custom entities, and data loading scenarios
+
+### 8.2 Documentation Strategy
+
+* **QUICKSTART.md**: Rapid onboarding guide with CLI examples
+* **HOWTOs.md**: Comprehensive modeling guide with practical examples
+* **README.md**: Project overview with workflow examples and notebook reference
+* **Mission & Plan**: Clear project goals and implementation roadmap
+
+---
+
+## 9) Testing Strategy
+
+### 9.1 Unit Tests
 
 * Validators: quantifier and domain/range behavior.
 * Emitters: nodes/relationships from samples.
 * Renderers: card/detailed/table outputs (snapshot testing).
 
-### 8.2 Golden Examples (snapshot)
+### 9.2 Golden Examples (snapshot)
 
 * Domains: museum object lifecycle, excavation, archival record creation, custody transfer, movement, condition assessment, measurement, identifier assignment, type assignment.
 * Ensure coverage matrix: each major `P` appears ≥1 time; each major `E` instantiated ≥1 time.
 
-### 8.3 Performance/Scale Tests
+### 9.3 Performance/Scale Tests
 
 * Large batch UNWIND (10k nodes / 50k rels) to validate generation speed and memory.
 
 ---
 
-## 9) Milestones & Timeline
+## 10) Milestones & Timeline
 
 1. **Specs & Codegen (Days 1–4)**
 
@@ -322,7 +345,7 @@ MERGE (s)-[:`P108_WAS_PRODUCED_BY`]->(t);
 
 ---
 
-## 10) Acceptance Criteria (Definition of Done)
+## 11) Acceptance Criteria (Definition of Done)
 
 * ✅ All CIDOC CRM 7.1.3 E‑classes represented as Pydantic models (generated or wrapped).
 * ✅ `properties.py` contains all P‑properties with `domain`, `range`, `inverse`, `quantifier`.

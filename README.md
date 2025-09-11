@@ -28,6 +28,8 @@ Cultural heritage and information extraction projects often need a **CRM-complia
 
 ## 🚀 Quick Start
 
+> **📖 For a comprehensive getting started guide, see [QUICKSTART.md](QUICKSTART.md)**
+
 ### Installation
 
 ```bash
@@ -63,6 +65,12 @@ print(cypher)
 
 ## 📋 Core Features
 
+### 🤖 **AI-Powered Information Extraction**
+- PydanticAI-powered text analysis for automatic entity extraction
+- Intelligent parsing of biographical, historical, and cultural texts
+- Automatic relationship detection between entities
+- Support for complex narrative structures and temporal relationships
+
 ### 🏗️ **Pydantic Models**
 - Complete CIDOC CRM v7.1.3 coverage (99 E-classes, 322 P-properties)
 - Flexible UUID handling with automatic string-to-UUID conversion
@@ -91,6 +99,19 @@ The `EE` prefix identifies Collie-generated Python classes for CIDOC CRM Entitie
 - **Tabular Summaries**: Structured data presentation
 - **Style Profiles**: Configurable output formatting
 
+### 🔗 **NetworkX Integration**
+- Direct conversion from CRM entities to NetworkX graphs
+- Built-in social network analysis algorithms
+- Community detection and centrality measures
+- Temporal network analysis for historical data
+- Interactive visualization capabilities
+
+### 📊 **Visualization & Analysis**
+- Interactive network plots with matplotlib and plotly
+- Customizable node and edge styling based on CRM classes
+- Timeline visualization for temporal relationships
+- Export capabilities for presentations and reports
+
 ### 🔗 **Cypher Emitters**
 - Idempotent MERGE/UNWIND scripts for graph databases
 - Neo4j and Memgraph compatible
@@ -103,20 +124,63 @@ The `EE` prefix identifies Collie-generated Python classes for CIDOC CRM Entitie
 - Quantifier rules and typing constraints
 - Extensible validation profiles
 
+## 📓 Interactive Jupyter Notebook Demo
+
+> **🎯 For hands-on exploration, try our comprehensive Jupyter notebook: [`COLLIE_Demo_Notebook.ipynb`](COLLIE_Demo_Notebook.ipynb)**
+
+The notebook provides an interactive walkthrough of the complete COLLIE workflow with:
+- **Step-by-step execution** of all 10 workflow steps
+- **Live visualizations** and network analysis
+- **Canonical JSON serialization** demonstration
+- **Advanced examples** including batch processing
+- **Real-time output** generation and file management
+
+Perfect for learning, experimentation, and understanding how COLLIE enables async/future processing workflows!
+
 ## 🔄 Complete Workflow
 
 ```python
-# 1. Extract entities from source data
-entities = extract_from_text("Ancient Greek vase from 5th century BCE...")
+from collie.extraction import InformationExtractor
+from collie.io.to_networkx import to_networkx_graph
+from collie.visualization import plot_network_graph
 
-# 2. Serialize as canonical JSON using Pydantic models
-json_data = [entity.model_dump() for entity in entities]
+# 1. Extract entities from source text using PydanticAI
+extractor = InformationExtractor()
+extraction_result = await extractor.extract_from_text("""
+Albert Einstein was born on March 14, 1879, in Ulm, Germany. 
+He developed the theory of relativity and won the Nobel Prize in 1921.
+""")
 
-# 3. Render into Markdown for LLM prompts
-markdown_report = render_narrative(entities)
+# 2. Convert to CRM entities
+from collie.models.base import CRMEntity
+crm_entities = []
+for entity in extraction_result.entities:
+    crm_entity = CRMEntity(
+        id=str(entity.id),
+        class_code=entity.class_code,
+        label=entity.label,
+        notes=entity.description
+    )
+    crm_entities.append(crm_entity)
 
-# 4. Emit Cypher scripts for graph database
-cypher_script = emit_cypher_script(entities)
+# 3. Serialize as canonical JSON (important for async/future processing)
+json_data = [entity.model_dump(mode='json') for entity in crm_entities]
+
+# 4. Render into Markdown for analysis and reporting
+markdown_report = render_table(crm_entities)
+
+# 5. Convert to NetworkX graph for social network analysis
+graph = to_networkx_graph(crm_entities)
+
+# 6. Perform network analysis
+centrality = nx.degree_centrality(graph)
+communities = nx.community.greedy_modularity_communities(graph)
+
+# 7. Visualize the network
+plot_network_graph(graph, title="Einstein's Life Network")
+
+# 8. Export to Cypher for graph database persistence (optional)
+cypher_script = generate_cypher_script(crm_entities)
 ```
 
 ## 📊 Example Output

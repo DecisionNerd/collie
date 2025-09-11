@@ -4,17 +4,51 @@ This guide provides practical examples and patterns for modeling cultural herita
 
 ## Table of Contents
 
-1. [Understanding Class Naming](#understanding-class-naming)
-2. [Basic Entity Creation](#basic-entity-creation)
-3. [Modeling Events](#modeling-events)
-4. [Modeling Objects](#modeling-objects)
-5. [Modeling People and Groups](#modeling-people-and-groups)
-6. [Modeling Places and Time](#modeling-places-and-time)
-7. [Working with Relationships](#working-with-relationships)
-8. [NetworkX Integration](#networkx-integration)
-9. [Validation and Quality Control](#validation-and-quality-control)
-10. [Exporting to Markdown](#exporting-to-markdown)
-11. [Exporting to Cypher](#exporting-to-cypher)
+1. [Interactive Jupyter Notebook Demo](#interactive-jupyter-notebook-demo)
+2. [Understanding Class Naming](#understanding-class-naming)
+3. [Basic Entity Creation](#basic-entity-creation)
+4. [Modeling Events](#modeling-events)
+5. [Modeling Objects](#modeling-objects)
+6. [Modeling People and Groups](#modeling-people-and-groups)
+7. [Modeling Places and Time](#modeling-places-and-time)
+8. [Working with Relationships](#working-with-relationships)
+9. [AI-Powered Information Extraction](#ai-powered-information-extraction)
+10. [NetworkX Integration](#networkx-integration)
+11. [Validation and Quality Control](#validation-and-quality-control)
+12. [Exporting to Markdown](#exporting-to-markdown)
+13. [Exporting to Cypher](#exporting-to-cypher)
+
+## Interactive Jupyter Notebook Demo
+
+> **🎯 For hands-on exploration: [`COLLIE_Demo_Notebook.ipynb`](../COLLIE_Demo_Notebook.ipynb)**
+
+The best way to learn COLLIE is through our comprehensive Jupyter notebook that provides an interactive walkthrough of the complete workflow. The notebook includes:
+
+### What You'll Learn
+
+- **Complete Workflow**: All 10 steps from AI extraction to graph database export
+- **Canonical JSON Serialization**: The crucial step for async/future processing
+- **Live Visualizations**: Interactive network plots and analysis
+- **Advanced Examples**: Batch processing, custom entities, and data loading
+- **Real-time Output**: See results as you execute each step
+
+### Notebook Features
+
+- **31 Interactive Cells**: Step-by-step execution with detailed explanations
+- **Sample Data**: Albert Einstein biography for demonstration
+- **Output Generation**: Creates `notebook_output/` directory with all results
+- **Educational**: Perfect for learning and experimentation
+- **Comprehensive**: Covers the entire COLLIE ecosystem
+
+### Getting Started
+
+1. **Open the notebook** in Jupyter Lab or Jupyter Notebook
+2. **Run cells sequentially** to follow the complete workflow
+3. **Experiment** with different texts and parameters
+4. **Explore** the generated visualizations and data
+5. **Use outputs** for further analysis or graph database import
+
+The notebook emphasizes the **canonical JSON serialization step** as the crucial bridge between AI extraction and future processing, making it perfect for understanding how COLLIE enables async workflows and graph database integration!
 
 ## Understanding Class Naming
 
@@ -319,6 +353,131 @@ relationship = CRMRelation(
     tgt="place_001",
     props={"role": "E55:CurrentLocation"}
 )
+```
+
+## AI-Powered Information Extraction
+
+### Using PydanticAI for Entity Extraction
+
+COLLIE includes AI-powered information extraction using PydanticAI to automatically identify CIDOC CRM entities and relationships from unstructured text.
+
+```python
+import asyncio
+from collie.extraction import InformationExtractor
+
+async def extract_entities():
+    # Initialize the extractor
+    extractor = InformationExtractor()
+    
+    # Extract from text
+    text = """
+    Albert Einstein was born on March 14, 1879, in Ulm, Germany.
+    He developed the theory of relativity and won the Nobel Prize in Physics in 1921.
+    Einstein worked at the Institute for Advanced Study in Princeton, New Jersey.
+    """
+    
+    # Extract entities and relationships
+    result = await extractor.extract_from_text(text)
+    
+    print(f"Extracted {len(result.entities)} entities")
+    print(f"Extracted {len(result.relationships)} relationships")
+    
+    # Filter by confidence
+    high_confidence_entities = [
+        e for e in result.entities if e.confidence >= 0.8
+    ]
+    
+    return result
+
+# Run the extraction
+result = asyncio.run(extract_entities())
+```
+
+### Converting Extracted Data to CRM Entities
+
+```python
+from collie.models.base import CRMEntity
+
+# Convert extracted entities to CRM entities
+crm_entities = []
+for entity in result.entities:
+    crm_entity = CRMEntity(
+        id=str(entity.id),
+        class_code=entity.class_code,
+        label=entity.label,
+        notes=entity.description
+    )
+    crm_entities.append(crm_entity)
+
+# Now you can use all COLLIE features
+from collie.io.to_markdown import render_table
+markdown_table = render_table(crm_entities)
+print(markdown_table)
+```
+
+### Complete AI-Powered Workflow
+
+```python
+import asyncio
+from collie.extraction import InformationExtractor
+from collie.io.to_networkx import to_networkx_graph, calculate_centrality_measures
+from collie.visualization import plot_network_graph
+
+async def complete_ai_workflow(text: str):
+    # Step 1: Extract entities using AI
+    extractor = InformationExtractor()
+    extraction_result = await extractor.extract_from_text(text)
+    
+    # Step 2: Convert to CRM entities
+    crm_entities = []
+    for entity in extraction_result.entities:
+        crm_entity = CRMEntity(
+            id=str(entity.id),
+            class_code=entity.class_code,
+            label=entity.label,
+            notes=entity.description
+        )
+        crm_entities.append(crm_entity)
+    
+    # Step 3: Serialize as canonical JSON (important for async/future processing)
+    json_data = [entity.model_dump(mode='json') for entity in crm_entities]
+    
+    # Step 4: Convert to NetworkX graph
+    graph = to_networkx_graph(crm_entities)
+    
+    # Step 5: Perform network analysis
+    centrality_measures = calculate_centrality_measures(graph)
+    
+    # Step 6: Create visualization
+    plot_network_graph(
+        graph,
+        title="AI-Extracted Entity Network",
+        save_path="ai_network.png",
+        show_plot=False
+    )
+    
+    return {
+        "entities": crm_entities,
+        "graph": graph,
+        "centrality": centrality_measures
+    }
+
+# Example usage
+text = "Your unstructured text here..."
+results = asyncio.run(complete_ai_workflow(text))
+```
+
+### Using the CLI for AI Extraction
+
+```bash
+# Extract entities from text
+collie extract --text "Albert Einstein was born in Ulm, Germany" --output results/
+
+# Extract from file with high confidence
+collie extract --file biography.txt --confidence 0.8 --format both
+
+# Run complete AI-powered workflow
+collie workflow --text "Your text here" --all --output complete_analysis/
 ```
 
 ## NetworkX Integration

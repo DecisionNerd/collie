@@ -1,0 +1,44 @@
+[
+  {
+    "id": "5113ec48-d4ef-47be-9788-22ce76814cb3",
+    "class_code": "E21",
+    "label": "Isaac Newton",
+    "notes": "Person mentioned in the text: Isaac Newton",
+    "type": []
+  },
+  {
+    "id": "61ee66ab-5b0f-4aa5-adb1-c7deef77280d",
+    "class_code": "E5",
+    "label": "Event involving discovered",
+    "notes": "Event mentioned in context: Isaac Newton discovered the laws of motion in England.",
+    "type": []
+  },
+  {
+    "id": "48532cf2-fde2-4b94-8e86-ebf9bcb88061",
+    "class_code": "E21",
+    "label": "Galileo Galilei",
+    "notes": "Person mentioned in the text: Galileo Galilei",
+    "type": []
+  },
+  {
+    "id": "e281bf34-8f85-4722-bbe9-90168cea8e96",
+    "class_code": "E21",
+    "label": "Charles Darwin",
+    "notes": "Person mentioned in the text: Charles Darwin",
+    "type": []
+  },
+  {
+    "id": "f9c0eca6-90ad-46b0-a530-f1701b04863d",
+    "class_code": "E5",
+    "label": "Event involving developed",
+    "notes": "Event mentioned in context: Charles Darwin developed the theory of evolution by natural selection.",
+    "type": []
+  },
+  {
+    "id": "dc1126b6-15c6-4ce3-96c8-4096ebc39f7d",
+    "class_code": "E22",
+    "label": "theory",
+    "notes": "Object or concept mentioned: theory",
+    "type": []
+  }
+]
