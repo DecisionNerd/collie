@@ -97,6 +97,32 @@ During development, there was a bug that generated classes with `EEE` prefix (e.
 
 ## Basic Entity Creation
 
+### Understanding UUID Handling
+
+Collie uses flexible UUID handling that maintains the "IDs first" principle while supporting developer ergonomics:
+
+#### Automatic UUID Conversion
+- **String IDs**: Automatically converted to deterministic UUIDs using MD5 hashing
+- **UUID Objects**: Used directly without conversion
+- **Deterministic**: Same string always produces the same UUID
+- **Backward Compatible**: Works with existing string-based ID systems
+
+```python
+# These will produce the same UUID every time
+entity1 = CRMEntity(id="obj_001", class_code="E22")
+entity2 = CRMEntity(id="obj_001", class_code="E22")
+assert entity1.id == entity2.id  # True - same UUID
+
+# UUIDs are displayed in shortened format for readability
+print(entity1.id)  # Shows: 192f3e61... (first 8 chars + "...")
+```
+
+#### UUID Benefits
+- **Uniqueness**: Better uniqueness guarantees than string IDs
+- **Consistency**: Same string always produces the same UUID
+- **Performance**: UUIDs are more efficient for database operations
+- **Standards**: Follows best practices for entity identification
+
 ### Creating a Simple Entity
 
 ```python
@@ -104,11 +130,19 @@ from collie.models.base import CRMEntity
 
 # Create a basic CRM entity
 entity = CRMEntity(
-    id="obj_001",
+    id="obj_001",  # String IDs are automatically converted to deterministic UUIDs
     class_code="E22",
     label="Ancient Vase",
     type=["E55:Vessel", "E55:Ceramic"],
     notes="A beautifully preserved amphora"
+)
+
+# You can also use actual UUIDs
+import uuid
+entity_with_uuid = CRMEntity(
+    id=uuid.uuid4(),  # Or use a specific UUID string
+    class_code="E22",
+    label="Ancient Vase"
 )
 ```
 
@@ -335,8 +369,15 @@ print(detailed_md)
 ### Table Style
 
 ```python
-# Render as a table
-table_md = to_markdown([vase, painting], MarkdownStyle.TABLE)
+from collie.io.to_markdown import render_table
+
+# Render multiple entities as a table
+entities = [vase, painting]
+table_md = render_table(entities)
+print(table_md)
+
+# Or use the single-entity function
+table_md = to_markdown(vase, MarkdownStyle.TABLE)
 print(table_md)
 ```
 

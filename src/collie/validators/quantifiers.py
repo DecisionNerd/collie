@@ -3,9 +3,10 @@ Quantifier validation utilities for CIDOC CRM.
 Enforces cardinality rules with configurable severity.
 """
 
-from typing import List, Any, Optional, Union
-from enum import Enum
 import logging
+from enum import Enum
+from typing import Any, Dict, List, Optional, Union
+
 from ..models.base import CRMEntity, CRMValidationError, CRMValidationWarning
 from ..properties import P
 
@@ -22,7 +23,7 @@ class ValidationSeverity(str, Enum):
 def enforce_quantifier(
     entity: CRMEntity,
     p_code: str,
-    values: List[Any],
+    values: list[Any],
     severity: ValidationSeverity = ValidationSeverity.WARN
 ) -> None:
     """
@@ -40,29 +41,29 @@ def enforce_quantifier(
     """
     if severity == ValidationSeverity.IGNORE:
         return
-    
+
     if p_code not in P:
         logger.warning(f"Unknown property code: {p_code}")
         return
-    
+
     quantifier = P[p_code]["quantifier"]
     domain = P[p_code]["domain"]
-    
+
     # Check if entity class matches domain
     if entity.class_code != domain:
         logger.info(f"Entity {entity.class_code} does not match domain {domain} for property {p_code}")
         return
-    
+
     # Parse quantifier
     min_count, max_count = _parse_quantifier(quantifier)
-    
+
     # Check cardinality
     actual_count = len(values) if values else 0
-    
+
     if actual_count < min_count:
         message = f"Property {p_code} requires at least {min_count} values, got {actual_count}"
         _handle_violation(message, severity, entity, p_code)
-    
+
     if max_count is not None and actual_count > max_count:
         message = f"Property {p_code} allows at most {max_count} values, got {actual_count}"
         _handle_violation(message, severity, entity, p_code)
@@ -71,7 +72,7 @@ def enforce_quantifier(
 def validate_entity_quantifiers(
     entity: CRMEntity,
     severity: ValidationSeverity = ValidationSeverity.WARN
-) -> List[str]:
+) -> list[str]:
     """
     Validate all quantifier rules for an entity.
     
@@ -83,29 +84,29 @@ def validate_entity_quantifiers(
         List of validation messages
     """
     messages = []
-    
+
     # Get all properties that apply to this entity's class
     from ..properties import DOMAIN
     applicable_properties = DOMAIN.get(entity.class_code, [])
-    
+
     for p_code in applicable_properties:
         try:
             # Get values for this property from the entity
             values = _get_property_values(entity, p_code)
-            
+
             # Validate quantifier
             enforce_quantifier(entity, p_code, values, severity)
-            
+
         except (CRMValidationError, CRMValidationWarning) as e:
             messages.append(str(e))
         except Exception as e:
             logger.error(f"Error validating property {p_code}: {e}")
             messages.append(f"Error validating property {p_code}: {e}")
-    
+
     return messages
 
 
-def _parse_quantifier(quantifier: str) -> tuple[int, Optional[int]]:
+def _parse_quantifier(quantifier: str) -> tuple[int, int | None]:
     """
     Parse quantifier string into min/max counts.
     
@@ -117,16 +118,16 @@ def _parse_quantifier(quantifier: str) -> tuple[int, Optional[int]]:
     """
     if ".." not in quantifier:
         raise ValueError(f"Invalid quantifier format: {quantifier}")
-    
+
     min_part, max_part = quantifier.split("..")
-    
+
     min_count = int(min_part)
-    
+
     if max_part == "*":
         max_count = None
     else:
         max_count = int(max_part)
-    
+
     return min_count, max_count
 
 
@@ -146,10 +147,10 @@ def _handle_violation(
         p_code: The property code that was violated
     """
     full_message = f"{message} (Entity: {entity.id}, Class: {entity.class_code})"
-    
+
     if severity == ValidationSeverity.RAISE:
         raise CRMValidationError(full_message)
-    elif severity == ValidationSeverity.WARN:
+    if severity == ValidationSeverity.WARN:
         logger.warning(full_message)
         # Also issue a warning that can be caught
         import warnings
@@ -157,7 +158,7 @@ def _handle_violation(
     # IGNORE is handled in the calling function
 
 
-def _get_property_values(entity: CRMEntity, p_code: str) -> List[Any]:
+def _get_property_values(entity: CRMEntity, p_code: str) -> list[Any]:
     """
     Get values for a property from an entity.
     
@@ -181,27 +182,26 @@ def _get_property_values(entity: CRMEntity, p_code: str) -> List[Any]:
         "P80": "end_of_the_end",
         "P108": "produced_by"
     }
-    
+
     field_name = p_to_field.get(p_code)
     if not field_name:
         return []
-    
+
     if hasattr(entity, field_name):
         value = getattr(entity, field_name)
         if value is None:
             return []
-        elif isinstance(value, list):
+        if isinstance(value, list):
             return value
-        else:
-            return [value]
-    
+        return [value]
+
     return []
 
 
 def validate_batch_quantifiers(
-    entities: List[CRMEntity],
+    entities: list[CRMEntity],
     severity: ValidationSeverity = ValidationSeverity.WARN
-) -> Dict[str, List[str]]:
+) -> dict[str, list[str]]:
     """
     Validate quantifiers for a batch of entities.
     
@@ -213,16 +213,16 @@ def validate_batch_quantifiers(
         Dictionary mapping entity IDs to validation messages
     """
     results = {}
-    
+
     for entity in entities:
         messages = validate_entity_quantifiers(entity, severity)
         if messages:
             results[entity.id] = messages
-    
+
     return results
 
 
-def get_quantifier_summary(entities: List[CRMEntity]) -> Dict[str, Any]:
+def get_quantifier_summary(entities: list[CRMEntity]) -> dict[str, Any]:
     """
     Get a summary of quantifier validation results.
     
@@ -234,10 +234,10 @@ def get_quantifier_summary(entities: List[CRMEntity]) -> Dict[str, Any]:
     """
     total_entities = len(entities)
     validation_results = validate_batch_quantifiers(entities, ValidationSeverity.WARN)
-    
+
     entities_with_issues = len(validation_results)
     total_issues = sum(len(messages) for messages in validation_results.values())
-    
+
     return {
         "total_entities": total_entities,
         "entities_with_issues": entities_with_issues,

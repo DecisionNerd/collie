@@ -3,8 +3,9 @@ Base CRM entity model and core wrappers.
 Provides the foundation for all CIDOC CRM E-class models.
 """
 
-from typing import Optional, List, Dict, Any, Union
+from typing import Any, Dict, List, Optional, Union
 from uuid import UUID, uuid4
+
 from pydantic import BaseModel, Field, validator
 
 
@@ -19,24 +20,27 @@ class CRMEntity(BaseModel):
     - notes: additional textual information
     - type: list of type assignments
     """
-    
+
     id: UUID = Field(default_factory=uuid4, description="Unique identifier for this entity")
     class_code: str = Field(..., description="CIDOC CRM E-class code")
-    label: Optional[str] = Field(None, description="Human-readable label")
-    notes: Optional[str] = Field(None, description="Additional textual notes")
-    type: List[str] = Field(default_factory=list, description="Type assignments")
-    
-    @validator('id', pre=True)
+    label: str | None = Field(None, description="Human-readable label")
+    notes: str | None = Field(None, description="Additional textual notes")
+    type: list[str] = Field(default_factory=list, description="Type assignments")
+
+    @validator("id", pre=True)
     def convert_string_to_uuid(cls, v):
         """Convert string IDs to UUIDs for backward compatibility."""
         if isinstance(v, str):
             try:
                 return UUID(v)
             except ValueError:
-                # If string is not a valid UUID, generate a new one
-                return uuid4()
+                # If string is not a valid UUID, create a deterministic UUID from the string
+                # This ensures the same string always produces the same UUID
+                import hashlib
+                namespace = UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")  # DNS namespace
+                return UUID(hashlib.md5(f"{namespace}{v}".encode()).hexdigest())
         return v
-    
+
     class Config:
         json_schema_extra = {
             "description": "Base CIDOC CRM entity",
@@ -57,13 +61,13 @@ class CRMRelation(BaseModel):
     
     Used internally for relationship expansion and Cypher emission.
     """
-    
+
     src: UUID = Field(..., description="Source entity ID")
     type: str = Field(..., description="P-property code (e.g., 'P108')")
     tgt: UUID = Field(..., description="Target entity ID")
-    props: Optional[Dict[str, Any]] = Field(None, description="Additional relationship properties")
-    
-    @validator('src', 'tgt', pre=True)
+    props: dict[str, Any] | None = Field(None, description="Additional relationship properties")
+
+    @validator("src", "tgt", pre=True)
     def convert_string_to_uuid(cls, v):
         """Convert string IDs to UUIDs for backward compatibility."""
         if isinstance(v, str):
@@ -73,7 +77,7 @@ class CRMRelation(BaseModel):
                 # If string is not a valid UUID, generate a new one
                 return uuid4()
         return v
-    
+
     class Config:
         json_schema_extra = {
             "description": "CRM relationship between entities",
@@ -90,12 +94,10 @@ class CRMRelation(BaseModel):
 
 class CRMValidationError(Exception):
     """Raised when CRM validation rules are violated."""
-    pass
 
 
 class CRMValidationWarning(Warning):
     """Issued when CRM validation rules are violated but severity is set to warn."""
-    pass
 
 
 # Core wrapper classes for high-use E-classes
@@ -104,11 +106,11 @@ class CRMValidationWarning(Warning):
 class E5_Event(CRMEntity):
     """Event - something that happened."""
     class_code: str = "E5"
-    
+
     # Shortcut fields
-    timespan: Optional[UUID] = Field(None, description="Time-span entity ID")
-    took_place_at: Optional[UUID] = Field(None, description="Place entity ID")
-    
+    timespan: UUID | None = Field(None, description="Time-span entity ID")
+    took_place_at: UUID | None = Field(None, description="Place entity ID")
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E5: Event",
@@ -119,7 +121,7 @@ class E5_Event(CRMEntity):
 class E7_Activity(E5_Event):
     """Activity - an event that involves action."""
     class_code: str = "E7"
-    
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E7: Activity",
@@ -130,7 +132,7 @@ class E7_Activity(E5_Event):
 class E12_Production(E7_Activity):
     """Production - the creation of a human-made object."""
     class_code: str = "E12"
-    
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E12: Production",
@@ -141,7 +143,7 @@ class E12_Production(E7_Activity):
 class E8_Acquisition(E7_Activity):
     """Acquisition - the act of acquiring something."""
     class_code: str = "E8"
-    
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E8: Acquisition",
@@ -152,11 +154,11 @@ class E8_Acquisition(E7_Activity):
 class E22_HumanMadeObject(CRMEntity):
     """Human-Made Object - a physical object created by humans."""
     class_code: str = "E22"
-    
+
     # Shortcut fields
-    current_location: Optional[UUID] = Field(None, description="Current location entity ID")
-    produced_by: Optional[UUID] = Field(None, description="Production event entity ID")
-    
+    current_location: UUID | None = Field(None, description="Current location entity ID")
+    produced_by: UUID | None = Field(None, description="Production event entity ID")
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E22: Human-Made Object",
@@ -167,10 +169,10 @@ class E22_HumanMadeObject(CRMEntity):
 class E21_Person(CRMEntity):
     """Person - a human individual."""
     class_code: str = "E21"
-    
+
     # Shortcut fields
-    current_location: Optional[UUID] = Field(None, description="Current location entity ID")
-    
+    current_location: UUID | None = Field(None, description="Current location entity ID")
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E21: Person",
@@ -181,7 +183,7 @@ class E21_Person(CRMEntity):
 class E74_Group(CRMEntity):
     """Group - a collection of actors."""
     class_code: str = "E74"
-    
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E74: Group",
@@ -192,7 +194,7 @@ class E74_Group(CRMEntity):
 class E53_Place(CRMEntity):
     """Place - a spatial location."""
     class_code: str = "E53"
-    
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E53: Place",
@@ -203,11 +205,11 @@ class E53_Place(CRMEntity):
 class E52_TimeSpan(CRMEntity):
     """Time-Span - a temporal extent."""
     class_code: str = "E52"
-    
+
     # Shortcut fields
-    begin_of_the_begin: Optional[UUID] = Field(None, description="Beginning time primitive ID")
-    end_of_the_end: Optional[UUID] = Field(None, description="End time primitive ID")
-    
+    begin_of_the_begin: UUID | None = Field(None, description="Beginning time primitive ID")
+    end_of_the_end: UUID | None = Field(None, description="End time primitive ID")
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E52: Time-Span",
@@ -218,7 +220,7 @@ class E52_TimeSpan(CRMEntity):
 class E42_Identifier(CRMEntity):
     """Identifier - a unique identifier."""
     class_code: str = "E42"
-    
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E42: Identifier",
@@ -229,7 +231,7 @@ class E42_Identifier(CRMEntity):
 class E35_Title(CRMEntity):
     """Title - a name or title."""
     class_code: str = "E35"
-    
+
     class Config:
         json_schema_extra = {
             "description": "CIDOC CRM E35: Title",

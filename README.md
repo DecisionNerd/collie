@@ -41,23 +41,23 @@ pip install collie
 ### Basic Usage
 
 ```python
-from collie.models.generated.e_classes import E22_Man_Made_Object
-from collie.io.to_markdown import render_entity_card
-from collie.io.to_cypher import emit_cypher_script
+from collie.models.generated.e_classes import EE22_HumanMadeObject
+from collie.io.to_markdown import to_markdown, MarkdownStyle
+from collie.io.to_cypher import generate_cypher_script
 
-# Create a CRM entity
-vase = E22_Man_Made_Object(
-    id="192f3e61-b22d-4f94-a2cf-c6ae1418ee83",
+# Create a CRM entity (string IDs are automatically converted to UUIDs)
+vase = EE22_HumanMadeObject(
+    id="obj_001",  # Automatically converted to deterministic UUID
     label="Ancient Greek Vase",
     type=["E55:Vessel", "E55:Ceramic"]
 )
 
 # Render as Markdown for LLM consumption
-markdown = render_entity_card(vase)
+markdown = to_markdown(vase, MarkdownStyle.CARD)
 print(markdown)
 
 # Generate Cypher for Neo4j/Memgraph
-cypher = emit_cypher_script([vase])
+cypher = generate_cypher_script([vase])
 print(cypher)
 ```
 
@@ -65,9 +65,10 @@ print(cypher)
 
 ### 🏗️ **Pydantic Models**
 - Complete CIDOC CRM v7.1.3 coverage (99 E-classes, 322 P-properties)
-- UUID-based entity identification
+- Flexible UUID handling with automatic string-to-UUID conversion
 - Canonical JSON schema with stable IDs and explicit cross-references
 - Auto-generated from curated YAML specifications
+- Deterministic UUID generation maintains consistency across runs
 
 #### Class Naming Convention
 
@@ -166,16 +167,19 @@ collie/
 ## 🧪 Testing
 
 ```bash
-# Run all tests
+# Run all tests (32 tests, all passing)
 uv run pytest
 
 # Run specific test suites
-uv run pytest tests/unit/
-uv run pytest tests/golden/
+uv run pytest src/collie/tests/unit/
+uv run pytest src/collie/tests/golden/
 
-# Format and lint
+# Format and lint with modern tooling
 uv run ruff format
 uv run ruff check --fix
+
+# Check code quality
+uv run ruff check
 ```
 
 ## 📚 Documentation
@@ -197,10 +201,12 @@ We welcome contributions! Please see our [development guidelines](docs/plan.md) 
 ## 📈 Project Status
 
 - **Phase 1**: ✅ Complete - Core CIDOC CRM implementation
-- **Phase 2**: ✅ Complete - Advanced validation, performance, and complete CRM coverage
+- **Phase 2**: ✅ Complete - Advanced validation, performance, complete CRM coverage, and robust testing
 - **Phase 3**: 📋 Planned - Profile packs and web interface
 
-**Current Coverage**: 99 E-classes, 322 P-properties (complete CRM 7.1.3)
+**Current Coverage**: 99 E-classes, 322 P-properties (complete CRM 7.1.3)  
+**Test Status**: 32 tests passing (100% success rate)  
+**CI/CD**: Modern GitHub Actions workflow with uv and ruff
 
 ## 📄 License
 

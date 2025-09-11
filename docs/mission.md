@@ -32,10 +32,11 @@ Cultural heritage and information extraction projects often need a **CRM‑compl
 
 ## Guiding Principles
 
-* **IDs first**: every entity has a stable `id` for cross‑linking across JSON, Markdown, and Cypher.
+* **IDs first**: every entity has a stable `id` for cross‑linking across JSON, Markdown, and Cypher. Flexible UUID handling supports both string IDs and UUIDs with deterministic conversion.
 * **Explicit over implicit**: relationships are IDs and P‑codes; shortcuts expand to full CRM semantics when exported.
 * **Readable outputs**: Markdown is designed for LLM consumption and human comprehension.
 * **Graph‑ready**: Cypher generation is idempotent, batched, and aligned to Pxx semantics.
+* **Developer ergonomics**: flexible ID handling maintains backward compatibility while providing modern UUID benefits.
 * **Extensible**: new CRM classes and properties can be added via curated YAML and codegen.
 
 ---
@@ -47,7 +48,7 @@ Cultural heritage and information extraction projects often need a **CRM‑compl
 * **Markdown utilities**: cards, narratives, tables with style profiles.
 * **Cypher utilities**: node/relationship param builders, MERGE emitters, constraint helpers.
 * **Examples**: golden JSON cases with verified Markdown and Cypher output.
-* **Tests**: unit tests and snapshot tests for validators, Markdown, and Cypher.
+* **Tests**: comprehensive unit tests and golden tests for validators, Markdown, and Cypher with 100% pass rate.
 
 ---
 

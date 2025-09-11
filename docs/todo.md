@@ -19,6 +19,9 @@
 - [x] Complete CIDOC CRM v7.1.3 coverage (99 classes, 322 properties)
 - [x] Fix duplicate class definitions and regenerate models
 - [x] Test generated code for correctness
+- [x] Fix all test failures and improve test robustness
+- [x] Implement flexible UUID handling for better developer ergonomics
+- [x] Modernize GitHub Actions workflow with uv and ruff
 - [ ] Implement advanced validation features (completeness profiles)
 - [ ] Add performance testing for large batches
 - [ ] Create additional example datasets
@@ -49,23 +52,35 @@
 - [x] Create validation framework
 - [x] Add comprehensive test suite
 - [x] Create example data and documentation
+- [x] Refactor GitHub Actions workflow to use modern uv and ruff tooling
+- [x] Add ruff as development dependency with proper configuration
+- [x] Fix all test failures and improve test robustness
+- [x] Implement flexible UUID validator for better developer ergonomics
+- [x] Fix import path issues in test files
+- [x] Add missing __init__.py files to test directories
+- [x] Update test assertions to work with UUID formatting
+- [x] Fix entity lookup logic in tests to use actual data
+- [x] Update Cypher tests to use proper UUIDs
+- [x] Fix table rendering to use correct render_table() function
 
 ## Project Status
 - **Phase 1 Complete**: Core CIDOC CRM implementation is scaffolded and ready for development
-- **Phase 2 Complete**: Comprehensive YAML coverage, code generation, UUID refactoring, and complete CIDOC CRM v7.1.3 coverage implemented
+- **Phase 2 Complete**: Comprehensive YAML coverage, code generation, UUID refactoring, complete CIDOC CRM v7.1.3 coverage, and robust testing implemented
 - **Architecture**: Follows plan.md exactly with codegen/, models/, io/, validators/, tests/, examples/
 - **Coverage**: Now covers 99 E-classes and 322 P-properties (complete CRM 7.1.3 coverage)
 - **Code Generation**: Automated YAML → Pydantic model generation working
-- **UUID Support**: All entities now use UUIDs for better uniqueness and data integrity
-- **Testing**: Unit tests, golden tests, and validation tests implemented and updated for UUIDs
+- **UUID Support**: Flexible UUID handling with deterministic generation from string IDs for better developer ergonomics
+- **Testing**: All 32 tests passing (unit tests, golden tests, validation tests) with robust assertions
+- **CI/CD**: Modern GitHub Actions workflow with uv package management and ruff linting/formatting
 - **Documentation**: HOWTOs.md provides comprehensive modeling guide
 - **Examples**: Museum object lifecycle example demonstrates complete workflow with UUIDs
 
 ## Notes
 - Project has evolved from simple pydantic_ai demo to full CIDOC CRM toolkit
 - All scaffolding follows the comprehensive plan in docs/plan.md
-- Successfully refactored from string IDs to UUIDs for better data integrity
-- UUIDs provide better uniqueness guarantees and follow best practices for entity identification
-- All components (models, renderers, emitters, validators, tests) updated for UUID support
+- Successfully implemented flexible UUID handling that maintains "IDs first" principle while supporting developer ergonomics
+- All components (models, renderers, emitters, validators, tests) updated for robust UUID support
 - Core functionality: JSON ↔ Markdown ↔ Cypher with CRM validation
 - No RDF/OWL/JSON-LD dependencies as per mission
+- Modern development workflow with uv package management and ruff code quality tools
+- All tests passing with comprehensive coverage of core functionality

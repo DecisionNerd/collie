@@ -4,32 +4,33 @@ Code generator for CIDOC CRM property registry from YAML specifications.
 Generates properties.py with P-registry and lookup tables.
 """
 
-import yaml
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any, Dict, List
+
+import yaml
 
 
-def load_yaml_specs(specs_dir: Path) -> Dict[str, Any]:
+def load_yaml_specs(specs_dir: Path) -> dict[str, Any]:
     """Load YAML specifications from the specs directory."""
     properties_file = specs_dir / "crm_properties.yaml"
     aliases_file = specs_dir / "aliases.yaml"
-    
-    with open(properties_file, 'r') as f:
+
+    with open(properties_file) as f:
         properties = yaml.safe_load(f)
-    
-    with open(aliases_file, 'r') as f:
+
+    with open(aliases_file) as f:
         aliases = yaml.safe_load(f)
-    
+
     return {
         "properties": properties,
         "aliases": aliases
     }
 
 
-def generate_property_registry(properties: List[Dict[str, Any]]) -> str:
+def generate_property_registry(properties: list[dict[str, Any]]) -> str:
     """Generate the P property registry dictionary."""
     registry_items = []
-    
+
     for prop in properties:
         code = prop["code"]
         label = prop["label"]
@@ -39,8 +40,8 @@ def generate_property_registry(properties: List[Dict[str, Any]]) -> str:
         quantifier = prop["quantifier"]
         aliases = prop.get("aliases", [])
         notes = prop.get("notes", "")
-        
-        registry_item = f'''    "{code}": {{
+
+        registry_item = f"""    "{code}": {{
         "label": "{label}",
         "domain": "{domain}",
         "range": "{range_val}",
@@ -48,50 +49,50 @@ def generate_property_registry(properties: List[Dict[str, Any]]) -> str:
         "quantifier": "{quantifier}",
         "aliases": {aliases},
         "notes": "{notes}"
-    }}'''
+    }}"""
         registry_items.append(registry_item)
-    
+
     return "P = {\n" + ",\n".join(registry_items) + "\n}"
 
 
-def generate_lookup_tables(properties: List[Dict[str, Any]]) -> str:
+def generate_lookup_tables(properties: list[dict[str, Any]]) -> str:
     """Generate domain and range lookup tables."""
     domain_lookup = {}
     range_lookup = {}
-    
+
     for prop in properties:
         code = prop["code"]
         domain = prop["domain"]
         range_val = prop["range"]
-        
+
         if domain not in domain_lookup:
             domain_lookup[domain] = []
         domain_lookup[domain].append(code)
-        
+
         if range_val not in range_lookup:
             range_lookup[range_val] = []
         range_lookup[range_val].append(code)
-    
+
     # Generate domain lookup
     domain_items = []
     for domain, props in domain_lookup.items():
         domain_items.append(f'    "{domain}": {props}')
     domain_lookup_str = "DOMAIN = {\n" + ",\n".join(domain_items) + "\n}"
-    
+
     # Generate range lookup
     range_items = []
     for range_val, props in range_lookup.items():
         range_items.append(f'    "{range_val}": {props}')
     range_lookup_str = "RANGE = {\n" + ",\n".join(range_items) + "\n}"
-    
+
     return domain_lookup_str + "\n\n" + range_lookup_str
 
 
-def generate_properties_file(specs: Dict[str, Any], output_path: Path) -> None:
+def generate_properties_file(specs: dict[str, Any], output_path: Path) -> None:
     """Generate the complete properties.py file."""
     properties = specs["properties"]
     aliases = specs["aliases"]
-    
+
     # Generate header
     header = '''"""
 Auto-generated CIDOC CRM property registry.
@@ -106,18 +107,18 @@ This module provides:
 from typing import Dict, List, Any
 
 '''
-    
+
     # Generate property registry
     registry = generate_property_registry(properties)
-    
+
     # Generate lookup tables
     lookups = generate_lookup_tables(properties)
-    
+
     # Combine all parts
     full_content = header + registry + "\n\n" + lookups + "\n"
-    
+
     # Write to file
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         f.write(full_content)
 
 
@@ -127,13 +128,13 @@ def main():
     current_dir = Path(__file__).parent
     specs_dir = current_dir / "specs"
     output_path = current_dir.parent / "properties.py"
-    
+
     # Load specifications
     specs = load_yaml_specs(specs_dir)
-    
+
     # Generate properties file
     generate_properties_file(specs, output_path)
-    
+
     print(f"Generated {output_path}")
     print(f"Created registry with {len(specs['properties'])} P-properties")
 
