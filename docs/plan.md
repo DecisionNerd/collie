@@ -55,6 +55,22 @@ src/collie/
     HOWTOs.md                 # modeling patterns & tips
 ```
 
+### 1.1 Class Naming Convention
+
+**Official CIDOC CRM Classes**: `E1`, `E2`, `E22`, `E96` (class codes from specification)
+**Collie Generated Classes**: `EE1_CRMEntity`, `EE2_TemporalEntity`, `EE22_HumanMadeObject`, `EE96_Purchase`
+
+**Pattern**: `E{code}_{label_without_spaces}`
+- `E` = Python class prefix
+- `{code}` = Official CIDOC CRM class code
+- `{label}` = Human-readable label with spaces/hyphens removed
+
+This convention ensures:
+- Clear distinction between official CRM codes and Python classes
+- Valid Python class names
+- Preservation of official CIDOC CRM class codes
+- Developer-friendly naming
+
 ---
 
 ## 2) Source‑of‑Truth Specifications (YAML)
@@ -108,7 +124,12 @@ src/collie/
   * Add typed fields for ergonomic shortcuts defined in `shortcuts`.
   * Add docstrings with class label/definition.
   * Provide `__crm_meta__` (dataclass) with class metadata (parents, label, etc.).
-* **Naming**: `class E22_HumanMadeObject(CRMEntity)` with `class_code="E22"` defaulted.
+* **Naming**: `class EE22_HumanMadeObject(EE19_PhysicalObject)` with `class_code="E22"` defaulted.
+* **Naming Convention**: `E{code}_{label_without_spaces}` where:
+  - `E` = Python class prefix
+  - `{code}` = Official CIDOC CRM class code (E1, E2, E22, etc.)
+  - `{label}` = Human-readable label with spaces/hyphens removed
+  - Examples: `E1` → `EE1_CRMEntity`, `E22` → `EE22_HumanMadeObject`
 
 ### 3.2 Property Registry Generation
 

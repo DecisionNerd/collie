@@ -4,15 +4,96 @@ This guide provides practical examples and patterns for modeling cultural herita
 
 ## Table of Contents
 
-1. [Basic Entity Creation](#basic-entity-creation)
-2. [Modeling Events](#modeling-events)
-3. [Modeling Objects](#modeling-objects)
-4. [Modeling People and Groups](#modeling-people-and-groups)
-5. [Modeling Places and Time](#modeling-places-and-time)
-6. [Working with Relationships](#working-with-relationships)
-7. [Validation and Quality Control](#validation-and-quality-control)
-8. [Exporting to Markdown](#exporting-to-markdown)
-9. [Exporting to Cypher](#exporting-to-cypher)
+1. [Understanding Class Naming](#understanding-class-naming)
+2. [Basic Entity Creation](#basic-entity-creation)
+3. [Modeling Events](#modeling-events)
+4. [Modeling Objects](#modeling-objects)
+5. [Modeling People and Groups](#modeling-people-and-groups)
+6. [Modeling Places and Time](#modeling-places-and-time)
+7. [Working with Relationships](#working-with-relationships)
+8. [Validation and Quality Control](#validation-and-quality-control)
+9. [Exporting to Markdown](#exporting-to-markdown)
+10. [Exporting to Cypher](#exporting-to-cypher)
+
+## Understanding Class Naming
+
+### The E vs EE Convention
+
+Collie uses a specific naming convention to distinguish between official CIDOC CRM class codes and generated Python classes:
+
+#### Official CIDOC CRM Classes
+- **Format**: `E1`, `E2`, `E22`, `E96`, etc.
+- **Purpose**: Official class codes from CIDOC CRM v7.1.3 specification
+- **Usage**: Referenced in documentation, YAML specifications, and as `class_code` field values
+
+#### Collie Generated Python Classes  
+- **Format**: `EE1_CRMEntity`, `EE2_TemporalEntity`, `EE22_HumanMadeObject`, `EE96_Purchase`
+- **Pattern**: `E{code}_{label_without_spaces}`
+- **Purpose**: Actual Python classes you import and instantiate
+
+#### Naming Breakdown
+
+```python
+# Official CIDOC CRM class code
+E22 = "Human-Made Object"
+
+# Collie generated Python class
+EE22_HumanMadeObject = class EE22_HumanMadeObject(EE19_PhysicalObject):
+    """CIDOC CRM E22: Human-Made Object"""
+    class_code: str = "E22"
+```
+
+**Components:**
+- `E` = Python class prefix
+- `22` = CIDOC CRM class code  
+- `_` = Separator
+- `HumanMadeObject` = Label with spaces/hyphens removed
+
+#### Common Examples
+
+| CIDOC CRM Code | CIDOC CRM Label | Collie Python Class |
+|----------------|-----------------|-------------------|
+| `E1` | CRM Entity | `EE1_CRMEntity` |
+| `E2` | Temporal Entity | `EE2_TemporalEntity` |
+| `E5` | Event | `EE5_Event` |
+| `E7` | Activity | `EE7_Activity` |
+| `E8` | Acquisition | `EE8_Acquisition` |
+| `E12` | Production | `EE12_Production` |
+| `E18` | Physical Thing | `EE18_PhysicalThing` |
+| `E19` | Physical Object | `EE19_PhysicalObject` |
+| `E20` | Biological Object | `EE20_BiologicalObject` |
+| `E21` | Person | `EE21_Person` |
+| `E22` | Human-Made Object | `EE22_HumanMadeObject` |
+| `E39` | Actor | `EE39_Actor` |
+| `E40` | Legal Body | `EE40_LegalBody` |
+| `E53` | Place | `EE53_Place` |
+| `E96` | Purchase | `EE96_Purchase` |
+
+#### Why This Convention?
+
+1. **Clear Distinction**: Immediately identifies Collie-generated classes vs official CRM codes
+2. **Python Compatibility**: Creates valid Python class names
+3. **Official Compliance**: Preserves official CIDOC CRM class codes
+4. **Developer Friendly**: Human-readable class names with clear purpose
+
+#### Importing Classes
+
+```python
+# Import specific classes
+from collie.models.generated.e_classes import (
+    EE1_CRMEntity,
+    EE22_HumanMadeObject, 
+    EE21_Person,
+    EE53_Place
+)
+
+# Import all classes
+from collie.models.generated.e_classes import *
+```
+
+#### Historical Note: The EEE Bug
+
+During development, there was a bug that generated classes with `EEE` prefix (e.g., `EEE1_CRMEntity`). This was caused by the code generation script incorrectly adding an extra "E" prefix. This has been fixed, and all classes now use the correct `EE` prefix.
 
 ## Basic Entity Creation
 

@@ -4,7 +4,7 @@ Unit tests for Cypher emitters.
 
 import pytest
 from uuid import uuid4
-from ..models.base import E22_HumanMadeObject, E12_Production, E53_Place
+from ..models.generated.e_classes import EE22_HumanMadeObject, EE12_Production, EE53_Place
 from ..io.to_cypher import (
     emit_nodes,
     emit_relationships,
@@ -21,13 +21,13 @@ class TestCypherEmission:
     def test_emit_nodes(self):
         """Test node emission."""
         entities = [
-            E22_HumanMadeObject(
+            EE22_HumanMadeObject(
                 id=uuid4(),
                 class_code="E22",
                 label="Ancient Vase",
                 type=["E55:Vessel"]
             ),
-            E53_Place(
+            EE53_Place(
                 id=uuid4(),
                 class_code="E53",
                 label="Athens, Greece"
@@ -55,7 +55,7 @@ class TestCypherEmission:
     def test_emit_relationships(self):
         """Test relationship emission."""
         entities = [
-            E22_HumanMadeObject(
+            EE22_HumanMadeObject(
                 id=uuid4(),
                 class_code="E22",
                 current_location=uuid4(),
@@ -82,7 +82,7 @@ class TestCypherEmission:
     
     def test_expand_shortcuts(self):
         """Test shortcut expansion."""
-        entity = E22_HumanMadeObject(
+        entity = EE22_HumanMadeObject(
             id=uuid4(),
             class_code="E22",
             current_location=uuid4(),
@@ -105,12 +105,12 @@ class TestCypherEmission:
     def test_generate_cypher_script(self):
         """Test Cypher script generation."""
         entities = [
-            E22_HumanMadeObject(
+            EE22_HumanMadeObject(
                 id=uuid4(),
                 class_code="E22",
                 label="Ancient Vase"
             ),
-            E53_Place(
+            EE53_Place(
                 id=uuid4(),
                 class_code="E53",
                 label="Athens, Greece"
@@ -130,7 +130,7 @@ class TestCypherEmission:
     def test_generate_cypher_parameters(self):
         """Test Cypher parameter generation."""
         entities = [
-            E22_HumanMadeObject(
+            EE22_HumanMadeObject(
                 id="obj_001",
                 class_code="E22",
                 label="Ancient Vase"
@@ -152,12 +152,12 @@ class TestCypherEmission:
     def test_cypher_script_with_relationships(self):
         """Test Cypher script generation with relationships."""
         entities = [
-            E22_HumanMadeObject(
+            EE22_HumanMadeObject(
                 id="obj_001",
                 class_code="E22",
                 current_location="place_001"
             ),
-            E53_Place(
+            EE53_Place(
                 id="place_001",
                 class_code="E53",
                 label="Athens, Greece"
@@ -176,12 +176,12 @@ class TestCypherEmission:
     def test_cypher_parameters_with_relationships(self):
         """Test Cypher parameter generation with relationships."""
         entities = [
-            E22_HumanMadeObject(
+            EE22_HumanMadeObject(
                 id="obj_001",
                 class_code="E22",
                 current_location="place_001"
             ),
-            E53_Place(
+            EE53_Place(
                 id="place_001",
                 class_code="E53",
                 label="Athens, Greece"
@@ -233,7 +233,7 @@ class TestCypherEmission:
     def test_batch_size_handling(self):
         """Test custom batch size handling."""
         entities = [
-            E22_HumanMadeObject(id=f"obj_{i:03d}", class_code="E22")
+            EE22_HumanMadeObject(id=f"obj_{i:03d}", class_code="E22")
             for i in range(5)
         ]
         

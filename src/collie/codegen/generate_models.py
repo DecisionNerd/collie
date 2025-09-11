@@ -32,7 +32,7 @@ def load_yaml_specs(specs_dir: Path) -> Dict[str, Any]:
     }
 
 
-def generate_class_model(class_spec: Dict[str, Any]) -> str:
+def generate_class_model(class_spec: Dict[str, Any], classes: List[Dict[str, Any]]) -> str:
     """Generate Pydantic model code for a single E-class."""
     code = class_spec["code"]
     label = class_spec["label"]
@@ -46,7 +46,14 @@ def generate_class_model(class_spec: Dict[str, Any]) -> str:
     
     # Determine parent class
     if parents:
-        parent_class = f"E{parents[0]}_{label.replace(' ', '').replace('-', '')}"
+        # Find the parent class spec to get its label
+        parent_code = parents[0]
+        parent_spec = next((c for c in classes if c["code"] == parent_code), None)
+        if parent_spec:
+            parent_label = parent_spec["label"]
+            parent_class = f"E{parent_code}_{parent_label.replace(' ', '').replace('-', '')}"
+        else:
+            parent_class = "CRMEntity"
     else:
         parent_class = "CRMEntity"
     
@@ -95,7 +102,7 @@ Generated from YAML specifications in codegen/specs/
 from typing import Optional, List
 from uuid import UUID
 from pydantic import BaseModel, Field
-from ..models.base import CRMEntity
+from ..base import CRMEntity
 
 
 '''
@@ -103,7 +110,7 @@ from ..models.base import CRMEntity
     # Generate all class models
     class_models = []
     for class_spec in classes:
-        model_code = generate_class_model(class_spec)
+        model_code = generate_class_model(class_spec, classes)
         class_models.append(model_code)
     
     # Combine header and models

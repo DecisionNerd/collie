@@ -586,53 +586,2469 @@ P = {
         "quantifier": "0..*",
         "aliases": ['CUSTODY_TRANSFERRED_THROUGH'],
         "notes": "Inverse of transferred custody of"
+    },
+    "P31": {
+        "label": "has modified",
+        "domain": "E11",
+        "range": "E18",
+        "inverse": "P31i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_MODIFIED'],
+        "notes": "Modification event has modified a physical thing"
+    },
+    "P31i": {
+        "label": "was modified by",
+        "domain": "E18",
+        "range": "E11",
+        "inverse": "P31",
+        "quantifier": "0..*",
+        "aliases": ['WAS_MODIFIED_BY'],
+        "notes": "Inverse of has modified"
+    },
+    "P32": {
+        "label": "used general technique",
+        "domain": "E7",
+        "range": "E55",
+        "inverse": "P32i",
+        "quantifier": "0..*",
+        "aliases": ['USED_GENERAL_TECHNIQUE'],
+        "notes": "Activity used a general technique"
+    },
+    "P32i": {
+        "label": "was technique of",
+        "domain": "E55",
+        "range": "E7",
+        "inverse": "P32",
+        "quantifier": "0..*",
+        "aliases": ['WAS_TECHNIQUE_OF'],
+        "notes": "Inverse of used general technique"
+    },
+    "P33": {
+        "label": "used specific technique",
+        "domain": "E7",
+        "range": "E29",
+        "inverse": "P33i",
+        "quantifier": "0..*",
+        "aliases": ['USED_SPECIFIC_TECHNIQUE'],
+        "notes": "Activity used a specific technique"
+    },
+    "P33i": {
+        "label": "was used by",
+        "domain": "E29",
+        "range": "E7",
+        "inverse": "P33",
+        "quantifier": "0..*",
+        "aliases": ['WAS_USED_BY'],
+        "notes": "Inverse of used specific technique"
+    },
+    "P34": {
+        "label": "concerned",
+        "domain": "E14",
+        "range": "E18",
+        "inverse": "P34i",
+        "quantifier": "0..*",
+        "aliases": ['CONCERNED'],
+        "notes": "Condition assessment concerned a physical thing"
+    },
+    "P34i": {
+        "label": "was assessed by",
+        "domain": "E18",
+        "range": "E14",
+        "inverse": "P34",
+        "quantifier": "0..*",
+        "aliases": ['WAS_ASSESSED_BY'],
+        "notes": "Inverse of concerned"
+    },
+    "P35": {
+        "label": "has identified",
+        "domain": "E15",
+        "range": "E1",
+        "inverse": "P35i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_IDENTIFIED'],
+        "notes": "Identifier assignment has identified an entity"
+    },
+    "P35i": {
+        "label": "was identified by",
+        "domain": "E1",
+        "range": "E15",
+        "inverse": "P35",
+        "quantifier": "0..*",
+        "aliases": ['WAS_IDENTIFIED_BY'],
+        "notes": "Inverse of has identified"
+    },
+    "P37": {
+        "label": "assigned",
+        "domain": "E13",
+        "range": "E1",
+        "inverse": "P37i",
+        "quantifier": "0..*",
+        "aliases": ['ASSIGNED'],
+        "notes": "Attribute assignment assigned to an entity"
+    },
+    "P37i": {
+        "label": "was assigned by",
+        "domain": "E1",
+        "range": "E13",
+        "inverse": "P37",
+        "quantifier": "0..*",
+        "aliases": ['WAS_ASSIGNED_BY'],
+        "notes": "Inverse of assigned"
+    },
+    "P38": {
+        "label": "deassigned",
+        "domain": "E13",
+        "range": "E1",
+        "inverse": "P38i",
+        "quantifier": "0..*",
+        "aliases": ['DEASSIGNED'],
+        "notes": "Attribute assignment deassigned from an entity"
+    },
+    "P38i": {
+        "label": "was deassigned by",
+        "domain": "E1",
+        "range": "E13",
+        "inverse": "P38",
+        "quantifier": "0..*",
+        "aliases": ['WAS_DEASSIGNED_BY'],
+        "notes": "Inverse of deassigned"
+    },
+    "P39": {
+        "label": "measured",
+        "domain": "E16",
+        "range": "E1",
+        "inverse": "P39i",
+        "quantifier": "0..*",
+        "aliases": ['MEASURED'],
+        "notes": "Measurement measured an entity"
+    },
+    "P39i": {
+        "label": "was measured by",
+        "domain": "E1",
+        "range": "E16",
+        "inverse": "P39",
+        "quantifier": "0..*",
+        "aliases": ['WAS_MEASURED_BY'],
+        "notes": "Inverse of measured"
+    },
+    "P40": {
+        "label": "observed dimension",
+        "domain": "E16",
+        "range": "E54",
+        "inverse": "P40i",
+        "quantifier": "0..*",
+        "aliases": ['OBSERVED_DIMENSION'],
+        "notes": "Measurement observed a dimension"
+    },
+    "P40i": {
+        "label": "was observed in",
+        "domain": "E54",
+        "range": "E16",
+        "inverse": "P40",
+        "quantifier": "0..*",
+        "aliases": ['WAS_OBSERVED_IN'],
+        "notes": "Inverse of observed dimension"
+    },
+    "P41": {
+        "label": "classified",
+        "domain": "E17",
+        "range": "E1",
+        "inverse": "P41i",
+        "quantifier": "0..*",
+        "aliases": ['CLASSIFIED'],
+        "notes": "Type assignment classified an entity"
+    },
+    "P41i": {
+        "label": "was classified by",
+        "domain": "E1",
+        "range": "E17",
+        "inverse": "P41",
+        "quantifier": "0..*",
+        "aliases": ['WAS_CLASSIFIED_BY'],
+        "notes": "Inverse of classified"
+    },
+    "P42": {
+        "label": "assigned",
+        "domain": "E17",
+        "range": "E55",
+        "inverse": "P42i",
+        "quantifier": "0..*",
+        "aliases": ['ASSIGNED'],
+        "notes": "Type assignment assigned a type"
+    },
+    "P42i": {
+        "label": "was assigned by",
+        "domain": "E55",
+        "range": "E17",
+        "inverse": "P42",
+        "quantifier": "0..*",
+        "aliases": ['WAS_ASSIGNED_BY'],
+        "notes": "Inverse of assigned"
+    },
+    "P43": {
+        "label": "has dimension",
+        "domain": "E70",
+        "range": "E54",
+        "inverse": "P43i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_DIMENSION'],
+        "notes": "Thing has a dimension"
+    },
+    "P43i": {
+        "label": "is dimension of",
+        "domain": "E54",
+        "range": "E70",
+        "inverse": "P43",
+        "quantifier": "0..*",
+        "aliases": ['IS_DIMENSION_OF'],
+        "notes": "Inverse of has dimension"
+    },
+    "P44": {
+        "label": "has condition",
+        "domain": "E18",
+        "range": "E3",
+        "inverse": "P44i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_CONDITION'],
+        "notes": "Physical thing has a condition"
+    },
+    "P44i": {
+        "label": "is condition of",
+        "domain": "E3",
+        "range": "E18",
+        "inverse": "P44",
+        "quantifier": "0..*",
+        "aliases": ['IS_CONDITION_OF'],
+        "notes": "Inverse of has condition"
+    },
+    "P45": {
+        "label": "consists of",
+        "domain": "E18",
+        "range": "E18",
+        "inverse": "P45i",
+        "quantifier": "0..*",
+        "aliases": ['CONSISTS_OF'],
+        "notes": "Physical thing consists of other physical things"
+    },
+    "P45i": {
+        "label": "is incorporated in",
+        "domain": "E18",
+        "range": "E18",
+        "inverse": "P45",
+        "quantifier": "0..*",
+        "aliases": ['IS_INCORPORATED_IN'],
+        "notes": "Inverse of consists of"
+    },
+    "P46": {
+        "label": "is composed of",
+        "domain": "E18",
+        "range": "E18",
+        "inverse": "P46i",
+        "quantifier": "0..*",
+        "aliases": ['IS_COMPOSED_OF'],
+        "notes": "Physical thing is composed of other physical things"
+    },
+    "P46i": {
+        "label": "forms part of",
+        "domain": "E18",
+        "range": "E18",
+        "inverse": "P46",
+        "quantifier": "0..*",
+        "aliases": ['FORMS_PART_OF'],
+        "notes": "Inverse of is composed of"
+    },
+    "P48": {
+        "label": "has preferred identifier",
+        "domain": "E1",
+        "range": "E42",
+        "inverse": "P48i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_PREFERRED_IDENTIFIER'],
+        "notes": "Entity has a preferred identifier"
+    },
+    "P48i": {
+        "label": "is preferred identifier of",
+        "domain": "E42",
+        "range": "E1",
+        "inverse": "P48",
+        "quantifier": "0..*",
+        "aliases": ['IS_PREFERRED_IDENTIFIER_OF'],
+        "notes": "Inverse of has preferred identifier"
+    },
+    "P49": {
+        "label": "has former or current keeper",
+        "domain": "E18",
+        "range": "E39",
+        "inverse": "P49i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_FORMER_OR_CURRENT_KEEPER'],
+        "notes": "Physical thing has former or current keeper"
+    },
+    "P49i": {
+        "label": "is former or current keeper of",
+        "domain": "E39",
+        "range": "E18",
+        "inverse": "P49",
+        "quantifier": "0..*",
+        "aliases": ['IS_FORMER_OR_CURRENT_KEEPER_OF'],
+        "notes": "Inverse of has former or current keeper"
+    },
+    "P50": {
+        "label": "has current keeper",
+        "domain": "E18",
+        "range": "E39",
+        "inverse": "P50i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_CURRENT_KEEPER'],
+        "notes": "Physical thing has current keeper"
+    },
+    "P50i": {
+        "label": "is current keeper of",
+        "domain": "E39",
+        "range": "E18",
+        "inverse": "P50",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENT_KEEPER_OF'],
+        "notes": "Inverse of has current keeper"
+    },
+    "P51": {
+        "label": "has former or current owner",
+        "domain": "E18",
+        "range": "E39",
+        "inverse": "P51i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_FORMER_OR_CURRENT_OWNER'],
+        "notes": "Physical thing has former or current owner"
+    },
+    "P51i": {
+        "label": "is former or current owner of",
+        "domain": "E39",
+        "range": "E18",
+        "inverse": "P51",
+        "quantifier": "0..*",
+        "aliases": ['IS_FORMER_OR_CURRENT_OWNER_OF'],
+        "notes": "Inverse of has former or current owner"
+    },
+    "P52": {
+        "label": "has current owner",
+        "domain": "E18",
+        "range": "E39",
+        "inverse": "P52i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_CURRENT_OWNER'],
+        "notes": "Physical thing has current owner"
+    },
+    "P52i": {
+        "label": "is current owner of",
+        "domain": "E39",
+        "range": "E18",
+        "inverse": "P52",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENT_OWNER_OF'],
+        "notes": "Inverse of has current owner"
+    },
+    "P54": {
+        "label": "has current permanent location",
+        "domain": "E19",
+        "range": "E53",
+        "inverse": "P54i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_CURRENT_PERMANENT_LOCATION'],
+        "notes": "Physical object has current permanent location"
+    },
+    "P54i": {
+        "label": "is current permanent location of",
+        "domain": "E53",
+        "range": "E19",
+        "inverse": "P54",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENT_PERMANENT_LOCATION_OF'],
+        "notes": "Inverse of has current permanent location"
+    },
+    "P55": {
+        "label": "has current location",
+        "domain": "E19",
+        "range": "E53",
+        "inverse": "P55i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_CURRENT_LOCATION'],
+        "notes": "Physical object has current location"
+    },
+    "P55i": {
+        "label": "is current location of",
+        "domain": "E53",
+        "range": "E19",
+        "inverse": "P55",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENT_LOCATION_OF'],
+        "notes": "Inverse of has current location"
+    },
+    "P56": {
+        "label": "bears feature",
+        "domain": "E19",
+        "range": "E26",
+        "inverse": "P56i",
+        "quantifier": "0..*",
+        "aliases": ['BEARS_FEATURE'],
+        "notes": "Physical object bears a physical feature"
+    },
+    "P56i": {
+        "label": "is feature of",
+        "domain": "E26",
+        "range": "E19",
+        "inverse": "P56",
+        "quantifier": "0..*",
+        "aliases": ['IS_FEATURE_OF'],
+        "notes": "Inverse of bears feature"
+    },
+    "P57": {
+        "label": "has number of parts",
+        "domain": "E19",
+        "range": "E60",
+        "inverse": "P57i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_NUMBER_OF_PARTS'],
+        "notes": "Physical object has number of parts"
+    },
+    "P57i": {
+        "label": "is number of parts of",
+        "domain": "E60",
+        "range": "E19",
+        "inverse": "P57",
+        "quantifier": "0..*",
+        "aliases": ['IS_NUMBER_OF_PARTS_OF'],
+        "notes": "Inverse of has number of parts"
+    },
+    "P59": {
+        "label": "has section",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P59i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_SECTION'],
+        "notes": "Place has a section"
+    },
+    "P59i": {
+        "label": "is located on or within",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P59",
+        "quantifier": "0..*",
+        "aliases": ['IS_LOCATED_ON_OR_WITHIN'],
+        "notes": "Inverse of has section"
+    },
+    "P62": {
+        "label": "depicts",
+        "domain": "E36",
+        "range": "E1",
+        "inverse": "P62i",
+        "quantifier": "0..*",
+        "aliases": ['DEPICTS'],
+        "notes": "Visual item depicts an entity"
+    },
+    "P62i": {
+        "label": "is depicted by",
+        "domain": "E1",
+        "range": "E36",
+        "inverse": "P62",
+        "quantifier": "0..*",
+        "aliases": ['IS_DEPICTED_BY'],
+        "notes": "Inverse of depicts"
+    },
+    "P65": {
+        "label": "shows visual item",
+        "domain": "E36",
+        "range": "E36",
+        "inverse": "P65i",
+        "quantifier": "0..*",
+        "aliases": ['SHOWS_VISUAL_ITEM'],
+        "notes": "Visual item shows another visual item"
+    },
+    "P65i": {
+        "label": "is shown by",
+        "domain": "E36",
+        "range": "E36",
+        "inverse": "P65",
+        "quantifier": "0..*",
+        "aliases": ['IS_SHOWN_BY'],
+        "notes": "Inverse of shows visual item"
+    },
+    "P67": {
+        "label": "refers to",
+        "domain": "E73",
+        "range": "E1",
+        "inverse": "P67i",
+        "quantifier": "0..*",
+        "aliases": ['REFERS_TO'],
+        "notes": "Information object refers to an entity"
+    },
+    "P67i": {
+        "label": "is referred to by",
+        "domain": "E1",
+        "range": "E73",
+        "inverse": "P67",
+        "quantifier": "0..*",
+        "aliases": ['IS_REFERRED_TO_BY'],
+        "notes": "Inverse of refers to"
+    },
+    "P68": {
+        "label": "foresees use of",
+        "domain": "E29",
+        "range": "E19",
+        "inverse": "P68i",
+        "quantifier": "0..*",
+        "aliases": ['FORESEES_USE_OF'],
+        "notes": "Design or procedure foresees use of physical object"
+    },
+    "P68i": {
+        "label": "use foreseen by",
+        "domain": "E19",
+        "range": "E29",
+        "inverse": "P68",
+        "quantifier": "0..*",
+        "aliases": ['USE_FORESEEN_BY'],
+        "notes": "Inverse of foresees use of"
+    },
+    "P69": {
+        "label": "has association with",
+        "domain": "E39",
+        "range": "E39",
+        "inverse": "P69i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_ASSOCIATION_WITH'],
+        "notes": "Actor has association with another actor"
+    },
+    "P69i": {
+        "label": "is associated with",
+        "domain": "E39",
+        "range": "E39",
+        "inverse": "P69",
+        "quantifier": "0..*",
+        "aliases": ['IS_ASSOCIATED_WITH'],
+        "notes": "Inverse of has association with"
+    },
+    "P70": {
+        "label": "lists",
+        "domain": "E31",
+        "range": "E1",
+        "inverse": "P70i",
+        "quantifier": "0..*",
+        "aliases": ['LISTS'],
+        "notes": "Document lists an entity"
+    },
+    "P70i": {
+        "label": "is listed in",
+        "domain": "E1",
+        "range": "E31",
+        "inverse": "P70",
+        "quantifier": "0..*",
+        "aliases": ['IS_LISTED_IN'],
+        "notes": "Inverse of lists"
+    },
+    "P71": {
+        "label": "lists",
+        "domain": "E31",
+        "range": "E1",
+        "inverse": "P71i",
+        "quantifier": "0..*",
+        "aliases": ['LISTS'],
+        "notes": "Document lists an entity"
+    },
+    "P71i": {
+        "label": "is listed in",
+        "domain": "E1",
+        "range": "E31",
+        "inverse": "P71",
+        "quantifier": "0..*",
+        "aliases": ['IS_LISTED_IN'],
+        "notes": "Inverse of lists"
+    },
+    "P72": {
+        "label": "has language",
+        "domain": "E33",
+        "range": "E56",
+        "inverse": "P72i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_LANGUAGE'],
+        "notes": "Linguistic object has language"
+    },
+    "P72i": {
+        "label": "is language of",
+        "domain": "E56",
+        "range": "E33",
+        "inverse": "P72",
+        "quantifier": "0..*",
+        "aliases": ['IS_LANGUAGE_OF'],
+        "notes": "Inverse of has language"
+    },
+    "P73": {
+        "label": "has translation",
+        "domain": "E33",
+        "range": "E33",
+        "inverse": "P73i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_TRANSLATION'],
+        "notes": "Linguistic object has translation"
+    },
+    "P73i": {
+        "label": "is translation of",
+        "domain": "E33",
+        "range": "E33",
+        "inverse": "P73",
+        "quantifier": "0..*",
+        "aliases": ['IS_TRANSLATION_OF'],
+        "notes": "Inverse of has translation"
+    },
+    "P74": {
+        "label": "has current or former residence",
+        "domain": "E39",
+        "range": "E53",
+        "inverse": "P74i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_CURRENT_OR_FORMER_RESIDENCE'],
+        "notes": "Actor has current or former residence"
+    },
+    "P74i": {
+        "label": "is current or former residence of",
+        "domain": "E53",
+        "range": "E39",
+        "inverse": "P74",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENT_OR_FORMER_RESIDENCE_OF'],
+        "notes": "Inverse of has current or former residence"
+    },
+    "P75": {
+        "label": "possesses",
+        "domain": "E39",
+        "range": "E18",
+        "inverse": "P75i",
+        "quantifier": "0..*",
+        "aliases": ['POSSESSES'],
+        "notes": "Actor possesses a physical thing"
+    },
+    "P75i": {
+        "label": "is possessed by",
+        "domain": "E18",
+        "range": "E39",
+        "inverse": "P75",
+        "quantifier": "0..*",
+        "aliases": ['IS_POSSESSED_BY'],
+        "notes": "Inverse of possesses"
+    },
+    "P76": {
+        "label": "has contact point",
+        "domain": "E39",
+        "range": "E51",
+        "inverse": "P76i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_CONTACT_POINT'],
+        "notes": "Actor has contact point"
+    },
+    "P76i": {
+        "label": "is contact point of",
+        "domain": "E51",
+        "range": "E39",
+        "inverse": "P76",
+        "quantifier": "0..*",
+        "aliases": ['IS_CONTACT_POINT_OF'],
+        "notes": "Inverse of has contact point"
+    },
+    "P81": {
+        "label": "ongoing through",
+        "domain": "E2",
+        "range": "E61",
+        "inverse": "P81i",
+        "quantifier": "0..*",
+        "aliases": ['ONGOING_THROUGH'],
+        "notes": "Temporal entity ongoing through time"
+    },
+    "P81i": {
+        "label": "ongoing through",
+        "domain": "E61",
+        "range": "E2",
+        "inverse": "P81",
+        "quantifier": "0..*",
+        "aliases": ['ONGOING_THROUGH'],
+        "notes": "Inverse of ongoing through"
+    },
+    "P82": {
+        "label": "at some time within",
+        "domain": "E2",
+        "range": "E61",
+        "inverse": "P82i",
+        "quantifier": "0..*",
+        "aliases": ['AT_SOME_TIME_WITHIN'],
+        "notes": "Temporal entity at some time within"
+    },
+    "P82i": {
+        "label": "at some time within",
+        "domain": "E61",
+        "range": "E2",
+        "inverse": "P82",
+        "quantifier": "0..*",
+        "aliases": ['AT_SOME_TIME_WITHIN'],
+        "notes": "Inverse of at some time within"
+    },
+    "P86": {
+        "label": "falls within",
+        "domain": "E4",
+        "range": "E4",
+        "inverse": "P86i",
+        "quantifier": "0..*",
+        "aliases": ['FALLS_WITHIN'],
+        "notes": "Period falls within another period"
+    },
+    "P86i": {
+        "label": "contains",
+        "domain": "E4",
+        "range": "E4",
+        "inverse": "P86",
+        "quantifier": "0..*",
+        "aliases": ['CONTAINS'],
+        "notes": "Inverse of falls within"
+    },
+    "P89": {
+        "label": "falls within",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P89i",
+        "quantifier": "0..*",
+        "aliases": ['FALLS_WITHIN'],
+        "notes": "Place falls within another place"
+    },
+    "P89i": {
+        "label": "contains",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P89",
+        "quantifier": "0..*",
+        "aliases": ['CONTAINS'],
+        "notes": "Inverse of falls within"
+    },
+    "P90": {
+        "label": "has value",
+        "domain": "E54",
+        "range": "E60",
+        "inverse": "P90i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_VALUE'],
+        "notes": "Dimension has value"
+    },
+    "P90i": {
+        "label": "is value of",
+        "domain": "E60",
+        "range": "E54",
+        "inverse": "P90",
+        "quantifier": "0..*",
+        "aliases": ['IS_VALUE_OF'],
+        "notes": "Inverse of has value"
+    },
+    "P91": {
+        "label": "has unit",
+        "domain": "E54",
+        "range": "E58",
+        "inverse": "P91i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_UNIT'],
+        "notes": "Dimension has unit"
+    },
+    "P91i": {
+        "label": "is unit of",
+        "domain": "E58",
+        "range": "E54",
+        "inverse": "P91",
+        "quantifier": "0..*",
+        "aliases": ['IS_UNIT_OF'],
+        "notes": "Inverse of has unit"
+    },
+    "P92": {
+        "label": "brought into existence",
+        "domain": "E63",
+        "range": "E77",
+        "inverse": "P92i",
+        "quantifier": "0..*",
+        "aliases": ['BROUGHT_INTO_EXISTENCE'],
+        "notes": "Beginning of existence brought into existence"
+    },
+    "P92i": {
+        "label": "was brought into existence by",
+        "domain": "E77",
+        "range": "E63",
+        "inverse": "P92",
+        "quantifier": "0..*",
+        "aliases": ['WAS_BROUGHT_INTO_EXISTENCE_BY'],
+        "notes": "Inverse of brought into existence"
+    },
+    "P93": {
+        "label": "took out of existence",
+        "domain": "E64",
+        "range": "E77",
+        "inverse": "P93i",
+        "quantifier": "0..*",
+        "aliases": ['TOOK_OUT_OF_EXISTENCE'],
+        "notes": "End of existence took out of existence"
+    },
+    "P93i": {
+        "label": "was taken out of existence by",
+        "domain": "E77",
+        "range": "E64",
+        "inverse": "P93",
+        "quantifier": "0..*",
+        "aliases": ['WAS_TAKEN_OUT_OF_EXISTENCE_BY'],
+        "notes": "Inverse of took out of existence"
+    },
+    "P94": {
+        "label": "has created",
+        "domain": "E65",
+        "range": "E77",
+        "inverse": "P94i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_CREATED'],
+        "notes": "Creation has created"
+    },
+    "P94i": {
+        "label": "was created by",
+        "domain": "E77",
+        "range": "E65",
+        "inverse": "P94",
+        "quantifier": "0..*",
+        "aliases": ['WAS_CREATED_BY'],
+        "notes": "Inverse of has created"
+    },
+    "P95": {
+        "label": "has formed",
+        "domain": "E66",
+        "range": "E77",
+        "inverse": "P95i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_FORMED'],
+        "notes": "Formation has formed"
+    },
+    "P95i": {
+        "label": "was formed by",
+        "domain": "E77",
+        "range": "E66",
+        "inverse": "P95",
+        "quantifier": "0..*",
+        "aliases": ['WAS_FORMED_BY'],
+        "notes": "Inverse of has formed"
+    },
+    "P96": {
+        "label": "by mother",
+        "domain": "E67",
+        "range": "E21",
+        "inverse": "P96i",
+        "quantifier": "0..1",
+        "aliases": ['BY_MOTHER'],
+        "notes": "Birth by mother"
+    },
+    "P96i": {
+        "label": "gave birth to",
+        "domain": "E21",
+        "range": "E67",
+        "inverse": "P96",
+        "quantifier": "0..*",
+        "aliases": ['GAVE_BIRTH_TO'],
+        "notes": "Inverse of by mother"
+    },
+    "P97": {
+        "label": "from father",
+        "domain": "E67",
+        "range": "E21",
+        "inverse": "P97i",
+        "quantifier": "0..1",
+        "aliases": ['FROM_FATHER'],
+        "notes": "Birth from father"
+    },
+    "P97i": {
+        "label": "was father of",
+        "domain": "E21",
+        "range": "E67",
+        "inverse": "P97",
+        "quantifier": "0..*",
+        "aliases": ['WAS_FATHER_OF'],
+        "notes": "Inverse of from father"
+    },
+    "P98": {
+        "label": "brought into existence",
+        "domain": "E66",
+        "range": "E77",
+        "inverse": "P98i",
+        "quantifier": "0..*",
+        "aliases": ['BROUGHT_INTO_EXISTENCE'],
+        "notes": "Formation brought into existence"
+    },
+    "P98i": {
+        "label": "was brought into existence by",
+        "domain": "E77",
+        "range": "E66",
+        "inverse": "P98",
+        "quantifier": "0..*",
+        "aliases": ['WAS_BROUGHT_INTO_EXISTENCE_BY'],
+        "notes": "Inverse of brought into existence"
+    },
+    "P99": {
+        "label": "dissolved",
+        "domain": "E68",
+        "range": "E74",
+        "inverse": "P99i",
+        "quantifier": "0..*",
+        "aliases": ['DISSOLVED'],
+        "notes": "Death dissolved"
+    },
+    "P99i": {
+        "label": "was dissolved by",
+        "domain": "E74",
+        "range": "E68",
+        "inverse": "P99",
+        "quantifier": "0..*",
+        "aliases": ['WAS_DISSOLVED_BY'],
+        "notes": "Inverse of dissolved"
+    },
+    "P100": {
+        "label": "was death of",
+        "domain": "E68",
+        "range": "E21",
+        "inverse": "P100i",
+        "quantifier": "0..*",
+        "aliases": ['WAS_DEATH_OF'],
+        "notes": "Death was death of"
+    },
+    "P100i": {
+        "label": "died in",
+        "domain": "E21",
+        "range": "E68",
+        "inverse": "P100",
+        "quantifier": "0..*",
+        "aliases": ['DIED_IN'],
+        "notes": "Inverse of was death of"
+    },
+    "P101": {
+        "label": "had as general use",
+        "domain": "E7",
+        "range": "E55",
+        "inverse": "P101i",
+        "quantifier": "0..*",
+        "aliases": ['HAD_AS_GENERAL_USE'],
+        "notes": "Activity had as general use"
+    },
+    "P101i": {
+        "label": "was use of",
+        "domain": "E55",
+        "range": "E7",
+        "inverse": "P101",
+        "quantifier": "0..*",
+        "aliases": ['WAS_USE_OF'],
+        "notes": "Inverse of had as general use"
+    },
+    "P102": {
+        "label": "has title",
+        "domain": "E35",
+        "range": "E1",
+        "inverse": "P102i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_TITLE'],
+        "notes": "Title has title"
+    },
+    "P102i": {
+        "label": "is title of",
+        "domain": "E1",
+        "range": "E35",
+        "inverse": "P102",
+        "quantifier": "0..*",
+        "aliases": ['IS_TITLE_OF'],
+        "notes": "Inverse of has title"
+    },
+    "P103": {
+        "label": "was intended for",
+        "domain": "E7",
+        "range": "E55",
+        "inverse": "P103i",
+        "quantifier": "0..*",
+        "aliases": ['WAS_INTENDED_FOR'],
+        "notes": "Activity was intended for"
+    },
+    "P103i": {
+        "label": "was intention of",
+        "domain": "E55",
+        "range": "E7",
+        "inverse": "P103",
+        "quantifier": "0..*",
+        "aliases": ['WAS_INTENTION_OF'],
+        "notes": "Inverse of was intended for"
+    },
+    "P104": {
+        "label": "is subject to",
+        "domain": "E30",
+        "range": "E39",
+        "inverse": "P104i",
+        "quantifier": "0..*",
+        "aliases": ['IS_SUBJECT_TO'],
+        "notes": "Right is subject to"
+    },
+    "P104i": {
+        "label": "is subject of",
+        "domain": "E39",
+        "range": "E30",
+        "inverse": "P104",
+        "quantifier": "0..*",
+        "aliases": ['IS_SUBJECT_OF'],
+        "notes": "Inverse of is subject to"
+    },
+    "P105": {
+        "label": "right held by",
+        "domain": "E30",
+        "range": "E39",
+        "inverse": "P105i",
+        "quantifier": "0..*",
+        "aliases": ['RIGHT_HELD_BY'],
+        "notes": "Right held by"
+    },
+    "P105i": {
+        "label": "holds right",
+        "domain": "E39",
+        "range": "E30",
+        "inverse": "P105",
+        "quantifier": "0..*",
+        "aliases": ['HOLDS_RIGHT'],
+        "notes": "Inverse of right held by"
+    },
+    "P106": {
+        "label": "is composed of",
+        "domain": "E70",
+        "range": "E70",
+        "inverse": "P106i",
+        "quantifier": "0..*",
+        "aliases": ['IS_COMPOSED_OF'],
+        "notes": "Thing is composed of"
+    },
+    "P106i": {
+        "label": "forms part of",
+        "domain": "E70",
+        "range": "E70",
+        "inverse": "P106",
+        "quantifier": "0..*",
+        "aliases": ['FORMS_PART_OF'],
+        "notes": "Inverse of is composed of"
+    },
+    "P107": {
+        "label": "has current or former member",
+        "domain": "E74",
+        "range": "E39",
+        "inverse": "P107i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_CURRENT_OR_FORMER_MEMBER'],
+        "notes": "Group has current or former member"
+    },
+    "P107i": {
+        "label": "is current or former member of",
+        "domain": "E39",
+        "range": "E74",
+        "inverse": "P107",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENT_OR_FORMER_MEMBER_OF'],
+        "notes": "Inverse of has current or former member"
+    },
+    "P109": {
+        "label": "has current or former curator",
+        "domain": "E78",
+        "range": "E39",
+        "inverse": "P109i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_CURRENT_OR_FORMER_CURATOR'],
+        "notes": "Curated holding has current or former curator"
+    },
+    "P109i": {
+        "label": "is current or former curator of",
+        "domain": "E39",
+        "range": "E78",
+        "inverse": "P109",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENT_OR_FORMER_CURATOR_OF'],
+        "notes": "Inverse of has current or former curator"
+    },
+    "P110": {
+        "label": "augmented",
+        "domain": "E79",
+        "range": "E18",
+        "inverse": "P110i",
+        "quantifier": "0..*",
+        "aliases": ['AUGMENTED'],
+        "notes": "Part addition augmented"
+    },
+    "P110i": {
+        "label": "was augmented by",
+        "domain": "E18",
+        "range": "E79",
+        "inverse": "P110",
+        "quantifier": "0..*",
+        "aliases": ['WAS_AUGMENTED_BY'],
+        "notes": "Inverse of augmented"
+    },
+    "P111": {
+        "label": "added",
+        "domain": "E79",
+        "range": "E18",
+        "inverse": "P111i",
+        "quantifier": "0..*",
+        "aliases": ['ADDED'],
+        "notes": "Part addition added"
+    },
+    "P111i": {
+        "label": "was added by",
+        "domain": "E18",
+        "range": "E79",
+        "inverse": "P111",
+        "quantifier": "0..*",
+        "aliases": ['WAS_ADDED_BY'],
+        "notes": "Inverse of added"
+    },
+    "P112": {
+        "label": "diminished",
+        "domain": "E80",
+        "range": "E18",
+        "inverse": "P112i",
+        "quantifier": "0..*",
+        "aliases": ['DIMINISHED'],
+        "notes": "Part removal diminished"
+    },
+    "P112i": {
+        "label": "was diminished by",
+        "domain": "E18",
+        "range": "E80",
+        "inverse": "P112",
+        "quantifier": "0..*",
+        "aliases": ['WAS_DIMINISHED_BY'],
+        "notes": "Inverse of diminished"
+    },
+    "P113": {
+        "label": "removed",
+        "domain": "E80",
+        "range": "E18",
+        "inverse": "P113i",
+        "quantifier": "0..*",
+        "aliases": ['REMOVED'],
+        "notes": "Part removal removed"
+    },
+    "P113i": {
+        "label": "was removed by",
+        "domain": "E18",
+        "range": "E80",
+        "inverse": "P113",
+        "quantifier": "0..*",
+        "aliases": ['WAS_REMOVED_BY'],
+        "notes": "Inverse of removed"
+    },
+    "P120": {
+        "label": "occurs before",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P120i",
+        "quantifier": "0..*",
+        "aliases": ['OCCURS_BEFORE'],
+        "notes": "Temporal entity occurs before another temporal entity"
+    },
+    "P120i": {
+        "label": "occurs after",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P120",
+        "quantifier": "0..*",
+        "aliases": ['OCCURS_AFTER'],
+        "notes": "Inverse of occurs before"
+    },
+    "P121": {
+        "label": "overlaps with",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P121i",
+        "quantifier": "0..*",
+        "aliases": ['OVERLAPS_WITH'],
+        "notes": "Place overlaps with another place"
+    },
+    "P121i": {
+        "label": "overlaps with",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P121",
+        "quantifier": "0..*",
+        "aliases": ['OVERLAPS_WITH'],
+        "notes": "Inverse of overlaps with"
+    },
+    "P122": {
+        "label": "borders with",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P122i",
+        "quantifier": "0..*",
+        "aliases": ['BORDERS_WITH'],
+        "notes": "Place borders with another place"
+    },
+    "P122i": {
+        "label": "borders with",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P122",
+        "quantifier": "0..*",
+        "aliases": ['BORDERS_WITH'],
+        "notes": "Inverse of borders with"
+    },
+    "P123": {
+        "label": "resulted in",
+        "domain": "E5",
+        "range": "E1",
+        "inverse": "P123i",
+        "quantifier": "0..*",
+        "aliases": ['RESULTED_IN'],
+        "notes": "Event resulted in an entity"
+    },
+    "P123i": {
+        "label": "was result of",
+        "domain": "E1",
+        "range": "E5",
+        "inverse": "P123",
+        "quantifier": "0..*",
+        "aliases": ['WAS_RESULT_OF'],
+        "notes": "Inverse of resulted in"
+    },
+    "P124": {
+        "label": "transformed",
+        "domain": "E81",
+        "range": "E18",
+        "inverse": "P124i",
+        "quantifier": "0..*",
+        "aliases": ['TRANSFORMED'],
+        "notes": "Transformation transformed"
+    },
+    "P124i": {
+        "label": "was transformed by",
+        "domain": "E18",
+        "range": "E81",
+        "inverse": "P124",
+        "quantifier": "0..*",
+        "aliases": ['WAS_TRANSFORMED_BY'],
+        "notes": "Inverse of transformed"
+    },
+    "P125": {
+        "label": "used object of type",
+        "domain": "E7",
+        "range": "E55",
+        "inverse": "P125i",
+        "quantifier": "0..*",
+        "aliases": ['USED_OBJECT_OF_TYPE'],
+        "notes": "Activity used object of type"
+    },
+    "P125i": {
+        "label": "was used by",
+        "domain": "E55",
+        "range": "E7",
+        "inverse": "P125",
+        "quantifier": "0..*",
+        "aliases": ['WAS_USED_BY'],
+        "notes": "Inverse of used object of type"
+    },
+    "P126": {
+        "label": "employed",
+        "domain": "E7",
+        "range": "E19",
+        "inverse": "P126i",
+        "quantifier": "0..*",
+        "aliases": ['EMPLOYED'],
+        "notes": "Activity employed"
+    },
+    "P126i": {
+        "label": "was employed in",
+        "domain": "E19",
+        "range": "E7",
+        "inverse": "P126",
+        "quantifier": "0..*",
+        "aliases": ['WAS_EMPLOYED_IN'],
+        "notes": "Inverse of employed"
+    },
+    "P127": {
+        "label": "has broader term",
+        "domain": "E55",
+        "range": "E55",
+        "inverse": "P127i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_BROADER_TERM'],
+        "notes": "Type has broader term"
+    },
+    "P127i": {
+        "label": "has narrower term",
+        "domain": "E55",
+        "range": "E55",
+        "inverse": "P127",
+        "quantifier": "0..*",
+        "aliases": ['HAS_NARROWER_TERM'],
+        "notes": "Inverse of has broader term"
+    },
+    "P128": {
+        "label": "carries",
+        "domain": "E84",
+        "range": "E73",
+        "inverse": "P128i",
+        "quantifier": "0..*",
+        "aliases": ['CARRIES'],
+        "notes": "Information carrier carries"
+    },
+    "P128i": {
+        "label": "is carried by",
+        "domain": "E73",
+        "range": "E84",
+        "inverse": "P128",
+        "quantifier": "0..*",
+        "aliases": ['IS_CARRIED_BY'],
+        "notes": "Inverse of carries"
+    },
+    "P129": {
+        "label": "is about",
+        "domain": "E73",
+        "range": "E1",
+        "inverse": "P129i",
+        "quantifier": "0..*",
+        "aliases": ['IS_ABOUT'],
+        "notes": "Information object is about"
+    },
+    "P129i": {
+        "label": "is subject of",
+        "domain": "E1",
+        "range": "E73",
+        "inverse": "P129",
+        "quantifier": "0..*",
+        "aliases": ['IS_SUBJECT_OF'],
+        "notes": "Inverse of is about"
+    },
+    "P130": {
+        "label": "shows features of",
+        "domain": "E36",
+        "range": "E1",
+        "inverse": "P130i",
+        "quantifier": "0..*",
+        "aliases": ['SHOWS_FEATURES_OF'],
+        "notes": "Visual item shows features of"
+    },
+    "P130i": {
+        "label": "features are also shown on",
+        "domain": "E1",
+        "range": "E36",
+        "inverse": "P130",
+        "quantifier": "0..*",
+        "aliases": ['FEATURES_ARE_ALSO_SHOWN_ON'],
+        "notes": "Inverse of shows features of"
+    },
+    "P132": {
+        "label": "spatiotemporally overlaps with",
+        "domain": "E92",
+        "range": "E92",
+        "inverse": "P132i",
+        "quantifier": "0..*",
+        "aliases": ['SPATIOTEMPORALLY_OVERLAPS_WITH'],
+        "notes": "Spacetime volume spatiotemporally overlaps with"
+    },
+    "P132i": {
+        "label": "spatiotemporally overlaps with",
+        "domain": "E92",
+        "range": "E92",
+        "inverse": "P132",
+        "quantifier": "0..*",
+        "aliases": ['SPATIOTEMPORALLY_OVERLAPS_WITH'],
+        "notes": "Inverse of spatiotemporally overlaps with"
+    },
+    "P133": {
+        "label": "is spatiotemporally separated from",
+        "domain": "E92",
+        "range": "E92",
+        "inverse": "P133i",
+        "quantifier": "0..*",
+        "aliases": ['IS_SPATIOTEMPORALLY_SEPARATED_FROM'],
+        "notes": "Spacetime volume is spatiotemporally separated from"
+    },
+    "P133i": {
+        "label": "is spatiotemporally separated from",
+        "domain": "E92",
+        "range": "E92",
+        "inverse": "P133",
+        "quantifier": "0..*",
+        "aliases": ['IS_SPATIOTEMPORALLY_SEPARATED_FROM'],
+        "notes": "Inverse of is spatiotemporally separated from"
+    },
+    "P134": {
+        "label": "continued",
+        "domain": "E7",
+        "range": "E7",
+        "inverse": "P134i",
+        "quantifier": "0..*",
+        "aliases": ['CONTINUED'],
+        "notes": "Activity continued"
+    },
+    "P134i": {
+        "label": "was continued by",
+        "domain": "E7",
+        "range": "E7",
+        "inverse": "P134",
+        "quantifier": "0..*",
+        "aliases": ['WAS_CONTINUED_BY'],
+        "notes": "Inverse of continued"
+    },
+    "P135": {
+        "label": "created type",
+        "domain": "E83",
+        "range": "E55",
+        "inverse": "P135i",
+        "quantifier": "0..*",
+        "aliases": ['CREATED_TYPE'],
+        "notes": "Type creation created type"
+    },
+    "P135i": {
+        "label": "was created by",
+        "domain": "E55",
+        "range": "E83",
+        "inverse": "P135",
+        "quantifier": "0..*",
+        "aliases": ['WAS_CREATED_BY'],
+        "notes": "Inverse of created type"
+    },
+    "P136": {
+        "label": "was based on",
+        "domain": "E73",
+        "range": "E73",
+        "inverse": "P136i",
+        "quantifier": "0..*",
+        "aliases": ['WAS_BASED_ON'],
+        "notes": "Information object was based on"
+    },
+    "P136i": {
+        "label": "was basis for",
+        "domain": "E73",
+        "range": "E73",
+        "inverse": "P136",
+        "quantifier": "0..*",
+        "aliases": ['WAS_BASIS_FOR'],
+        "notes": "Inverse of was based on"
+    },
+    "P137": {
+        "label": "exemplifies",
+        "domain": "E55",
+        "range": "E1",
+        "inverse": "P137i",
+        "quantifier": "0..*",
+        "aliases": ['EXEMPLIFIES'],
+        "notes": "Type exemplifies"
+    },
+    "P137i": {
+        "label": "is exemplified by",
+        "domain": "E1",
+        "range": "E55",
+        "inverse": "P137",
+        "quantifier": "0..*",
+        "aliases": ['IS_EXEMPLIFIED_BY'],
+        "notes": "Inverse of exemplifies"
+    },
+    "P138": {
+        "label": "represents",
+        "domain": "E73",
+        "range": "E1",
+        "inverse": "P138i",
+        "quantifier": "0..*",
+        "aliases": ['REPRESENTS'],
+        "notes": "Information object represents"
+    },
+    "P138i": {
+        "label": "is represented by",
+        "domain": "E1",
+        "range": "E73",
+        "inverse": "P138",
+        "quantifier": "0..*",
+        "aliases": ['IS_REPRESENTED_BY'],
+        "notes": "Inverse of represents"
+    },
+    "P139": {
+        "label": "has alternative form",
+        "domain": "E41",
+        "range": "E41",
+        "inverse": "P139i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_ALTERNATIVE_FORM'],
+        "notes": "Appellation has alternative form"
+    },
+    "P139i": {
+        "label": "is alternative form of",
+        "domain": "E41",
+        "range": "E41",
+        "inverse": "P139",
+        "quantifier": "0..*",
+        "aliases": ['IS_ALTERNATIVE_FORM_OF'],
+        "notes": "Inverse of has alternative form"
+    },
+    "P140": {
+        "label": "assigned attribute to",
+        "domain": "E13",
+        "range": "E1",
+        "inverse": "P140i",
+        "quantifier": "0..*",
+        "aliases": ['ASSIGNED_ATTRIBUTE_TO'],
+        "notes": "Attribute assignment assigned attribute to"
+    },
+    "P140i": {
+        "label": "was attributed by",
+        "domain": "E1",
+        "range": "E13",
+        "inverse": "P140",
+        "quantifier": "0..*",
+        "aliases": ['WAS_ATTRIBUTED_BY'],
+        "notes": "Inverse of assigned attribute to"
+    },
+    "P141": {
+        "label": "assigned",
+        "domain": "E13",
+        "range": "E1",
+        "inverse": "P141i",
+        "quantifier": "0..*",
+        "aliases": ['ASSIGNED'],
+        "notes": "Attribute assignment assigned"
+    },
+    "P141i": {
+        "label": "was assigned by",
+        "domain": "E1",
+        "range": "E13",
+        "inverse": "P141",
+        "quantifier": "0..*",
+        "aliases": ['WAS_ASSIGNED_BY'],
+        "notes": "Inverse of assigned"
+    },
+    "P142": {
+        "label": "used constituent",
+        "domain": "E7",
+        "range": "E18",
+        "inverse": "P142i",
+        "quantifier": "0..*",
+        "aliases": ['USED_CONSTITUENT'],
+        "notes": "Activity used constituent"
+    },
+    "P142i": {
+        "label": "was used in",
+        "domain": "E18",
+        "range": "E7",
+        "inverse": "P142",
+        "quantifier": "0..*",
+        "aliases": ['WAS_USED_IN'],
+        "notes": "Inverse of used constituent"
+    },
+    "P143": {
+        "label": "joined",
+        "domain": "E85",
+        "range": "E39",
+        "inverse": "P143i",
+        "quantifier": "0..*",
+        "aliases": ['JOINED'],
+        "notes": "Joining joined"
+    },
+    "P143i": {
+        "label": "was joined by",
+        "domain": "E39",
+        "range": "E85",
+        "inverse": "P143",
+        "quantifier": "0..*",
+        "aliases": ['WAS_JOINED_BY'],
+        "notes": "Inverse of joined"
+    },
+    "P144": {
+        "label": "joined with",
+        "domain": "E85",
+        "range": "E39",
+        "inverse": "P144i",
+        "quantifier": "0..*",
+        "aliases": ['JOINED_WITH'],
+        "notes": "Joining joined with"
+    },
+    "P144i": {
+        "label": "was joined with by",
+        "domain": "E39",
+        "range": "E85",
+        "inverse": "P144",
+        "quantifier": "0..*",
+        "aliases": ['WAS_JOINED_WITH_BY'],
+        "notes": "Inverse of joined with"
+    },
+    "P145": {
+        "label": "separated",
+        "domain": "E86",
+        "range": "E39",
+        "inverse": "P145i",
+        "quantifier": "0..*",
+        "aliases": ['SEPARATED'],
+        "notes": "Leaving separated"
+    },
+    "P145i": {
+        "label": "was separated by",
+        "domain": "E39",
+        "range": "E86",
+        "inverse": "P145",
+        "quantifier": "0..*",
+        "aliases": ['WAS_SEPARATED_BY'],
+        "notes": "Inverse of separated"
+    },
+    "P146": {
+        "label": "separated from",
+        "domain": "E86",
+        "range": "E39",
+        "inverse": "P146i",
+        "quantifier": "0..*",
+        "aliases": ['SEPARATED_FROM'],
+        "notes": "Leaving separated from"
+    },
+    "P146i": {
+        "label": "was separated from by",
+        "domain": "E39",
+        "range": "E86",
+        "inverse": "P146",
+        "quantifier": "0..*",
+        "aliases": ['WAS_SEPARATED_FROM_BY'],
+        "notes": "Inverse of separated from"
+    },
+    "P147": {
+        "label": "curated",
+        "domain": "E87",
+        "range": "E78",
+        "inverse": "P147i",
+        "quantifier": "0..*",
+        "aliases": ['CURATED'],
+        "notes": "Curation activity curated"
+    },
+    "P147i": {
+        "label": "was curated by",
+        "domain": "E78",
+        "range": "E87",
+        "inverse": "P147",
+        "quantifier": "0..*",
+        "aliases": ['WAS_CURATED_BY'],
+        "notes": "Inverse of curated"
+    },
+    "P148": {
+        "label": "has component",
+        "domain": "E89",
+        "range": "E89",
+        "inverse": "P148i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_COMPONENT'],
+        "notes": "Propositional statement has component"
+    },
+    "P148i": {
+        "label": "is component of",
+        "domain": "E89",
+        "range": "E89",
+        "inverse": "P148",
+        "quantifier": "0..*",
+        "aliases": ['IS_COMPONENT_OF'],
+        "notes": "Inverse of has component"
+    },
+    "P150": {
+        "label": "defines typical parts",
+        "domain": "E55",
+        "range": "E55",
+        "inverse": "P150i",
+        "quantifier": "0..*",
+        "aliases": ['DEFINES_TYPICAL_PARTS'],
+        "notes": "Type defines typical parts"
+    },
+    "P150i": {
+        "label": "defines typical wholes",
+        "domain": "E55",
+        "range": "E55",
+        "inverse": "P150",
+        "quantifier": "0..*",
+        "aliases": ['DEFINES_TYPICAL_WHOLES'],
+        "notes": "Inverse of defines typical parts"
+    },
+    "P151": {
+        "label": "was formed from",
+        "domain": "E66",
+        "range": "E77",
+        "inverse": "P151i",
+        "quantifier": "0..*",
+        "aliases": ['WAS_FORMED_FROM'],
+        "notes": "Formation was formed from"
+    },
+    "P151i": {
+        "label": "participated in",
+        "domain": "E77",
+        "range": "E66",
+        "inverse": "P151",
+        "quantifier": "0..*",
+        "aliases": ['PARTICIPATED_IN'],
+        "notes": "Inverse of was formed from"
+    },
+    "P152": {
+        "label": "has parent",
+        "domain": "E21",
+        "range": "E21",
+        "inverse": "P152i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_PARENT'],
+        "notes": "Person has parent"
+    },
+    "P152i": {
+        "label": "is parent of",
+        "domain": "E21",
+        "range": "E21",
+        "inverse": "P152",
+        "quantifier": "0..*",
+        "aliases": ['IS_PARENT_OF'],
+        "notes": "Inverse of has parent"
+    },
+    "P156": {
+        "label": "occupies",
+        "domain": "E93",
+        "range": "E53",
+        "inverse": "P156i",
+        "quantifier": "0..*",
+        "aliases": ['OCCUPIES'],
+        "notes": "Presence occupies"
+    },
+    "P156i": {
+        "label": "is occupied by",
+        "domain": "E53",
+        "range": "E93",
+        "inverse": "P156",
+        "quantifier": "0..*",
+        "aliases": ['IS_OCCUPIED_BY'],
+        "notes": "Inverse of occupies"
+    },
+    "P157": {
+        "label": "is at rest relative to",
+        "domain": "E93",
+        "range": "E53",
+        "inverse": "P157i",
+        "quantifier": "0..*",
+        "aliases": ['IS_AT_REST_RELATIVE_TO'],
+        "notes": "Presence is at rest relative to"
+    },
+    "P157i": {
+        "label": "provides reference space for",
+        "domain": "E53",
+        "range": "E93",
+        "inverse": "P157",
+        "quantifier": "0..*",
+        "aliases": ['PROVIDES_REFERENCE_SPACE_FOR'],
+        "notes": "Inverse of is at rest relative to"
+    },
+    "P160": {
+        "label": "has temporal projection",
+        "domain": "E92",
+        "range": "E52",
+        "inverse": "P160i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_TEMPORAL_PROJECTION'],
+        "notes": "Spacetime volume has temporal projection"
+    },
+    "P160i": {
+        "label": "is temporal projection of",
+        "domain": "E52",
+        "range": "E92",
+        "inverse": "P160",
+        "quantifier": "0..*",
+        "aliases": ['IS_TEMPORAL_PROJECTION_OF'],
+        "notes": "Inverse of has temporal projection"
+    },
+    "P161": {
+        "label": "has spatial projection",
+        "domain": "E92",
+        "range": "E53",
+        "inverse": "P161i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_SPATIAL_PROJECTION'],
+        "notes": "Spacetime volume has spatial projection"
+    },
+    "P161i": {
+        "label": "is spatial projection of",
+        "domain": "E53",
+        "range": "E92",
+        "inverse": "P161",
+        "quantifier": "0..*",
+        "aliases": ['IS_SPATIAL_PROJECTION_OF'],
+        "notes": "Inverse of has spatial projection"
+    },
+    "P164": {
+        "label": "is temporally specified by",
+        "domain": "E92",
+        "range": "E52",
+        "inverse": "P164i",
+        "quantifier": "0..*",
+        "aliases": ['IS_TEMPORALLY_SPECIFIED_BY'],
+        "notes": "Spacetime volume is temporally specified by"
+    },
+    "P164i": {
+        "label": "temporally specifies",
+        "domain": "E52",
+        "range": "E92",
+        "inverse": "P164",
+        "quantifier": "0..*",
+        "aliases": ['TEMPORALLY_SPECIFIES'],
+        "notes": "Inverse of is temporally specified by"
+    },
+    "P165": {
+        "label": "incorporates",
+        "domain": "E92",
+        "range": "E92",
+        "inverse": "P165i",
+        "quantifier": "0..*",
+        "aliases": ['INCORPORATES'],
+        "notes": "Spacetime volume incorporates"
+    },
+    "P165i": {
+        "label": "is incorporated in",
+        "domain": "E92",
+        "range": "E92",
+        "inverse": "P165",
+        "quantifier": "0..*",
+        "aliases": ['IS_INCORPORATED_IN'],
+        "notes": "Inverse of incorporates"
+    },
+    "P166": {
+        "label": "was a presence of",
+        "domain": "E93",
+        "range": "E77",
+        "inverse": "P166i",
+        "quantifier": "0..*",
+        "aliases": ['WAS_A_PRESENCE_OF'],
+        "notes": "Presence was a presence of"
+    },
+    "P166i": {
+        "label": "had presence",
+        "domain": "E77",
+        "range": "E93",
+        "inverse": "P166",
+        "quantifier": "0..*",
+        "aliases": ['HAD_PRESENCE'],
+        "notes": "Inverse of was a presence of"
+    },
+    "P167": {
+        "label": "was within",
+        "domain": "E93",
+        "range": "E92",
+        "inverse": "P167i",
+        "quantifier": "0..*",
+        "aliases": ['WAS_WITHIN'],
+        "notes": "Presence was within"
+    },
+    "P167i": {
+        "label": "contains",
+        "domain": "E92",
+        "range": "E93",
+        "inverse": "P167",
+        "quantifier": "0..*",
+        "aliases": ['CONTAINS'],
+        "notes": "Inverse of was within"
+    },
+    "P168": {
+        "label": "place is defined by",
+        "domain": "E53",
+        "range": "E94",
+        "inverse": "P168i",
+        "quantifier": "0..*",
+        "aliases": ['PLACE_IS_DEFINED_BY'],
+        "notes": "Place is defined by"
+    },
+    "P168i": {
+        "label": "defines",
+        "domain": "E94",
+        "range": "E53",
+        "inverse": "P168",
+        "quantifier": "0..*",
+        "aliases": ['DEFINES'],
+        "notes": "Inverse of place is defined by"
+    },
+    "P169": {
+        "label": "defines spacetime volume",
+        "domain": "E94",
+        "range": "E92",
+        "inverse": "P169i",
+        "quantifier": "0..*",
+        "aliases": ['DEFINES_SPACETIME_VOLUME'],
+        "notes": "Space defines spacetime volume"
+    },
+    "P169i": {
+        "label": "spacetime volume is defined by",
+        "domain": "E92",
+        "range": "E94",
+        "inverse": "P169",
+        "quantifier": "0..*",
+        "aliases": ['SPACETIME_VOLUME_IS_DEFINED_BY'],
+        "notes": "Inverse of defines spacetime volume"
+    },
+    "P170": {
+        "label": "defines time",
+        "domain": "E52",
+        "range": "E61",
+        "inverse": "P170i",
+        "quantifier": "0..*",
+        "aliases": ['DEFINES_TIME'],
+        "notes": "Time-span defines time"
+    },
+    "P170i": {
+        "label": "time is defined by",
+        "domain": "E61",
+        "range": "E52",
+        "inverse": "P170",
+        "quantifier": "0..*",
+        "aliases": ['TIME_IS_DEFINED_BY'],
+        "notes": "Inverse of defines time"
+    },
+    "P171": {
+        "label": "at some place within",
+        "domain": "E93",
+        "range": "E53",
+        "inverse": "P171i",
+        "quantifier": "0..*",
+        "aliases": ['AT_SOME_PLACE_WITHIN'],
+        "notes": "Presence at some place within"
+    },
+    "P171i": {
+        "label": "contains",
+        "domain": "E53",
+        "range": "E93",
+        "inverse": "P171",
+        "quantifier": "0..*",
+        "aliases": ['CONTAINS'],
+        "notes": "Inverse of at some place within"
+    },
+    "P172": {
+        "label": "contains",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P172i",
+        "quantifier": "0..*",
+        "aliases": ['CONTAINS'],
+        "notes": "Place contains"
+    },
+    "P172i": {
+        "label": "is contained in",
+        "domain": "E53",
+        "range": "E53",
+        "inverse": "P172",
+        "quantifier": "0..*",
+        "aliases": ['IS_CONTAINED_IN'],
+        "notes": "Inverse of contains"
+    },
+    "P173": {
+        "label": "starts before or with the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P173i",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_BEFORE_OR_WITH_THE_END_OF'],
+        "notes": "Temporal entity starts before or with the end of"
+    },
+    "P173i": {
+        "label": "ends after or with the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P173",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_AFTER_OR_WITH_THE_START_OF'],
+        "notes": "Inverse of starts before or with the end of"
+    },
+    "P174": {
+        "label": "starts before the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P174i",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_BEFORE_THE_END_OF'],
+        "notes": "Temporal entity starts before the end of"
+    },
+    "P174i": {
+        "label": "ends after the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P174",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_AFTER_THE_START_OF'],
+        "notes": "Inverse of starts before the end of"
+    },
+    "P175": {
+        "label": "starts before or with the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P175i",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_BEFORE_OR_WITH_THE_START_OF'],
+        "notes": "Temporal entity starts before or with the start of"
+    },
+    "P175i": {
+        "label": "starts after or with the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P175",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_AFTER_OR_WITH_THE_START_OF'],
+        "notes": "Inverse of starts before or with the start of"
+    },
+    "P176": {
+        "label": "starts before the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P176i",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_BEFORE_THE_START_OF'],
+        "notes": "Temporal entity starts before the start of"
+    },
+    "P176i": {
+        "label": "starts after the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P176",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_AFTER_THE_START_OF'],
+        "notes": "Inverse of starts before the start of"
+    },
+    "P177": {
+        "label": "assigned",
+        "domain": "E13",
+        "range": "E1",
+        "inverse": "P177i",
+        "quantifier": "0..*",
+        "aliases": ['ASSIGNED'],
+        "notes": "Attribute assignment assigned"
+    },
+    "P177i": {
+        "label": "was assigned by",
+        "domain": "E1",
+        "range": "E13",
+        "inverse": "P177",
+        "quantifier": "0..*",
+        "aliases": ['WAS_ASSIGNED_BY'],
+        "notes": "Inverse of assigned"
+    },
+    "P179": {
+        "label": "had sales price",
+        "domain": "E8",
+        "range": "E97",
+        "inverse": "P179i",
+        "quantifier": "0..*",
+        "aliases": ['HAD_SALES_PRICE'],
+        "notes": "Acquisition had sales price"
+    },
+    "P179i": {
+        "label": "was sales price of",
+        "domain": "E97",
+        "range": "E8",
+        "inverse": "P179",
+        "quantifier": "0..*",
+        "aliases": ['WAS_SALES_PRICE_OF'],
+        "notes": "Inverse of had sales price"
+    },
+    "P180": {
+        "label": "has currency",
+        "domain": "E97",
+        "range": "E98",
+        "inverse": "P180i",
+        "quantifier": "0..1",
+        "aliases": ['HAS_CURRENCY'],
+        "notes": "Monetary amount has currency"
+    },
+    "P180i": {
+        "label": "is currency of",
+        "domain": "E98",
+        "range": "E97",
+        "inverse": "P180",
+        "quantifier": "0..*",
+        "aliases": ['IS_CURRENCY_OF'],
+        "notes": "Inverse of has currency"
+    },
+    "P182": {
+        "label": "ends before or with the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P182i",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_BEFORE_OR_WITH_THE_START_OF'],
+        "notes": "Temporal entity ends before or with the start of"
+    },
+    "P182i": {
+        "label": "starts after or with the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P182",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_AFTER_OR_WITH_THE_END_OF'],
+        "notes": "Inverse of ends before or with the start of"
+    },
+    "P183": {
+        "label": "ends before the start of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P183i",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_BEFORE_THE_START_OF'],
+        "notes": "Temporal entity ends before the start of"
+    },
+    "P183i": {
+        "label": "starts after the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P183",
+        "quantifier": "0..*",
+        "aliases": ['STARTS_AFTER_THE_END_OF'],
+        "notes": "Inverse of ends before the start of"
+    },
+    "P184": {
+        "label": "ends before or with the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P184i",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_BEFORE_OR_WITH_THE_END_OF'],
+        "notes": "Temporal entity ends before or with the end of"
+    },
+    "P184i": {
+        "label": "ends after or with the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P184",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_AFTER_OR_WITH_THE_END_OF'],
+        "notes": "Inverse of ends before or with the end of"
+    },
+    "P185": {
+        "label": "ends before the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P185i",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_BEFORE_THE_END_OF'],
+        "notes": "Temporal entity ends before the end of"
+    },
+    "P185i": {
+        "label": "ends after the end of",
+        "domain": "E2",
+        "range": "E2",
+        "inverse": "P185",
+        "quantifier": "0..*",
+        "aliases": ['ENDS_AFTER_THE_END_OF'],
+        "notes": "Inverse of ends before the end of"
+    },
+    "P186": {
+        "label": "produced thing of type",
+        "domain": "E12",
+        "range": "E55",
+        "inverse": "P186i",
+        "quantifier": "0..*",
+        "aliases": ['PRODUCED_THING_OF_TYPE'],
+        "notes": "Production produced thing of type"
+    },
+    "P186i": {
+        "label": "was produced by",
+        "domain": "E55",
+        "range": "E12",
+        "inverse": "P186",
+        "quantifier": "0..*",
+        "aliases": ['WAS_PRODUCED_BY'],
+        "notes": "Inverse of produced thing of type"
+    },
+    "P187": {
+        "label": "has production plan",
+        "domain": "E12",
+        "range": "E29",
+        "inverse": "P187i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_PRODUCTION_PLAN'],
+        "notes": "Production has production plan"
+    },
+    "P187i": {
+        "label": "was production plan for",
+        "domain": "E29",
+        "range": "E12",
+        "inverse": "P187",
+        "quantifier": "0..*",
+        "aliases": ['WAS_PRODUCTION_PLAN_FOR'],
+        "notes": "Inverse of has production plan"
+    },
+    "P188": {
+        "label": "requires",
+        "domain": "E29",
+        "range": "E19",
+        "inverse": "P188i",
+        "quantifier": "0..*",
+        "aliases": ['REQUIRES'],
+        "notes": "Design or procedure requires"
+    },
+    "P188i": {
+        "label": "is required by",
+        "domain": "E19",
+        "range": "E29",
+        "inverse": "P188",
+        "quantifier": "0..*",
+        "aliases": ['IS_REQUIRED_BY'],
+        "notes": "Inverse of requires"
+    },
+    "P189": {
+        "label": "approximates",
+        "domain": "E95",
+        "range": "E95",
+        "inverse": "P189i",
+        "quantifier": "0..*",
+        "aliases": ['APPROXIMATES'],
+        "notes": "Spacetime primitive approximates"
+    },
+    "P189i": {
+        "label": "approximates",
+        "domain": "E95",
+        "range": "E95",
+        "inverse": "P189",
+        "quantifier": "0..*",
+        "aliases": ['APPROXIMATES'],
+        "notes": "Inverse of approximates"
+    },
+    "P190": {
+        "label": "has symbolic content",
+        "domain": "E90",
+        "range": "E62",
+        "inverse": "P190i",
+        "quantifier": "0..*",
+        "aliases": ['HAS_SYMBOLIC_CONTENT'],
+        "notes": "Symbolic object has symbolic content"
+    },
+    "P190i": {
+        "label": "is symbolic content of",
+        "domain": "E62",
+        "range": "E90",
+        "inverse": "P190",
+        "quantifier": "0..*",
+        "aliases": ['IS_SYMBOLIC_CONTENT_OF'],
+        "notes": "Inverse of has symbolic content"
+    },
+    "P191": {
+        "label": "had duration",
+        "domain": "E2",
+        "range": "E54",
+        "inverse": "P191i",
+        "quantifier": "0..1",
+        "aliases": ['HAD_DURATION'],
+        "notes": "Temporal entity had duration"
+    },
+    "P191i": {
+        "label": "was duration of",
+        "domain": "E54",
+        "range": "E2",
+        "inverse": "P191",
+        "quantifier": "0..*",
+        "aliases": ['WAS_DURATION_OF'],
+        "notes": "Inverse of had duration"
+    },
+    "P195": {
+        "label": "was a presence of",
+        "domain": "E93",
+        "range": "E77",
+        "inverse": "P195i",
+        "quantifier": "0..*",
+        "aliases": ['WAS_A_PRESENCE_OF'],
+        "notes": "Presence was a presence of"
+    },
+    "P195i": {
+        "label": "had presence",
+        "domain": "E77",
+        "range": "E93",
+        "inverse": "P195",
+        "quantifier": "0..*",
+        "aliases": ['HAD_PRESENCE'],
+        "notes": "Inverse of was a presence of"
+    },
+    "P196": {
+        "label": "defines",
+        "domain": "E94",
+        "range": "E92",
+        "inverse": "P196i",
+        "quantifier": "0..*",
+        "aliases": ['DEFINES'],
+        "notes": "Space defines"
+    },
+    "P196i": {
+        "label": "is defined by",
+        "domain": "E92",
+        "range": "E94",
+        "inverse": "P196",
+        "quantifier": "0..*",
+        "aliases": ['IS_DEFINED_BY'],
+        "notes": "Inverse of defines"
+    },
+    "P197": {
+        "label": "covered parts of",
+        "domain": "E93",
+        "range": "E53",
+        "inverse": "P197i",
+        "quantifier": "0..*",
+        "aliases": ['COVERED_PARTS_OF'],
+        "notes": "Presence covered parts of"
+    },
+    "P197i": {
+        "label": "was covered by",
+        "domain": "E53",
+        "range": "E93",
+        "inverse": "P197",
+        "quantifier": "0..*",
+        "aliases": ['WAS_COVERED_BY'],
+        "notes": "Inverse of covered parts of"
+    },
+    "P198": {
+        "label": "holds or supports",
+        "domain": "E93",
+        "range": "E18",
+        "inverse": "P198i",
+        "quantifier": "0..*",
+        "aliases": ['HOLDS_OR_SUPPORTS'],
+        "notes": "Presence holds or supports"
+    },
+    "P198i": {
+        "label": "is held or supported by",
+        "domain": "E18",
+        "range": "E93",
+        "inverse": "P198",
+        "quantifier": "0..*",
+        "aliases": ['IS_HELD_OR_SUPPORTED_BY'],
+        "notes": "Inverse of holds or supports"
     }
 }
 
 DOMAIN = {
-    "E1": ['P1', 'P2', 'P3', 'P15i', 'P17i'],
-    "E2": ['P4'],
-    "E5": ['P7', 'P11', 'P8', 'P12', 'P20i'],
-    "E18": ['P53', 'P5', 'P5i', 'P13i', 'P24i', 'P25i', 'P30i'],
-    "E52": ['P79', 'P80', 'P4i'],
+    "E1": ['P1', 'P2', 'P3', 'P15i', 'P17i', 'P35i', 'P37i', 'P38i', 'P39i', 'P41i', 'P48', 'P62i', 'P67i', 'P70i', 'P71i', 'P102i', 'P123i', 'P129i', 'P130i', 'P137i', 'P138i', 'P140i', 'P141i', 'P177i'],
+    "E2": ['P4', 'P81', 'P82', 'P120', 'P120i', 'P173', 'P173i', 'P174', 'P174i', 'P175', 'P175i', 'P176', 'P176i', 'P182', 'P182i', 'P183', 'P183i', 'P184', 'P184i', 'P185', 'P185i', 'P191'],
+    "E5": ['P7', 'P11', 'P8', 'P12', 'P20i', 'P123'],
+    "E18": ['P53', 'P5', 'P5i', 'P13i', 'P24i', 'P25i', 'P30i', 'P31i', 'P34i', 'P44', 'P45', 'P45i', 'P46', 'P46i', 'P49', 'P50', 'P51', 'P52', 'P75i', 'P110i', 'P111i', 'P112i', 'P113i', 'P124i', 'P142i', 'P198i'],
+    "E52": ['P79', 'P80', 'P4i', 'P160i', 'P164i', 'P170'],
     "E22": ['P108'],
-    "E12": ['P108i'],
-    "E41": ['P1i'],
-    "E55": ['P2i', 'P19i', 'P21i'],
-    "E62": ['P3i'],
-    "E53": ['P7i', 'P53i', 'P26i', 'P27i'],
-    "E39": ['P11i', 'P14i', 'P22i', 'P23i', 'P28i', 'P29i'],
-    "E61": ['P79i', 'P80i', 'P8i'],
-    "E4": ['P9', 'P9i', 'P10', 'P10i'],
-    "E77": ['P12i'],
+    "E12": ['P108i', 'P186', 'P187'],
+    "E41": ['P1i', 'P139', 'P139i'],
+    "E55": ['P2i', 'P19i', 'P21i', 'P32i', 'P42i', 'P101i', 'P103i', 'P125i', 'P127', 'P127i', 'P135i', 'P137', 'P150', 'P150i', 'P186i'],
+    "E62": ['P3i', 'P190i'],
+    "E53": ['P7i', 'P53i', 'P26i', 'P27i', 'P54i', 'P55i', 'P59', 'P59i', 'P74i', 'P89', 'P89i', 'P121', 'P121i', 'P122', 'P122i', 'P156i', 'P157i', 'P161i', 'P168', 'P171i', 'P172', 'P172i', 'P197i'],
+    "E39": ['P11i', 'P14i', 'P22i', 'P23i', 'P28i', 'P29i', 'P49i', 'P50i', 'P51i', 'P52i', 'P69', 'P69i', 'P74', 'P75', 'P76', 'P104i', 'P105i', 'P107i', 'P109i', 'P143i', 'P144i', 'P145i', 'P146i'],
+    "E61": ['P79i', 'P80i', 'P8i', 'P81i', 'P82i', 'P170i'],
+    "E4": ['P9', 'P9i', 'P10', 'P10i', 'P86', 'P86i'],
+    "E77": ['P12i', 'P92i', 'P93i', 'P94i', 'P95i', 'P98i', 'P151i', 'P166i', 'P195i'],
     "E6": ['P13'],
-    "E7": ['P14', 'P15', 'P16', 'P17', 'P19', 'P20', 'P21'],
-    "E19": ['P16i'],
-    "E8": ['P22', 'P23', 'P24'],
+    "E7": ['P14', 'P15', 'P16', 'P17', 'P19', 'P20', 'P21', 'P32', 'P33', 'P101', 'P103', 'P125', 'P126', 'P134', 'P134i', 'P142'],
+    "E19": ['P16i', 'P54', 'P55', 'P56', 'P57', 'P68i', 'P126i', 'P188i'],
+    "E8": ['P22', 'P23', 'P24', 'P179'],
     "E9": ['P25', 'P26', 'P27'],
-    "E10": ['P28', 'P29', 'P30']
+    "E10": ['P28', 'P29', 'P30'],
+    "E11": ['P31'],
+    "E29": ['P33i', 'P68', 'P187i', 'P188'],
+    "E14": ['P34'],
+    "E15": ['P35'],
+    "E13": ['P37', 'P38', 'P140', 'P141', 'P177'],
+    "E16": ['P39', 'P40'],
+    "E54": ['P40i', 'P43i', 'P90', 'P91', 'P191i'],
+    "E17": ['P41', 'P42'],
+    "E70": ['P43', 'P106', 'P106i'],
+    "E3": ['P44i'],
+    "E42": ['P48i'],
+    "E26": ['P56i'],
+    "E60": ['P57i', 'P90i'],
+    "E36": ['P62', 'P65', 'P65i', 'P130'],
+    "E73": ['P67', 'P128i', 'P129', 'P136', 'P136i', 'P138'],
+    "E31": ['P70', 'P71'],
+    "E33": ['P72', 'P73', 'P73i'],
+    "E56": ['P72i'],
+    "E51": ['P76i'],
+    "E58": ['P91i'],
+    "E63": ['P92'],
+    "E64": ['P93'],
+    "E65": ['P94'],
+    "E66": ['P95', 'P98', 'P151'],
+    "E67": ['P96', 'P97'],
+    "E21": ['P96i', 'P97i', 'P100i', 'P152', 'P152i'],
+    "E68": ['P99', 'P100'],
+    "E74": ['P99i', 'P107'],
+    "E35": ['P102'],
+    "E30": ['P104', 'P105'],
+    "E78": ['P109', 'P147i'],
+    "E79": ['P110', 'P111'],
+    "E80": ['P112', 'P113'],
+    "E81": ['P124'],
+    "E84": ['P128'],
+    "E92": ['P132', 'P132i', 'P133', 'P133i', 'P160', 'P161', 'P164', 'P165', 'P165i', 'P167i', 'P169i', 'P196i'],
+    "E83": ['P135'],
+    "E85": ['P143', 'P144'],
+    "E86": ['P145', 'P146'],
+    "E87": ['P147'],
+    "E89": ['P148', 'P148i'],
+    "E93": ['P156', 'P157', 'P166', 'P167', 'P171', 'P195', 'P197', 'P198'],
+    "E94": ['P168i', 'P169', 'P196'],
+    "E97": ['P179i', 'P180'],
+    "E98": ['P180i'],
+    "E95": ['P189', 'P189i'],
+    "E90": ['P190']
 }
 
 RANGE = {
-    "E41": ['P1'],
-    "E55": ['P2', 'P19', 'P21'],
-    "E62": ['P3'],
-    "E52": ['P4', 'P79i', 'P80i'],
-    "E53": ['P7', 'P53', 'P26', 'P27'],
-    "E39": ['P11', 'P14', 'P22', 'P23', 'P28', 'P29'],
-    "E61": ['P79', 'P80', 'P8'],
-    "E12": ['P108'],
+    "E41": ['P1', 'P139', 'P139i'],
+    "E55": ['P2', 'P19', 'P21', 'P32', 'P42', 'P101', 'P103', 'P125', 'P127', 'P127i', 'P135', 'P137i', 'P150', 'P150i', 'P186'],
+    "E62": ['P3', 'P190'],
+    "E52": ['P4', 'P79i', 'P80i', 'P160', 'P164', 'P170i'],
+    "E53": ['P7', 'P53', 'P26', 'P27', 'P54', 'P55', 'P59', 'P59i', 'P74', 'P89', 'P89i', 'P121', 'P121i', 'P122', 'P122i', 'P156', 'P157', 'P161', 'P168i', 'P171', 'P172', 'P172i', 'P197'],
+    "E39": ['P11', 'P14', 'P22', 'P23', 'P28', 'P29', 'P49', 'P50', 'P51', 'P52', 'P69', 'P69i', 'P74i', 'P75i', 'P76i', 'P104', 'P105', 'P107', 'P109', 'P143', 'P144', 'P145', 'P146'],
+    "E61": ['P79', 'P80', 'P8', 'P81', 'P82', 'P170'],
+    "E12": ['P108', 'P186i', 'P187i'],
     "E22": ['P108i'],
-    "E1": ['P1i', 'P2i', 'P3i', 'P15', 'P17'],
-    "E2": ['P4i'],
-    "E5": ['P7i', 'P11i', 'P8i', 'P12i', 'P20'],
-    "E18": ['P53i', 'P5', 'P5i', 'P13', 'P24', 'P25', 'P30'],
-    "E4": ['P9', 'P9i', 'P10', 'P10i'],
-    "E77": ['P12'],
+    "E1": ['P1i', 'P2i', 'P3i', 'P15', 'P17', 'P35', 'P37', 'P38', 'P39', 'P41', 'P48i', 'P62', 'P67', 'P70', 'P71', 'P102', 'P123', 'P129', 'P130', 'P137', 'P138', 'P140', 'P141', 'P177'],
+    "E2": ['P4i', 'P81i', 'P82i', 'P120', 'P120i', 'P173', 'P173i', 'P174', 'P174i', 'P175', 'P175i', 'P176', 'P176i', 'P182', 'P182i', 'P183', 'P183i', 'P184', 'P184i', 'P185', 'P185i', 'P191i'],
+    "E5": ['P7i', 'P11i', 'P8i', 'P12i', 'P20', 'P123i'],
+    "E18": ['P53i', 'P5', 'P5i', 'P13', 'P24', 'P25', 'P30', 'P31', 'P34', 'P44i', 'P45', 'P45i', 'P46', 'P46i', 'P49i', 'P50i', 'P51i', 'P52i', 'P75', 'P110', 'P111', 'P112', 'P113', 'P124', 'P142', 'P198'],
+    "E4": ['P9', 'P9i', 'P10', 'P10i', 'P86', 'P86i'],
+    "E77": ['P12', 'P92', 'P93', 'P94', 'P95', 'P98', 'P151', 'P166', 'P195'],
     "E6": ['P13i'],
-    "E7": ['P14i', 'P15i', 'P16i', 'P17i', 'P19i', 'P20i', 'P21i'],
-    "E19": ['P16'],
-    "E8": ['P22i', 'P23i', 'P24i'],
+    "E7": ['P14i', 'P15i', 'P16i', 'P17i', 'P19i', 'P20i', 'P21i', 'P32i', 'P33i', 'P101i', 'P103i', 'P125i', 'P126i', 'P134', 'P134i', 'P142i'],
+    "E19": ['P16', 'P54i', 'P55i', 'P56i', 'P57i', 'P68', 'P126', 'P188'],
+    "E8": ['P22i', 'P23i', 'P24i', 'P179i'],
     "E9": ['P25i', 'P26i', 'P27i'],
-    "E10": ['P28i', 'P29i', 'P30i']
+    "E10": ['P28i', 'P29i', 'P30i'],
+    "E11": ['P31i'],
+    "E29": ['P33', 'P68i', 'P187', 'P188i'],
+    "E14": ['P34i'],
+    "E15": ['P35i'],
+    "E13": ['P37i', 'P38i', 'P140i', 'P141i', 'P177i'],
+    "E16": ['P39i', 'P40i'],
+    "E54": ['P40', 'P43', 'P90i', 'P91i', 'P191'],
+    "E17": ['P41i', 'P42i'],
+    "E70": ['P43i', 'P106', 'P106i'],
+    "E3": ['P44'],
+    "E42": ['P48'],
+    "E26": ['P56'],
+    "E60": ['P57', 'P90'],
+    "E36": ['P62i', 'P65', 'P65i', 'P130i'],
+    "E73": ['P67i', 'P128', 'P129i', 'P136', 'P136i', 'P138i'],
+    "E31": ['P70i', 'P71i'],
+    "E56": ['P72'],
+    "E33": ['P72i', 'P73', 'P73i'],
+    "E51": ['P76'],
+    "E58": ['P91'],
+    "E63": ['P92i'],
+    "E64": ['P93i'],
+    "E65": ['P94i'],
+    "E66": ['P95i', 'P98i', 'P151i'],
+    "E21": ['P96', 'P97', 'P100', 'P152', 'P152i'],
+    "E67": ['P96i', 'P97i'],
+    "E74": ['P99', 'P107i'],
+    "E68": ['P99i', 'P100i'],
+    "E35": ['P102i'],
+    "E30": ['P104i', 'P105i'],
+    "E78": ['P109i', 'P147'],
+    "E79": ['P110i', 'P111i'],
+    "E80": ['P112i', 'P113i'],
+    "E81": ['P124i'],
+    "E84": ['P128i'],
+    "E92": ['P132', 'P132i', 'P133', 'P133i', 'P160i', 'P161i', 'P164i', 'P165', 'P165i', 'P167', 'P169', 'P196'],
+    "E83": ['P135i'],
+    "E85": ['P143i', 'P144i'],
+    "E86": ['P145i', 'P146i'],
+    "E87": ['P147i'],
+    "E89": ['P148', 'P148i'],
+    "E93": ['P156i', 'P157i', 'P166i', 'P167i', 'P171i', 'P195i', 'P197i', 'P198i'],
+    "E94": ['P168', 'P169i', 'P196i'],
+    "E97": ['P179', 'P180i'],
+    "E98": ['P180'],
+    "E95": ['P189', 'P189i'],
+    "E90": ['P190i']
 }

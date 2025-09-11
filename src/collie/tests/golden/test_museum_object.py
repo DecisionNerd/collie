@@ -5,7 +5,7 @@ Tests the complete workflow from JSON to Markdown to Cypher.
 
 import json
 from pathlib import Path
-from ..models.base import CRMEntity, E22_HumanMadeObject, E12_Production, E53_Place, E52_TimeSpan, E61_TimePrimitive
+from ..models.generated.e_classes import EE1_CRMEntity, EE22_HumanMadeObject, EE12_Production, EE53_Place, EE52_TimeSpan, EE61_TimePrimitive
 from ..io.to_markdown import to_markdown, MarkdownStyle
 from ..io.to_cypher import generate_cypher_script, generate_cypher_parameters
 
@@ -21,26 +21,26 @@ def test_museum_object_workflow():
     entities = []
     for entity_data in data["entities"]:
         if entity_data["class_code"] == "E22":
-            entity = E22_HumanMadeObject(**entity_data)
+            entity = EE22_HumanMadeObject(**entity_data)
         elif entity_data["class_code"] == "E12":
-            entity = E12_Production(**entity_data)
+            entity = EE12_Production(**entity_data)
         elif entity_data["class_code"] == "E53":
-            entity = E53_Place(**entity_data)
+            entity = EE53_Place(**entity_data)
         elif entity_data["class_code"] == "E52":
-            entity = E52_TimeSpan(**entity_data)
+            entity = EE52_TimeSpan(**entity_data)
         elif entity_data["class_code"] == "E61":
-            entity = E61_TimePrimitive(**entity_data)
+            entity = EE61_TimePrimitive(**entity_data)
         else:
-            entity = CRMEntity(**entity_data)
+            entity = EE1_CRMEntity(**entity_data)
         
         entities.append(entity)
     
     # Test Markdown rendering
-    vase = entities[0]  # E22_HumanMadeObject
+    vase = entities[0]  # EE22_HumanMadeObject
     markdown_card = to_markdown(vase, MarkdownStyle.CARD)
     markdown_detailed = to_markdown(vase, MarkdownStyle.DETAILED)
     markdown_table = to_markdown(entities, MarkdownStyle.TABLE)
-    markdown_narrative = to_markdown(entities[1], MarkdownStyle.NARRATIVE)  # E12_Production
+    markdown_narrative = to_markdown(entities[1], MarkdownStyle.NARRATIVE)  # EE12_Production
     
     # Verify Markdown output contains expected elements
     assert "### E22 · Human-Made Object · Ancient Greek Vase (obj_001)" in markdown_card
@@ -118,17 +118,17 @@ def test_museum_object_validation():
     entities = []
     for entity_data in data["entities"]:
         if entity_data["class_code"] == "E22":
-            entity = E22_HumanMadeObject(**entity_data)
+            entity = EE22_HumanMadeObject(**entity_data)
         elif entity_data["class_code"] == "E12":
-            entity = E12_Production(**entity_data)
+            entity = EE12_Production(**entity_data)
         elif entity_data["class_code"] == "E53":
-            entity = E53_Place(**entity_data)
+            entity = EE53_Place(**entity_data)
         elif entity_data["class_code"] == "E52":
-            entity = E52_TimeSpan(**entity_data)
+            entity = EE52_TimeSpan(**entity_data)
         elif entity_data["class_code"] == "E61":
-            entity = E61_TimePrimitive(**entity_data)
+            entity = EE61_TimePrimitive(**entity_data)
         else:
-            entity = CRMEntity(**entity_data)
+            entity = EE1_CRMEntity(**entity_data)
         
         entities.append(entity)
     
@@ -152,17 +152,17 @@ def test_museum_object_roundtrip():
     entities = []
     for entity_data in original_data["entities"]:
         if entity_data["class_code"] == "E22":
-            entity = E22_HumanMadeObject(**entity_data)
+            entity = EE22_HumanMadeObject(**entity_data)
         elif entity_data["class_code"] == "E12":
-            entity = E12_Production(**entity_data)
+            entity = EE12_Production(**entity_data)
         elif entity_data["class_code"] == "E53":
-            entity = E53_Place(**entity_data)
+            entity = EE53_Place(**entity_data)
         elif entity_data["class_code"] == "E52":
-            entity = E52_TimeSpan(**entity_data)
+            entity = EE52_TimeSpan(**entity_data)
         elif entity_data["class_code"] == "E61":
-            entity = E61_TimePrimitive(**entity_data)
+            entity = EE61_TimePrimitive(**entity_data)
         else:
-            entity = CRMEntity(**entity_data)
+            entity = EE1_CRMEntity(**entity_data)
         
         entities.append(entity)
     

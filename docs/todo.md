@@ -16,6 +16,9 @@
 ### Next Steps (Phase 2)
 - [x] Run code generation scripts to update models from YAML
 - [x] Add more comprehensive YAML coverage for all CRM 7.1.3 classes/properties
+- [x] Complete CIDOC CRM v7.1.3 coverage (99 classes, 322 properties)
+- [x] Fix duplicate class definitions and regenerate models
+- [x] Test generated code for correctness
 - [ ] Implement advanced validation features (completeness profiles)
 - [ ] Add performance testing for large batches
 - [ ] Create additional example datasets
@@ -49,9 +52,9 @@
 
 ## Project Status
 - **Phase 1 Complete**: Core CIDOC CRM implementation is scaffolded and ready for development
-- **Phase 2 Major Progress**: Comprehensive YAML coverage, code generation, and UUID refactoring implemented
+- **Phase 2 Complete**: Comprehensive YAML coverage, code generation, UUID refactoring, and complete CIDOC CRM v7.1.3 coverage implemented
 - **Architecture**: Follows plan.md exactly with codegen/, models/, io/, validators/, tests/, examples/
-- **Coverage**: Now covers 99 E-classes and 64 P-properties (comprehensive CRM 7.1.3 coverage)
+- **Coverage**: Now covers 99 E-classes and 322 P-properties (complete CRM 7.1.3 coverage)
 - **Code Generation**: Automated YAML → Pydantic model generation working
 - **UUID Support**: All entities now use UUIDs for better uniqueness and data integrity
 - **Testing**: Unit tests, golden tests, and validation tests implemented and updated for UUIDs

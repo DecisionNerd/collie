@@ -5,10 +5,16 @@
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Tests](https://img.shields.io/badge/tests-pytest-blue.svg)](https://pytest.org/)
+[![Package: uv](https://img.shields.io/badge/package%20manager-uv-orange.svg)](https://github.com/astral-sh/uv)
+[![CIDOC CRM](https://img.shields.io/badge/CIDOC%20CRM-v7.1.3-green.svg)](https://www.cidoc-crm.org/)
+[![Pydantic](https://img.shields.io/badge/Pydantic-2.0+-red.svg)](https://pydantic.dev/)
+[![Neo4j Compatible](https://img.shields.io/badge/Neo4j-Compatible-blue.svg)](https://neo4j.com/)
+[![Memgraph Compatible](https://img.shields.io/badge/Memgraph-Compatible-purple.svg)](https://memgraph.com/)
 
 ![COLLIE logo](collie-logo.png)
 
-A developer-friendly toolkit for working with the **CIDOC CRM v7.1.3** in modern data workflows. COLLIE provides Pydantic models, Markdown renderers, and Cypher emitters that bridge the gap between conceptual rigor and developer usability.
+A developer-friendly toolkit for working with the **CIDOC CRM v7.1.3** in modern data workflows. COLLIE provides complete Pydantic models (99 classes, 322 properties), Markdown renderers, and Cypher emitters that bridge the gap between conceptual rigor and developer usability.
 
 ## 🎯 Why COLLIE?
 
@@ -58,10 +64,25 @@ print(cypher)
 ## 📋 Core Features
 
 ### 🏗️ **Pydantic Models**
-- Complete CIDOC CRM v7.1.3 coverage (99 E-classes, 64 P-properties)
+- Complete CIDOC CRM v7.1.3 coverage (99 E-classes, 322 P-properties)
 - UUID-based entity identification
 - Canonical JSON schema with stable IDs and explicit cross-references
 - Auto-generated from curated YAML specifications
+
+#### Class Naming Convention
+
+Collie uses a consistent naming pattern for generated Python classes:
+
+- **Official CIDOC CRM**: `E1`, `E2`, `E22`, `E96` (class codes)
+- **Collie Python Classes**: `EE1_CRMEntity`, `EE2_TemporalEntity`, `EE22_HumanMadeObject`, `EE96_Purchase`
+- **Pattern**: `E{code}_{label_without_spaces}`
+
+**Examples:**
+- `E1` "CRM Entity" → `EE1_CRMEntity`
+- `E22` "Human-Made Object" → `EE22_HumanMadeObject`  
+- `E96` "Purchase" → `EE96_Purchase`
+
+The `EE` prefix identifies Collie-generated Python classes for CIDOC CRM Entities, making them easily distinguishable from the official CRM class codes.
 
 ### 📝 **Markdown Renderers**
 - **Entity Cards**: Concise summaries optimized for LLM prompts
@@ -176,10 +197,10 @@ We welcome contributions! Please see our [development guidelines](docs/plan.md) 
 ## 📈 Project Status
 
 - **Phase 1**: ✅ Complete - Core CIDOC CRM implementation
-- **Phase 2**: 🚧 In Progress - Advanced validation and performance
+- **Phase 2**: ✅ Complete - Advanced validation, performance, and complete CRM coverage
 - **Phase 3**: 📋 Planned - Profile packs and web interface
 
-**Current Coverage**: 99 E-classes, 64 P-properties (comprehensive CRM 7.1.3)
+**Current Coverage**: 99 E-classes, 322 P-properties (complete CRM 7.1.3)
 
 ## 📄 License
 
