@@ -3,8 +3,9 @@ Base CRM entity model and core wrappers.
 Provides the foundation for all CIDOC CRM E-class models.
 """
 
-from typing import Optional, List, Dict, Any
-from pydantic import BaseModel, Field
+from typing import Optional, List, Dict, Any, Union
+from uuid import UUID, uuid4
+from pydantic import BaseModel, Field, validator
 
 
 class CRMEntity(BaseModel):
@@ -12,18 +13,29 @@ class CRMEntity(BaseModel):
     Base class for all CIDOC CRM entities.
     
     Every CRM entity has:
-    - id: unique identifier
+    - id: unique identifier (UUID)
     - class_code: E-number (e.g., "E22")
     - label: human-readable name
     - notes: additional textual information
     - type: list of type assignments
     """
     
-    id: str = Field(..., description="Unique identifier for this entity")
+    id: UUID = Field(default_factory=uuid4, description="Unique identifier for this entity")
     class_code: str = Field(..., description="CIDOC CRM E-class code")
     label: Optional[str] = Field(None, description="Human-readable label")
     notes: Optional[str] = Field(None, description="Additional textual notes")
     type: List[str] = Field(default_factory=list, description="Type assignments")
+    
+    @validator('id', pre=True)
+    def convert_string_to_uuid(cls, v):
+        """Convert string IDs to UUIDs for backward compatibility."""
+        if isinstance(v, str):
+            try:
+                return UUID(v)
+            except ValueError:
+                # If string is not a valid UUID, generate a new one
+                return uuid4()
+        return v
     
     class Config:
         json_schema_extra = {
@@ -46,10 +58,21 @@ class CRMRelation(BaseModel):
     Used internally for relationship expansion and Cypher emission.
     """
     
-    src: str = Field(..., description="Source entity ID")
+    src: UUID = Field(..., description="Source entity ID")
     type: str = Field(..., description="P-property code (e.g., 'P108')")
-    tgt: str = Field(..., description="Target entity ID")
+    tgt: UUID = Field(..., description="Target entity ID")
     props: Optional[Dict[str, Any]] = Field(None, description="Additional relationship properties")
+    
+    @validator('src', 'tgt', pre=True)
+    def convert_string_to_uuid(cls, v):
+        """Convert string IDs to UUIDs for backward compatibility."""
+        if isinstance(v, str):
+            try:
+                return UUID(v)
+            except ValueError:
+                # If string is not a valid UUID, generate a new one
+                return uuid4()
+        return v
     
     class Config:
         json_schema_extra = {
@@ -83,8 +106,8 @@ class E5_Event(CRMEntity):
     class_code: str = "E5"
     
     # Shortcut fields
-    timespan: Optional[str] = Field(None, description="Time-span entity ID")
-    took_place_at: Optional[str] = Field(None, description="Place entity ID")
+    timespan: Optional[UUID] = Field(None, description="Time-span entity ID")
+    took_place_at: Optional[UUID] = Field(None, description="Place entity ID")
     
     class Config:
         json_schema_extra = {
@@ -131,8 +154,8 @@ class E22_HumanMadeObject(CRMEntity):
     class_code: str = "E22"
     
     # Shortcut fields
-    current_location: Optional[str] = Field(None, description="Current location entity ID")
-    produced_by: Optional[str] = Field(None, description="Production event entity ID")
+    current_location: Optional[UUID] = Field(None, description="Current location entity ID")
+    produced_by: Optional[UUID] = Field(None, description="Production event entity ID")
     
     class Config:
         json_schema_extra = {
@@ -146,7 +169,7 @@ class E21_Person(CRMEntity):
     class_code: str = "E21"
     
     # Shortcut fields
-    current_location: Optional[str] = Field(None, description="Current location entity ID")
+    current_location: Optional[UUID] = Field(None, description="Current location entity ID")
     
     class Config:
         json_schema_extra = {
@@ -182,8 +205,8 @@ class E52_TimeSpan(CRMEntity):
     class_code: str = "E52"
     
     # Shortcut fields
-    begin_of_the_begin: Optional[str] = Field(None, description="Beginning time primitive ID")
-    end_of_the_end: Optional[str] = Field(None, description="End time primitive ID")
+    begin_of_the_begin: Optional[UUID] = Field(None, description="Beginning time primitive ID")
+    end_of_the_end: Optional[UUID] = Field(None, description="End time primitive ID")
     
     class Config:
         json_schema_extra = {

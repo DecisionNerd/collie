@@ -1,55 +1,55 @@
 {
   "entities": [
     {
-      "id": "obj_001",
+      "id": "192f3e61-b22d-4f94-a2cf-c6ae1418ee83",
       "class_code": "E22",
       "label": "Ancient Greek Vase",
       "type": ["E55:Vessel", "E55:Ceramic"],
       "notes": "A beautifully preserved amphora from the 5th century BCE",
-      "current_location": "place_001",
-      "produced_by": "prod_001"
+      "current_location": "2cd977c8-de61-48d8-a39c-681c0481e1fd",
+      "produced_by": "f7111fe2-fed1-4cd3-8a89-b25ef835b517"
     },
     {
-      "id": "prod_001",
+      "id": "f7111fe2-fed1-4cd3-8a89-b25ef835b517",
       "class_code": "E12",
       "label": "Vase Production",
       "type": ["E55:Manufacturing"],
       "notes": "The creation of the ancient Greek vase",
-      "timespan": "timespan_001",
-      "took_place_at": "place_002"
+      "timespan": "6e032589-d409-4655-9d47-e32bbb88309f",
+      "took_place_at": "425e5538-d2d7-408c-8842-c1be70d54c68"
     },
     {
-      "id": "place_001",
+      "id": "2cd977c8-de61-48d8-a39c-681c0481e1fd",
       "class_code": "E53",
       "label": "Metropolitan Museum of Art",
       "type": ["E55:Museum"],
       "notes": "Current location of the vase"
     },
     {
-      "id": "place_002",
+      "id": "425e5538-d2d7-408c-8842-c1be70d54c68",
       "class_code": "E53",
       "label": "Athens, Greece",
       "type": ["E55:City"],
       "notes": "Where the vase was originally produced"
     },
     {
-      "id": "timespan_001",
+      "id": "6e032589-d409-4655-9d47-e32bbb88309f",
       "class_code": "E52",
       "label": "5th Century BCE",
       "type": ["E55:TimePeriod"],
       "notes": "Approximate time of vase production",
-      "begin_of_the_begin": "time_001",
-      "end_of_the_end": "time_002"
+      "begin_of_the_begin": "2ae15b21-5b72-4913-9cc8-bbc30c03c46c",
+      "end_of_the_end": "e20ee443-8065-4c6d-9bff-5992e25877c2"
     },
     {
-      "id": "time_001",
+      "id": "2ae15b21-5b72-4913-9cc8-bbc30c03c46c",
       "class_code": "E61",
       "label": "500 BCE",
       "type": ["E55:Date"],
       "notes": "Beginning of production period"
     },
     {
-      "id": "time_002",
+      "id": "e20ee443-8065-4c6d-9bff-5992e25877c2",
       "class_code": "E61",
       "label": "400 BCE",
       "type": ["E55:Date"],

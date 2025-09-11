@@ -49,17 +49,20 @@
 
 ## Project Status
 - **Phase 1 Complete**: Core CIDOC CRM implementation is scaffolded and ready for development
-- **Phase 2 Major Progress**: Comprehensive YAML coverage and code generation implemented
+- **Phase 2 Major Progress**: Comprehensive YAML coverage, code generation, and UUID refactoring implemented
 - **Architecture**: Follows plan.md exactly with codegen/, models/, io/, validators/, tests/, examples/
 - **Coverage**: Now covers 99 E-classes and 64 P-properties (comprehensive CRM 7.1.3 coverage)
 - **Code Generation**: Automated YAML → Pydantic model generation working
-- **Testing**: Unit tests, golden tests, and validation tests implemented
+- **UUID Support**: All entities now use UUIDs for better uniqueness and data integrity
+- **Testing**: Unit tests, golden tests, and validation tests implemented and updated for UUIDs
 - **Documentation**: HOWTOs.md provides comprehensive modeling guide
-- **Examples**: Museum object lifecycle example demonstrates complete workflow
+- **Examples**: Museum object lifecycle example demonstrates complete workflow with UUIDs
 
 ## Notes
 - Project has evolved from simple pydantic_ai demo to full CIDOC CRM toolkit
 - All scaffolding follows the comprehensive plan in docs/plan.md
-- Ready for Phase 2: expanding YAML coverage and running code generation
+- Successfully refactored from string IDs to UUIDs for better data integrity
+- UUIDs provide better uniqueness guarantees and follow best practices for entity identification
+- All components (models, renderers, emitters, validators, tests) updated for UUID support
 - Core functionality: JSON ↔ Markdown ↔ Cypher with CRM validation
 - No RDF/OWL/JSON-LD dependencies as per mission

@@ -5,6 +5,7 @@ Provides card, detailed, table, and narrative rendering styles.
 
 from enum import Enum
 from typing import Dict, List, Optional, Any
+from uuid import UUID
 from ..models.base import CRMEntity
 from ..properties import P
 
@@ -79,7 +80,7 @@ def _render_card(entity: CRMEntity, aliases: Optional[Dict[str, str]], show_code
     header_parts = [entity.class_code, class_name]
     if entity.label:
         header_parts.append(entity.label)
-    header_parts.append(f"({entity.id})")
+    header_parts.append(f"({_format_uuid_for_display(entity.id)})")
     
     header = "### " + " · ".join(header_parts)
     
@@ -91,10 +92,11 @@ def _render_card(entity: CRMEntity, aliases: Optional[Dict[str, str]], show_code
         value = _get_field_value(entity, field)
         if value:
             friendly_name = _get_friendly_property_name(field, aliases)
+            formatted_value = _format_uuid_for_display(value)
             if show_codes:
-                body_lines.append(f"- **{friendly_name}** (`{field}`): {value}")
+                body_lines.append(f"- **{friendly_name}** (`{field}`): {formatted_value}")
             else:
-                body_lines.append(f"- **{friendly_name}**: {value}")
+                body_lines.append(f"- **{friendly_name}**: {formatted_value}")
     
     # Add notes if present
     if entity.notes:
@@ -112,7 +114,7 @@ def _render_detailed(entity: CRMEntity, aliases: Optional[Dict[str, str]], show_
     header = f"## {entity.class_code} · {class_name}"
     if entity.label:
         header += f" — {entity.label}"
-    header += f" ({entity.id})"
+    header += f" ({_format_uuid_for_display(entity.id)})"
     
     # Build detailed body
     body_lines = []
@@ -121,10 +123,11 @@ def _render_detailed(entity: CRMEntity, aliases: Optional[Dict[str, str]], show_
     for field_name, field_value in entity.dict().items():
         if field_value and field_name not in ['id', 'class_code']:
             friendly_name = _get_friendly_property_name(field_name, aliases)
+            formatted_value = _format_uuid_for_display(field_value)
             if show_codes:
-                body_lines.append(f"- **{friendly_name}** (`{field_name}`): {field_value}")
+                body_lines.append(f"- **{friendly_name}** (`{field_name}`): {formatted_value}")
             else:
-                body_lines.append(f"- **{friendly_name}**: {field_value}")
+                body_lines.append(f"- **{friendly_name}**: {formatted_value}")
     
     return header + "\n\n" + "\n".join(body_lines)
 
@@ -156,9 +159,9 @@ def _render_table(
             if value is None:
                 value = ""
             elif isinstance(value, list):
-                value = ", ".join(str(v) for v in value)
+                value = ", ".join(_format_uuid_for_display(v) for v in value)
             else:
-                value = str(value)
+                value = _format_uuid_for_display(value)
             row_values.append(value)
         data_rows.append("| " + " | ".join(row_values) + " |")
     
@@ -181,18 +184,18 @@ def _render_narrative(entity: CRMEntity, aliases: Optional[Dict[str, str]], show
     if entity.class_code in ['E5', 'E7', 'E8', 'E12']:
         # Event-specific narrative
         if hasattr(entity, 'timespan') and entity.timespan:
-            narrative_parts.append(f"that occurred during {entity.timespan}")
+            narrative_parts.append(f"that occurred during {_format_uuid_for_display(entity.timespan)}")
         
         if hasattr(entity, 'took_place_at') and entity.took_place_at:
-            narrative_parts.append(f"at {entity.took_place_at}")
+            narrative_parts.append(f"at {_format_uuid_for_display(entity.took_place_at)}")
     
     elif entity.class_code == 'E22':
         # Human-made object narrative
         if hasattr(entity, 'produced_by') and entity.produced_by:
-            narrative_parts.append(f"that was produced by {entity.produced_by}")
+            narrative_parts.append(f"that was produced by {_format_uuid_for_display(entity.produced_by)}")
         
         if hasattr(entity, 'current_location') and entity.current_location:
-            narrative_parts.append(f"currently located at {entity.current_location}")
+            narrative_parts.append(f"currently located at {_format_uuid_for_display(entity.current_location)}")
     
     narrative = " ".join(narrative_parts) + "."
     
@@ -272,3 +275,19 @@ def _get_field_value(entity: CRMEntity, field_name: str) -> Any:
     if hasattr(entity, field_name):
         return getattr(entity, field_name)
     return None
+
+
+def _format_uuid_for_display(uuid_value: Any) -> str:
+    """Format UUID for display in Markdown."""
+    if isinstance(uuid_value, UUID):
+        # Show first 8 characters for readability
+        return str(uuid_value)[:8] + "..."
+    elif isinstance(uuid_value, str):
+        try:
+            # Try to parse as UUID
+            uuid_obj = UUID(uuid_value)
+            return str(uuid_obj)[:8] + "..."
+        except ValueError:
+            # Not a UUID, return as-is
+            return uuid_value
+    return str(uuid_value)

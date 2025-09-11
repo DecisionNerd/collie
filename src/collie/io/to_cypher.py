@@ -4,6 +4,7 @@ Generates idempotent MERGE/UNWIND scripts for Neo4j and Memgraph.
 """
 
 from typing import Iterable, List, Dict, Any, Optional
+from uuid import UUID
 from ..models.base import CRMEntity, CRMRelation
 from ..properties import P
 
@@ -21,7 +22,7 @@ def emit_nodes(entities: Iterable[CRMEntity]) -> Dict[str, List[Dict[str, Any]]]
     nodes = []
     for entity in entities:
         node_data = {
-            "id": entity.id,
+            "id": str(entity.id),  # Convert UUID to string for Cypher
             "class_code": entity.class_code,
             "label": entity.label,
             "notes": entity.notes,
@@ -54,9 +55,9 @@ def emit_relationships(entities: Iterable[CRMEntity]) -> Dict[str, List[Dict[str
         if hasattr(entity, "participants"):
             for participant in entity.participants:
                 rels.append({
-                    "src": entity.id,
+                    "src": str(entity.id),  # Convert UUID to string
                     "type": "P11_HAD_PARTICIPANT",
-                    "tgt": participant
+                    "tgt": str(participant)  # Convert UUID to string
                 })
     
     return {"rels": rels}
@@ -89,9 +90,9 @@ def expand_shortcuts(entity: CRMEntity) -> List[Dict[str, Any]]:
             target_id = getattr(entity, shortcut_field)
             if target_id:
                 rels.append({
-                    "src": entity.id,
+                    "src": str(entity.id),  # Convert UUID to string
                     "type": f"{p_code}_{P[p_code]['aliases'][0]}",
-                    "tgt": target_id
+                    "tgt": str(target_id)  # Convert UUID to string
                 })
     
     return rels

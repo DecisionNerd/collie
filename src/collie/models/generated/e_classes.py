@@ -4,6 +4,7 @@ Generated from YAML specifications in codegen/specs/
 """
 
 from typing import Optional, List
+from uuid import UUID
 from pydantic import BaseModel, Field
 from ..models.base import CRMEntity
 
@@ -64,8 +65,8 @@ class EE5_Event(EE2_Event):
     """CIDOC CRM E5: Event"""
     class_code: str = "E5"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -78,8 +79,8 @@ class EE6_Destruction(EE5_Destruction):
     """CIDOC CRM E6: Destruction"""
     class_code: str = "E6"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -92,8 +93,8 @@ class EE7_Activity(EE5_Activity):
     """CIDOC CRM E7: Activity"""
     class_code: str = "E7"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -106,8 +107,8 @@ class EE8_Acquisition(EE7_Acquisition):
     """CIDOC CRM E8: Acquisition"""
     class_code: str = "E8"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -120,8 +121,8 @@ class EE9_Move(EE7_Move):
     """CIDOC CRM E9: Move"""
     class_code: str = "E9"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -134,8 +135,8 @@ class EE10_TransferofCustody(EE7_TransferofCustody):
     """CIDOC CRM E10: Transfer of Custody"""
     class_code: str = "E10"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -148,8 +149,8 @@ class EE11_Modification(EE7_Modification):
     """CIDOC CRM E11: Modification"""
     class_code: str = "E11"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -162,8 +163,8 @@ class EE12_Production(EE7_Production):
     """CIDOC CRM E12: Production"""
     class_code: str = "E12"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -176,8 +177,8 @@ class EE13_AttributeAssignment(EE7_AttributeAssignment):
     """CIDOC CRM E13: Attribute Assignment"""
     class_code: str = "E13"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -190,8 +191,8 @@ class EE14_ConditionAssessment(EE13_ConditionAssessment):
     """CIDOC CRM E14: Condition Assessment"""
     class_code: str = "E14"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -204,8 +205,8 @@ class EE15_IdentifierAssignment(EE13_IdentifierAssignment):
     """CIDOC CRM E15: Identifier Assignment"""
     class_code: str = "E15"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -218,8 +219,8 @@ class EE16_Measurement(EE13_Measurement):
     """CIDOC CRM E16: Measurement"""
     class_code: str = "E16"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -232,8 +233,8 @@ class EE17_TypeAssignment(EE13_TypeAssignment):
     """CIDOC CRM E17: Type Assignment"""
     class_code: str = "E17"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -259,7 +260,7 @@ class EE19_PhysicalObject(EE18_PhysicalObject):
     """CIDOC CRM E19: Physical Object"""
     class_code: str = "E19"
     
-    current_location: Optional[str] = None
+    current_location: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -272,7 +273,7 @@ class EE20_BiologicalObject(EE19_BiologicalObject):
     """CIDOC CRM E20: Biological Object"""
     class_code: str = "E20"
     
-    current_location: Optional[str] = None
+    current_location: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -285,7 +286,7 @@ class EE21_Person(EE20_Person):
     """CIDOC CRM E21: Person"""
     class_code: str = "E21"
     
-    current_location: Optional[str] = None
+    current_location: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -298,8 +299,8 @@ class EE22_HumanMadeObject(EE19_HumanMadeObject):
     """CIDOC CRM E22: Human-Made Object"""
     class_code: str = "E22"
     
-    current_location: Optional[str] = None
-    produced_by: Optional[str] = None
+    current_location: Optional[UUID] = None
+    produced_by: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -325,7 +326,7 @@ class EE24_PhysicalManMadeThing(EE18_PhysicalManMadeThing):
     """CIDOC CRM E24: Physical Man-Made Thing"""
     class_code: str = "E24"
     
-    current_location: Optional[str] = None
+    current_location: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -338,7 +339,7 @@ class EE25_ManMadeFeature(EE24_ManMadeFeature):
     """CIDOC CRM E25: Man-Made Feature"""
     class_code: str = "E25"
     
-    current_location: Optional[str] = None
+    current_location: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -351,7 +352,7 @@ class EE26_PhysicalFeature(EE18_PhysicalFeature):
     """CIDOC CRM E26: Physical Feature"""
     class_code: str = "E26"
     
-    current_location: Optional[str] = None
+    current_location: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -364,7 +365,7 @@ class EE27_Site(EE26_Site):
     """CIDOC CRM E27: Site"""
     class_code: str = "E27"
     
-    current_location: Optional[str] = None
+    current_location: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -689,8 +690,8 @@ class EE52_TimeSpan(EE1_TimeSpan):
     """CIDOC CRM E52: Time-Span"""
     class_code: str = "E52"
     
-    begin_of_the_begin: Optional[str] = None
-    end_of_the_end: Optional[str] = None
+    begin_of_the_begin: Optional[UUID] = None
+    end_of_the_end: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -833,8 +834,8 @@ class EE63_BeginningofExistence(EE5_BeginningofExistence):
     """CIDOC CRM E63: Beginning of Existence"""
     class_code: str = "E63"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -847,8 +848,8 @@ class EE64_EndofExistence(EE5_EndofExistence):
     """CIDOC CRM E64: End of Existence"""
     class_code: str = "E64"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -861,8 +862,8 @@ class EE65_Creation(EE63_Creation):
     """CIDOC CRM E65: Creation"""
     class_code: str = "E65"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -875,8 +876,8 @@ class EE66_Formation(EE63_Formation):
     """CIDOC CRM E66: Formation"""
     class_code: str = "E66"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -889,8 +890,8 @@ class EE67_Birth(EE66_Birth):
     """CIDOC CRM E67: Birth"""
     class_code: str = "E67"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -903,8 +904,8 @@ class EE68_Death(EE64_Death):
     """CIDOC CRM E68: Death"""
     class_code: str = "E68"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -917,8 +918,8 @@ class EE69_Death(EE64_Death):
     """CIDOC CRM E69: Death"""
     class_code: str = "E69"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1048,8 +1049,8 @@ class EE79_PartAddition(EE11_PartAddition):
     """CIDOC CRM E79: Part Addition"""
     class_code: str = "E79"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1062,8 +1063,8 @@ class EE80_PartRemoval(EE11_PartRemoval):
     """CIDOC CRM E80: Part Removal"""
     class_code: str = "E80"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1076,8 +1077,8 @@ class EE81_Transformation(EE11_Transformation):
     """CIDOC CRM E81: Transformation"""
     class_code: str = "E81"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1103,8 +1104,8 @@ class EE83_TypeCreation(EE65_TypeCreation):
     """CIDOC CRM E83: Type Creation"""
     class_code: str = "E83"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1130,8 +1131,8 @@ class EE85_Joining(EE7_Joining):
     """CIDOC CRM E85: Joining"""
     class_code: str = "E85"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1144,8 +1145,8 @@ class EE86_Leaving(EE7_Leaving):
     """CIDOC CRM E86: Leaving"""
     class_code: str = "E86"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1158,8 +1159,8 @@ class EE87_CurationActivity(EE7_CurationActivity):
     """CIDOC CRM E87: Curation Activity"""
     class_code: str = "E87"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1562,8 +1563,8 @@ class EE63_BeginningofExistence(EE5_BeginningofExistence):
     """CIDOC CRM E63: Beginning of Existence"""
     class_code: str = "E63"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1576,8 +1577,8 @@ class EE64_EndofExistence(EE5_EndofExistence):
     """CIDOC CRM E64: End of Existence"""
     class_code: str = "E64"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1590,8 +1591,8 @@ class EE65_Creation(EE63_Creation):
     """CIDOC CRM E65: Creation"""
     class_code: str = "E65"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1604,8 +1605,8 @@ class EE66_Formation(EE63_Formation):
     """CIDOC CRM E66: Formation"""
     class_code: str = "E66"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1618,8 +1619,8 @@ class EE67_Birth(EE66_Birth):
     """CIDOC CRM E67: Birth"""
     class_code: str = "E67"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1632,8 +1633,8 @@ class EE68_Death(EE64_Death):
     """CIDOC CRM E68: Death"""
     class_code: str = "E68"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1646,8 +1647,8 @@ class EE69_Death(EE64_Death):
     """CIDOC CRM E69: Death"""
     class_code: str = "E69"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1764,8 +1765,8 @@ class EE79_PartAddition(EE11_PartAddition):
     """CIDOC CRM E79: Part Addition"""
     class_code: str = "E79"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1778,8 +1779,8 @@ class EE80_PartRemoval(EE11_PartRemoval):
     """CIDOC CRM E80: Part Removal"""
     class_code: str = "E80"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1792,8 +1793,8 @@ class EE81_Transformation(EE11_Transformation):
     """CIDOC CRM E81: Transformation"""
     class_code: str = "E81"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1819,8 +1820,8 @@ class EE83_TypeCreation(EE65_TypeCreation):
     """CIDOC CRM E83: Type Creation"""
     class_code: str = "E83"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1846,8 +1847,8 @@ class EE85_Joining(EE7_Joining):
     """CIDOC CRM E85: Joining"""
     class_code: str = "E85"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1860,8 +1861,8 @@ class EE86_Leaving(EE7_Leaving):
     """CIDOC CRM E86: Leaving"""
     class_code: str = "E86"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {
@@ -1874,8 +1875,8 @@ class EE87_CurationActivity(EE7_CurationActivity):
     """CIDOC CRM E87: Curation Activity"""
     class_code: str = "E87"
     
-    timespan: Optional[str] = None
-    took_place_at: Optional[str] = None
+    timespan: Optional[UUID] = None
+    took_place_at: Optional[UUID] = None
     
     class Config:
         json_schema_extra = {

@@ -7,6 +7,7 @@ Generates e_classes.py with all E-class models.
 import yaml
 from pathlib import Path
 from typing import Dict, List, Any
+from uuid import UUID
 
 
 def load_yaml_specs(specs_dir: Path) -> Dict[str, Any]:
@@ -54,7 +55,8 @@ def generate_class_model(class_spec: Dict[str, Any]) -> str:
     for shortcut in shortcuts:
         prop_code = shortcut["property"]
         alias_field = shortcut["alias_field"]
-        shortcut_fields.append(f'    {alias_field}: Optional[str] = None')
+        field_type = shortcut.get("field_type", "UUID")
+        shortcut_fields.append(f'    {alias_field}: Optional[{field_type}] = None')
     
     shortcut_fields_str = "\n".join(shortcut_fields) if shortcut_fields else "    pass"
     
@@ -91,6 +93,7 @@ Generated from YAML specifications in codegen/specs/
 """
 
 from typing import Optional, List
+from uuid import UUID
 from pydantic import BaseModel, Field
 from ..models.base import CRMEntity
 

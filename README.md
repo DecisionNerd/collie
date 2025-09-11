@@ -1,34 +1,196 @@
 # COLLIE
-Classful Ontology for Life-Events Information Extraction
+
+**Classful Ontology for Life-Events Information Extraction**
+
+[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 ![COLLIE logo](collie-logo.png)
 
+A developer-friendly toolkit for working with the **CIDOC CRM v7.1.3** in modern data workflows. COLLIE provides Pydantic models, Markdown renderers, and Cypher emitters that bridge the gap between conceptual rigor and developer usability.
 
+## 🎯 Why COLLIE?
 
-## CIDOC CRM
+Cultural heritage and information extraction projects often need a **CRM-compliant backbone** without the overhead of RDF stacks. COLLIE:
 
-The CIDOC Conceptual Reference Model (“CIDOC CRM”), a formal ontology intended to facilitate the integration, mediation and interchange of heterogeneous cultural heritage information and similar information from other domains.
+- ✅ Keeps the conceptual rigor of CIDOC CRM
+- ✅ Provides lean, open-world Pydantic validation  
+- ✅ Outputs formats directly usable by LLMs (Markdown) and LPGs (Cypher)
+- ✅ Prioritizes ergonomics and performance for real-world extraction pipelines
+- ✅ Zero RDF/OWL/JSON-LD dependencies
 
-### Objectives of the CIDOC CRM
-The primary role of the CIDOC CRM is to enable the exchange and integration of information from heterogeneous sources for the reconstruction and interpretation of the past at a human scale, based on all kinds of material evidence, including texts, audio-visual material and oral tradition. It starts from, but is not limited to, the needs of museum documentation and research based on museum holdings. It aims at providing the semantic definitions and clarifications needed to transform disparate, localised information sources into a coherent global resource, be it within a larger institution, in intranets or on the Internet, and to make it available for scholarly interpretation and scientific evaluation. These goals determine the constructs and level of detail of the CIDOC CRM.
+## 🚀 Quick Start
 
-More specifically, it defines, in terms of a formal ontology, the underlying semantics of database schemata and structured documents used in the documentation of cultural heritage and scientific activities. In particular, it defines the semantics related to the study of the past and current state of our world, as it is characteristic for museums, but also or other cultural heritage institutions and disciplines. It does not define any of the terminology appearing typically as data in the respective data structures; it foresees, however, the characteristic relationships for its use. It does not aim at proposing what cultural heritage institutions should document. Rather, it explains the logic of what they actually currently document, and thereby enables semantic interoperability.
+### Installation
 
-The CIDOC CRM intends, moreover, to provide a model of the intellectual structure of the respective kinds of mentioned documentation in logical terms. As such, it has not been optimised for implementation specific storage and processing factors. Actual system implementations may lead to solutions where elements and links between relevant elements of our conceptualizations are no longer explicit in a database or other structured storage system. For instance, the birth event that connects elements such as father, mother, birth date, birth place may not appear in the database, in order to save storage space or response time of the system. The CIDOC CRM provides a conceptual and technical means to explain how such apparently disparate entities are semantically and logically interconnected, and how the ability of the database to answer certain intellectual questions is affected by the omission of such elements and links.
+```bash
+# Using uv (recommended)
+uv add collie
 
-The CIDOC CRM aims to support the following specific functionalities:
+# Or with pip
+pip install collie
+```
 
-- Inform developers of information systems as a guide to good practice in conceptual modelling, in order to effectively structure and relate information assets of cultural documentation.
-- Serve as a common language for domain experts and IT developers to formulate requirements and to agree on system functionalities with respect to the correct handling of cultural contents.
-- To serve as a formal language for the identification of common information contents in different data formats; in particular, to support the implementation of automatic data transformation algorithms from local to global data structures without loss of meaning. The latter being useful for data exchange, data migration from legacy systems, data information integration and mediation of heterogeneous sources.
-- To support associative queries against integrated resources by providing a global model of the basic classes and their associations to formulate such queries.
-- It is further believed that advanced natural language algorithms and case-specific heuristics can take significant advantage of the CIDOC CRM to resolve free text information into a formal logical form, if that is regarded beneficial. The CIDOC CRM is not thought, however, to be a means to replace scholarly text, rich in meaning, by logical forms, but only a means to identify related data.
+### Basic Usage
 
-Users of the CIDOC CRM should be aware that the definition of data entry systems requires support of community-specific terminology, guidance to what should be documented and in which sequence, and application-specific consistency controls. The CIDOC CRM does not provide such notions.
+```python
+from collie.models.generated.e_classes import E22_Man_Made_Object
+from collie.io.to_markdown import render_entity_card
+from collie.io.to_cypher import emit_cypher_script
 
-By its very structure and formalism, the CIDOC CRM is extensible and users are encouraged to create extensions for the needs of more specialized communities and applications.
+# Create a CRM entity
+vase = E22_Man_Made_Object(
+    id="192f3e61-b22d-4f94-a2cf-c6ae1418ee83",
+    label="Ancient Greek Vase",
+    type=["E55:Vessel", "E55:Ceramic"]
+)
 
-## pydantic
+# Render as Markdown for LLM consumption
+markdown = render_entity_card(vase)
+print(markdown)
 
-## labeled propergy graph support (Cypher/GQL)
+# Generate Cypher for Neo4j/Memgraph
+cypher = emit_cypher_script([vase])
+print(cypher)
+```
 
+## 📋 Core Features
+
+### 🏗️ **Pydantic Models**
+- Complete CIDOC CRM v7.1.3 coverage (99 E-classes, 64 P-properties)
+- UUID-based entity identification
+- Canonical JSON schema with stable IDs and explicit cross-references
+- Auto-generated from curated YAML specifications
+
+### 📝 **Markdown Renderers**
+- **Entity Cards**: Concise summaries optimized for LLM prompts
+- **Detailed Narratives**: Rich descriptions with full context
+- **Tabular Summaries**: Structured data presentation
+- **Style Profiles**: Configurable output formatting
+
+### 🔗 **Cypher Emitters**
+- Idempotent MERGE/UNWIND scripts for graph databases
+- Neo4j and Memgraph compatible
+- Batched operations for performance
+- Constraint helpers and relationship builders
+
+### ✅ **Validation Framework**
+- Cardinality enforcement (configurable from warnings to strict)
+- Type alignment validation
+- Quantifier rules and typing constraints
+- Extensible validation profiles
+
+## 🔄 Complete Workflow
+
+```python
+# 1. Extract entities from source data
+entities = extract_from_text("Ancient Greek vase from 5th century BCE...")
+
+# 2. Serialize as canonical JSON using Pydantic models
+json_data = [entity.model_dump() for entity in entities]
+
+# 3. Render into Markdown for LLM prompts
+markdown_report = render_narrative(entities)
+
+# 4. Emit Cypher scripts for graph database
+cypher_script = emit_cypher_script(entities)
+```
+
+## 📊 Example Output
+
+### Markdown Card
+```markdown
+## 🏺 Ancient Greek Vase
+**Type**: E22 Man-Made Object  
+**Categories**: Vessel, Ceramic  
+**Current Location**: Metropolitan Museum of Art  
+**Production**: 5th Century BCE, Athens, Greece  
+
+A beautifully preserved amphora from the 5th century BCE...
+```
+
+### Cypher Script
+```cypher
+MERGE (e22:E22_Man_Made_Object {id: "192f3e61-b22d-4f94-a2cf-c6ae1418ee83"})
+SET e22.label = "Ancient Greek Vase",
+    e22.type = ["E55:Vessel", "E55:Ceramic"]
+```
+
+## 🏛️ CIDOC CRM Background
+
+The CIDOC Conceptual Reference Model (CIDOC CRM) is a formal ontology designed to facilitate the integration, mediation and interchange of heterogeneous cultural heritage information. COLLIE implements CRM v7.1.3 with a focus on:
+
+- **Semantic interoperability** across different data sources
+- **Formal ontology** for cultural heritage documentation
+- **Extensible framework** for specialized communities
+- **Developer-friendly** implementation without RDF complexity
+
+## 📁 Project Structure
+
+```
+collie/
+├── models/           # Pydantic CRM models
+│   ├── base.py      # Base classes and utilities
+│   └── generated/   # Auto-generated E-classes
+├── io/              # Input/output modules
+│   ├── to_markdown.py  # Markdown renderers
+│   └── to_cypher.py    # Cypher emitters
+├── validators/      # Validation framework
+├── codegen/         # YAML → Pydantic generation
+├── examples/        # Sample data and workflows
+└── tests/           # Comprehensive test suite
+```
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run specific test suites
+uv run pytest tests/unit/
+uv run pytest tests/golden/
+
+# Format and lint
+uv run ruff format
+uv run ruff check --fix
+```
+
+## 📚 Documentation
+
+- **[Mission Statement](docs/mission.md)** - Project goals and philosophy
+- **[Development Plan](docs/plan.md)** - Technical roadmap and architecture
+- **[HOWTOs](src/collie/docs/HOWTOs.md)** - Comprehensive modeling guide
+- **[CIDOC CRM Standard](docs/cidoc-crm-standard.md)** - Official specification
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [development guidelines](docs/plan.md) and:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with tests
+4. Submit a pull request
+
+## 📈 Project Status
+
+- **Phase 1**: ✅ Complete - Core CIDOC CRM implementation
+- **Phase 2**: 🚧 In Progress - Advanced validation and performance
+- **Phase 3**: 📋 Planned - Profile packs and web interface
+
+**Current Coverage**: 99 E-classes, 64 P-properties (comprehensive CRM 7.1.3)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- CIDOC CRM Working Group for the foundational ontology
+- Pydantic team for the excellent validation framework
+- Neo4j community for Cypher language inspiration
+
+---
+
+**Made with ❤️ for the cultural heritage and information extraction community**

@@ -3,6 +3,7 @@ Unit tests for CRM validators.
 """
 
 import pytest
+from uuid import uuid4
 from ..models.base import CRMEntity, E22_HumanMadeObject, E12_Production
 from ..validators.quantifiers import (
     enforce_quantifier, 
@@ -20,23 +21,23 @@ class TestQuantifierValidation:
     
     def test_enforce_quantifier_valid(self):
         """Test quantifier enforcement with valid values."""
-        entity = E22_HumanMadeObject(id="obj_001", class_code="E22")
+        entity = E22_HumanMadeObject(id=uuid4(), class_code="E22")
         
         # P108 has quantifier "0..1" - should allow 0 or 1 values
         enforce_quantifier(entity, "P108", [], ValidationSeverity.WARN)
-        enforce_quantifier(entity, "P108", ["prod_001"], ValidationSeverity.WARN)
+        enforce_quantifier(entity, "P108", [uuid4()], ValidationSeverity.WARN)
     
     def test_enforce_quantifier_too_many(self):
         """Test quantifier enforcement with too many values."""
-        entity = E22_HumanMadeObject(id="obj_001", class_code="E22")
+        entity = E22_HumanMadeObject(id=uuid4(), class_code="E22")
         
         # P108 has quantifier "0..1" - should not allow 2 values
         with pytest.raises(Exception):  # Should raise CRMValidationError
-            enforce_quantifier(entity, "P108", ["prod_001", "prod_002"], ValidationSeverity.RAISE)
+            enforce_quantifier(entity, "P108", [uuid4(), uuid4()], ValidationSeverity.RAISE)
     
     def test_enforce_quantifier_too_few(self):
         """Test quantifier enforcement with too few values."""
-        entity = E12_Production(id="prod_001", class_code="E12")
+        entity = E12_Production(id=uuid4(), class_code="E12")
         
         # P108i has quantifier "0..*" - should allow 0 values
         enforce_quantifier(entity, "P108i", [], ValidationSeverity.WARN)
@@ -44,9 +45,9 @@ class TestQuantifierValidation:
     def test_validate_entity_quantifiers(self):
         """Test entity quantifier validation."""
         entity = E22_HumanMadeObject(
-            id="obj_001",
+            id=uuid4(),
             class_code="E22",
-            produced_by="prod_001"  # This should be valid
+            produced_by=uuid4()  # This should be valid
         )
         
         messages = validate_entity_quantifiers(entity, ValidationSeverity.WARN)
@@ -59,16 +60,16 @@ class TestTypingValidation:
     
     def test_validate_domain_range_alignment_valid(self):
         """Test domain/range alignment with valid entities."""
-        source = E22_HumanMadeObject(id="obj_001", class_code="E22")
-        target = E12_Production(id="prod_001", class_code="E12")
+        source = E22_HumanMadeObject(id=uuid4(), class_code="E22")
+        target = E12_Production(id=uuid4(), class_code="E12")
         
         # P108: E22 -> E12 should be valid
         validate_domain_range_alignment(source, target, "P108", ValidationSeverity.WARN)
     
     def test_validate_domain_range_alignment_invalid(self):
         """Test domain/range alignment with invalid entities."""
-        source = E22_HumanMadeObject(id="obj_001", class_code="E22")
-        target = E22_HumanMadeObject(id="obj_002", class_code="E22")
+        source = E22_HumanMadeObject(id=uuid4(), class_code="E22")
+        target = E22_HumanMadeObject(id=uuid4(), class_code="E22")
         
         # P108: E22 -> E12 should be invalid with E22 target
         with pytest.raises(Exception):  # Should raise CRMValidationError
@@ -77,8 +78,8 @@ class TestTypingValidation:
     def test_validate_batch_typing(self):
         """Test batch typing validation."""
         entities = [
-            E22_HumanMadeObject(id="obj_001", class_code="E22"),
-            E12_Production(id="prod_001", class_code="E12")
+            E22_HumanMadeObject(id=uuid4(), class_code="E22"),
+            E12_Production(id=uuid4(), class_code="E12")
         ]
         
         results = validate_batch_typing(entities, ValidationSeverity.WARN)

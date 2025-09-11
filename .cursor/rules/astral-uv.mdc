@@ -1,0 +1,65 @@
+---
+description: Ensure Cursor uses Astral UV Python tooling and Astral Ruff for all Python development tasks
+globs:
+alwaysApply: true
+---
+
+# Astral UV and Ruff Python Tooling Rule
+
+## Python Package Management
+- **ALWAYS** use `uv` for all Python package management tasks
+- Use `uv add <package>` instead of `pip install`
+- Use `uv remove <package>` instead of `pip uninstall`
+- Use `uv sync` to install dependencies from `uv.lock`
+- Use `uv run <command>` to run Python scripts and tools
+- Use `uv add --dev <package>` for development dependencies
+
+## Code Formatting and Linting
+- **ALWAYS** use `ruff` for code formatting and linting
+- Use `uv run ruff format` to format Python code
+- Use `uv run ruff check` to check for linting issues
+- Use `uv run ruff check --fix` to automatically fix fixable issues
+- Configure ruff settings in `pyproject.toml` under `[tool.ruff]`
+
+## Development Workflow
+- When running tests, use `uv run pytest` or `uv run python -m pytest`
+- When running scripts, use `uv run python <script.py>`
+- When installing new dependencies, always update `pyproject.toml` and run `uv lock`
+- When creating virtual environments, use `uv venv` instead of `python -m venv`
+
+## Code Quality Standards
+- Ensure all Python code follows ruff's formatting standards
+- Fix all ruff warnings and errors before committing
+- Use ruff's import sorting and organization features
+- Maintain consistent code style across the project
+
+## Project Structure
+- Keep `pyproject.toml` as the single source of truth for dependencies
+- Use `uv.lock` for reproducible builds
+- Ensure all Python tools are run through `uv run` to maintain consistency
+
+## Examples
+```bash
+# Install a new package
+uv add requests
+
+# Install a development dependency
+uv add --dev pytest
+
+# Format code
+uv run ruff format
+
+# Check and fix linting issues
+uv run ruff check --fix
+
+# Run tests
+uv run pytest
+
+# Run a Python script
+uv run python src/collie/main.py
+```
+
+## Error Handling
+- If you encounter issues with `uv` or `ruff`, check the project's `pyproject.toml` configuration
+- Ensure the Python version specified in `pyproject.toml` is compatible
+- Use `uv --version` and `uv run ruff --version` to verify tool versions

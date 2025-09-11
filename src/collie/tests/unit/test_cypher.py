@@ -3,6 +3,7 @@ Unit tests for Cypher emitters.
 """
 
 import pytest
+from uuid import uuid4
 from ..models.base import E22_HumanMadeObject, E12_Production, E53_Place
 from ..io.to_cypher import (
     emit_nodes,
@@ -21,13 +22,13 @@ class TestCypherEmission:
         """Test node emission."""
         entities = [
             E22_HumanMadeObject(
-                id="obj_001",
+                id=uuid4(),
                 class_code="E22",
                 label="Ancient Vase",
                 type=["E55:Vessel"]
             ),
             E53_Place(
-                id="place_001",
+                id=uuid4(),
                 class_code="E53",
                 label="Athens, Greece"
             )
@@ -40,14 +41,14 @@ class TestCypherEmission:
         
         # Check first node
         node1 = result["nodes"][0]
-        assert node1["id"] == "obj_001"
+        assert isinstance(node1["id"], str)  # Should be UUID converted to string
         assert node1["class_code"] == "E22"
         assert node1["label"] == "Ancient Vase"
         assert node1["type"] == ["E55:Vessel"]
         
         # Check second node
         node2 = result["nodes"][1]
-        assert node2["id"] == "place_001"
+        assert isinstance(node2["id"], str)  # Should be UUID converted to string
         assert node2["class_code"] == "E53"
         assert node2["label"] == "Athens, Greece"
     
@@ -55,10 +56,10 @@ class TestCypherEmission:
         """Test relationship emission."""
         entities = [
             E22_HumanMadeObject(
-                id="obj_001",
+                id=uuid4(),
                 class_code="E22",
-                current_location="place_001",
-                produced_by="prod_001"
+                current_location=uuid4(),
+                produced_by=uuid4()
             )
         ]
         
@@ -77,15 +78,15 @@ class TestCypherEmission:
             assert "src" in rel
             assert "type" in rel
             assert "tgt" in rel
-            assert rel["src"] == "obj_001"
+            assert isinstance(rel["src"], str)  # Should be UUID converted to string
     
     def test_expand_shortcuts(self):
         """Test shortcut expansion."""
         entity = E22_HumanMadeObject(
-            id="obj_001",
+            id=uuid4(),
             class_code="E22",
-            current_location="place_001",
-            produced_by="prod_001"
+            current_location=uuid4(),
+            produced_by=uuid4()
         )
         
         relationships = expand_shortcuts(entity)
@@ -96,21 +97,21 @@ class TestCypherEmission:
         rel_dict = {rel["type"]: rel for rel in relationships}
         
         assert "P53_HAS_CURRENT_LOCATION" in rel_dict
-        assert rel_dict["P53_HAS_CURRENT_LOCATION"]["tgt"] == "place_001"
+        assert isinstance(rel_dict["P53_HAS_CURRENT_LOCATION"]["tgt"], str)  # Should be UUID converted to string
         
         assert "P108_WAS_PRODUCED_BY" in rel_dict
-        assert rel_dict["P108_WAS_PRODUCED_BY"]["tgt"] == "prod_001"
+        assert isinstance(rel_dict["P108_WAS_PRODUCED_BY"]["tgt"], str)  # Should be UUID converted to string
     
     def test_generate_cypher_script(self):
         """Test Cypher script generation."""
         entities = [
             E22_HumanMadeObject(
-                id="obj_001",
+                id=uuid4(),
                 class_code="E22",
                 label="Ancient Vase"
             ),
             E53_Place(
-                id="place_001",
+                id=uuid4(),
                 class_code="E53",
                 label="Athens, Greece"
             )
