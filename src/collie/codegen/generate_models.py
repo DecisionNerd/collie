@@ -5,8 +5,7 @@ Generates e_classes.py with all E-class models.
 """
 
 from pathlib import Path
-from typing import Any, Dict, List
-from uuid import UUID
+from typing import Any
 
 import yaml
 
@@ -17,23 +16,21 @@ def load_yaml_specs(specs_dir: Path) -> dict[str, Any]:
     properties_file = specs_dir / "crm_properties.yaml"
     aliases_file = specs_dir / "aliases.yaml"
 
-    with open(classes_file) as f:
+    with classes_file.open() as f:
         classes = yaml.safe_load(f)
 
-    with open(properties_file) as f:
+    with properties_file.open() as f:
         properties = yaml.safe_load(f)
 
-    with open(aliases_file) as f:
+    with aliases_file.open() as f:
         aliases = yaml.safe_load(f)
 
-    return {
-        "classes": classes,
-        "properties": properties,
-        "aliases": aliases
-    }
+    return {"classes": classes, "properties": properties, "aliases": aliases}
 
 
-def generate_class_model(class_spec: dict[str, Any], classes: list[dict[str, Any]]) -> str:
+def generate_class_model(
+    class_spec: dict[str, Any], classes: list[dict[str, Any]]
+) -> str:
     """Generate Pydantic model code for a single E-class."""
     code = class_spec["code"]
     label = class_spec["label"]
@@ -52,7 +49,9 @@ def generate_class_model(class_spec: dict[str, Any], classes: list[dict[str, Any
         parent_spec = next((c for c in classes if c["code"] == parent_code), None)
         if parent_spec:
             parent_label = parent_spec["label"]
-            parent_class = f"E{parent_code}_{parent_label.replace(' ', '').replace('-', '')}"
+            parent_class = (
+                f"E{parent_code}_{parent_label.replace(' ', '').replace('-', '')}"
+            )
         else:
             parent_class = "CRMEntity"
     else:
@@ -61,7 +60,7 @@ def generate_class_model(class_spec: dict[str, Any], classes: list[dict[str, Any
     # Generate shortcut fields
     shortcut_fields = []
     for shortcut in shortcuts:
-        prop_code = shortcut["property"]
+        shortcut["property"]
         alias_field = shortcut["alias_field"]
         field_type = shortcut.get("field_type", "UUID")
         shortcut_fields.append(f"    {alias_field}: Optional[{field_type}] = None")
@@ -74,20 +73,18 @@ def generate_class_model(class_spec: dict[str, Any], classes: list[dict[str, Any
         docstring += " (Abstract)"
     docstring += '"""'
 
-    model_code = f"""class {class_name}({parent_class}):
+    return f"""class {class_name}({parent_class}):
 {docstring}
     class_code: str = "{code}"
-    
+
 {shortcut_fields_str}
-    
+
     class Config:
         json_schema_extra = {{
             "description": "{label}",
             "canonical_fields": {canonical_fields}
         }}
 """
-
-    return model_code
 
 
 def generate_models_file(specs: dict[str, Any], output_path: Path) -> None:
@@ -118,7 +115,7 @@ from ..base import CRMEntity
     full_content = header + "\n\n".join(class_models)
 
     # Write to file
-    with open(output_path, "w") as f:
+    with output_path.open("w") as f:
         f.write(full_content)
 
 
@@ -137,9 +134,6 @@ def main():
 
     # Generate models
     generate_models_file(specs, output_path)
-
-    print(f"Generated {output_path}")
-    print(f"Created {len(specs['classes'])} E-class models")
 
 
 if __name__ == "__main__":

@@ -5,7 +5,7 @@ Generates properties.py with P-registry and lookup tables.
 """
 
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import yaml
 
@@ -15,16 +15,13 @@ def load_yaml_specs(specs_dir: Path) -> dict[str, Any]:
     properties_file = specs_dir / "crm_properties.yaml"
     aliases_file = specs_dir / "aliases.yaml"
 
-    with open(properties_file) as f:
+    with properties_file.open() as f:
         properties = yaml.safe_load(f)
 
-    with open(aliases_file) as f:
+    with aliases_file.open() as f:
         aliases = yaml.safe_load(f)
 
-    return {
-        "properties": properties,
-        "aliases": aliases
-    }
+    return {"properties": properties, "aliases": aliases}
 
 
 def generate_property_registry(properties: list[dict[str, Any]]) -> str:
@@ -91,7 +88,7 @@ def generate_lookup_tables(properties: list[dict[str, Any]]) -> str:
 def generate_properties_file(specs: dict[str, Any], output_path: Path) -> None:
     """Generate the complete properties.py file."""
     properties = specs["properties"]
-    aliases = specs["aliases"]
+    specs["aliases"]
 
     # Generate header
     header = '''"""
@@ -118,7 +115,7 @@ from typing import Dict, List, Any
     full_content = header + registry + "\n\n" + lookups + "\n"
 
     # Write to file
-    with open(output_path, "w") as f:
+    with output_path.open("w") as f:
         f.write(full_content)
 
 
@@ -134,9 +131,6 @@ def main():
 
     # Generate properties file
     generate_properties_file(specs, output_path)
-
-    print(f"Generated {output_path}")
-    print(f"Created registry with {len(specs['properties'])} P-properties")
 
 
 if __name__ == "__main__":

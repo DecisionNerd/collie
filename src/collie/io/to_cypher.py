@@ -4,20 +4,19 @@ Generates idempotent MERGE/UNWIND scripts for Neo4j and Memgraph.
 """
 
 from collections.abc import Iterable
-from typing import Any, Dict, List, Optional
-from uuid import UUID
+from typing import Any
 
-from ..models.base import CRMEntity, CRMRelation
-from ..properties import P
+from collie.models.base import CRMEntity
+from collie.properties import P
 
 
 def emit_nodes(entities: Iterable[CRMEntity]) -> dict[str, list[dict[str, Any]]]:
     """
     Emit node data for Cypher script generation.
-    
+
     Args:
         entities: Iterable of CRM entities
-        
+
     Returns:
         Dictionary with 'nodes' key containing node data
     """
@@ -28,7 +27,7 @@ def emit_nodes(entities: Iterable[CRMEntity]) -> dict[str, list[dict[str, Any]]]
             "class_code": entity.class_code,
             "label": entity.label,
             "notes": entity.notes,
-            "type": entity.type
+            "type": entity.type,
         }
         # Remove None values
         node_data = {k: v for k, v in node_data.items() if v is not None}
@@ -37,13 +36,15 @@ def emit_nodes(entities: Iterable[CRMEntity]) -> dict[str, list[dict[str, Any]]]
     return {"nodes": nodes}
 
 
-def emit_relationships(entities: Iterable[CRMEntity]) -> dict[str, list[dict[str, Any]]]:
+def emit_relationships(
+    entities: Iterable[CRMEntity],
+) -> dict[str, list[dict[str, Any]]]:
     """
     Emit relationship data for Cypher script generation.
-    
+
     Args:
         entities: Iterable of CRM entities
-        
+
     Returns:
         Dictionary with 'rels' key containing relationship data
     """
@@ -56,11 +57,13 @@ def emit_relationships(entities: Iterable[CRMEntity]) -> dict[str, list[dict[str
         # Handle class-specific relationship collections
         if hasattr(entity, "participants"):
             for participant in entity.participants:
-                rels.append({
-                    "src": str(entity.id),  # Convert UUID to string
-                    "type": "P11_HAD_PARTICIPANT",
-                    "tgt": str(participant)  # Convert UUID to string
-                })
+                rels.append(
+                    {
+                        "src": str(entity.id),  # Convert UUID to string
+                        "type": "P11_HAD_PARTICIPANT",
+                        "tgt": str(participant),  # Convert UUID to string
+                    }
+                )
 
     return {"rels": rels}
 
@@ -68,10 +71,10 @@ def emit_relationships(entities: Iterable[CRMEntity]) -> dict[str, list[dict[str
 def expand_shortcuts(entity: CRMEntity) -> list[dict[str, Any]]:
     """
     Expand shortcut fields to full CRM relationships.
-    
+
     Args:
         entity: CRM entity with potential shortcut fields
-        
+
     Returns:
         List of relationship dictionaries
     """
@@ -84,18 +87,20 @@ def expand_shortcuts(entity: CRMEntity) -> list[dict[str, Any]]:
         "current_location": "P53",
         "produced_by": "P108",
         "begin_of_the_begin": "P79",
-        "end_of_the_end": "P80"
+        "end_of_the_end": "P80",
     }
 
     for shortcut_field, p_code in shortcut_mapping.items():
         if hasattr(entity, shortcut_field):
             target_id = getattr(entity, shortcut_field)
             if target_id:
-                rels.append({
-                    "src": str(entity.id),  # Convert UUID to string
-                    "type": f"{p_code}_{P[p_code]['aliases'][0]}",
-                    "tgt": str(target_id)  # Convert UUID to string
-                })
+                rels.append(
+                    {
+                        "src": str(entity.id),  # Convert UUID to string
+                        "type": f"{p_code}_{P[p_code]['aliases'][0]}",
+                        "tgt": str(target_id),  # Convert UUID to string
+                    }
+                )
 
     return rels
 
@@ -104,16 +109,16 @@ def generate_cypher_script(
     entities: Iterable[CRMEntity],
     *,
     include_constraints: bool = True,
-    batch_size: int = 1000
+    batch_size: int = 1000,
 ) -> str:
     """
     Generate a complete Cypher script for entities.
-    
+
     Args:
         entities: Iterable of CRM entities
         include_constraints: Whether to include constraint creation
         batch_size: Batch size for UNWIND operations
-        
+
     Returns:
         Complete Cypher script as string
     """
@@ -154,8 +159,8 @@ def _generate_node_script(nodes: list[dict[str, Any]], batch_size: int) -> str:
 
     # Process nodes in batches
     for i in range(0, len(nodes), batch_size):
-        batch = nodes[i:i + batch_size]
-        script_parts.append(f"UNWIND $nodes_{i//batch_size} AS n")
+        nodes[i : i + batch_size]
+        script_parts.append(f"UNWIND $nodes_{i // batch_size} AS n")
         script_parts.append("MERGE (x:CRM {id: n.id})")
         script_parts.append("SET x.label = coalesce(n.label, x.label)")
         script_parts.append("SET x.class_code = n.class_code")
@@ -184,8 +189,8 @@ def _generate_relationship_script(rels: list[dict[str, Any]], batch_size: int) -
     for rel_type, type_rels in rels_by_type.items():
         # Process relationships in batches
         for i in range(0, len(type_rels), batch_size):
-            batch = type_rels[i:i + batch_size]
-            script_parts.append(f"UNWIND $rels_{rel_type}_{i//batch_size} AS r")
+            type_rels[i : i + batch_size]
+            script_parts.append(f"UNWIND $rels_{rel_type}_{i // batch_size} AS r")
             script_parts.append("MATCH (s:CRM {id: r.src})")
             script_parts.append("MATCH (t:CRM {id: r.tgt})")
             script_parts.append(f"MERGE (s)-[:`{rel_type}`]->(t);")
@@ -195,17 +200,15 @@ def _generate_relationship_script(rels: list[dict[str, Any]], batch_size: int) -
 
 
 def generate_cypher_parameters(
-    entities: Iterable[CRMEntity],
-    *,
-    batch_size: int = 1000
+    entities: Iterable[CRMEntity], *, batch_size: int = 1000
 ) -> dict[str, Any]:
     """
     Generate Cypher parameters for the script.
-    
+
     Args:
         entities: Iterable of CRM entities
         batch_size: Batch size for parameter grouping
-        
+
     Returns:
         Dictionary of parameters for Cypher execution
     """
@@ -217,8 +220,8 @@ def generate_cypher_parameters(
     # Add node parameters
     if node_data["nodes"]:
         for i in range(0, len(node_data["nodes"]), batch_size):
-            batch = node_data["nodes"][i:i + batch_size]
-            params[f"nodes_{i//batch_size}"] = batch
+            batch = node_data["nodes"][i : i + batch_size]
+            params[f"nodes_{i // batch_size}"] = batch
 
     # Add relationship parameters
     if rel_data["rels"]:
@@ -231,8 +234,8 @@ def generate_cypher_parameters(
 
         for rel_type, type_rels in rels_by_type.items():
             for i in range(0, len(type_rels), batch_size):
-                batch = type_rels[i:i + batch_size]
-                params[f"rels_{rel_type}_{i//batch_size}"] = batch
+                batch = type_rels[i : i + batch_size]
+                params[f"rels_{rel_type}_{i // batch_size}"] = batch
 
     return params
 
@@ -240,10 +243,10 @@ def generate_cypher_parameters(
 def validate_cypher_script(script: str) -> list[str]:
     """
     Validate a Cypher script for common issues.
-    
+
     Args:
         script: Cypher script to validate
-        
+
     Returns:
         List of validation warnings/errors
     """
@@ -255,7 +258,9 @@ def validate_cypher_script(script: str) -> list[str]:
 
     # Check for proper MERGE usage
     if "CREATE" in script and "MERGE" not in script:
-        issues.append("Consider using MERGE instead of CREATE for idempotent operations")
+        issues.append(
+            "Consider using MERGE instead of CREATE for idempotent operations"
+        )
 
     # Check for proper parameter usage
     if "UNWIND" in script and not any("$" in line for line in script.split("\n")):
@@ -267,10 +272,10 @@ def validate_cypher_script(script: str) -> list[str]:
 def format_cypher_script(script: str) -> str:
     """
     Format a Cypher script for better readability.
-    
+
     Args:
         script: Raw Cypher script
-        
+
     Returns:
         Formatted Cypher script
     """
@@ -285,7 +290,7 @@ def format_cypher_script(script: str) -> str:
             continue
 
         # Decrease indent for closing statements
-        if line.startswith("END") or line.startswith("}"):
+        if line.startswith(("END", "}")):
             indent_level = max(0, indent_level - 1)
 
         # Add indentation
@@ -293,7 +298,7 @@ def format_cypher_script(script: str) -> str:
         formatted_lines.append(formatted_line)
 
         # Increase indent for opening statements
-        if line.endswith(":") or line.endswith("{"):
+        if line.endswith((":", "{")):
             indent_level += 1
 
     return "\n".join(formatted_lines)

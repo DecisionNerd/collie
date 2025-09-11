@@ -4,10 +4,11 @@ Validates that relationships align with property domain/range constraints.
 """
 
 import logging
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
-from ..models.base import CRMEntity, CRMValidationError, CRMValidationWarning
-from ..properties import DOMAIN, RANGE, P
+from collie.models.base import CRMEntity, CRMValidationError, CRMValidationWarning
+from collie.properties import DOMAIN, P
+
 from .quantifiers import ValidationSeverity
 
 logger = logging.getLogger(__name__)
@@ -17,17 +18,17 @@ def validate_domain_range_alignment(
     source_entity: CRMEntity,
     target_entity: CRMEntity,
     p_code: str,
-    severity: ValidationSeverity = ValidationSeverity.WARN
+    severity: ValidationSeverity = ValidationSeverity.WARN,
 ) -> None:
     """
     Validate that a relationship aligns with domain/range constraints.
-    
+
     Args:
         source_entity: Source entity of the relationship
         target_entity: Target entity of the relationship
         p_code: P-property code for the relationship
         severity: How to handle violations
-        
+
     Raises:
         CRMValidationError: If severity is RAISE and alignment is violated
         CRMValidationWarning: If severity is WARN and alignment is violated
@@ -36,7 +37,7 @@ def validate_domain_range_alignment(
         return
 
     if p_code not in P:
-        logger.warning(f"Unknown property code: {p_code}")
+        logger.warning("Unknown property code: %s", p_code)
         return
 
     property_info = P[p_code]
@@ -57,16 +58,16 @@ def validate_domain_range_alignment(
 def validate_entity_typing(
     entity: CRMEntity,
     entity_lookup: dict[str, CRMEntity],
-    severity: ValidationSeverity = ValidationSeverity.WARN
+    severity: ValidationSeverity = ValidationSeverity.WARN,
 ) -> list[str]:
     """
     Validate typing rules for an entity against a lookup table.
-    
+
     Args:
         entity: The CRM entity to validate
         entity_lookup: Dictionary mapping entity IDs to entities
         severity: How to handle violations
-        
+
     Returns:
         List of validation messages
     """
@@ -83,30 +84,35 @@ def validate_entity_typing(
             for target_id in target_ids:
                 if target_id in entity_lookup:
                     target_entity = entity_lookup[target_id]
-                    validate_domain_range_alignment(entity, target_entity, p_code, severity)
+                    validate_domain_range_alignment(
+                        entity, target_entity, p_code, severity
+                    )
                 else:
-                    logger.info(f"Target entity {target_id} not found in lookup for property {p_code}")
+                    logger.info(
+                        "Target entity %s not found in lookup for property %s",
+                        target_id,
+                        p_code,
+                    )
 
         except (CRMValidationError, CRMValidationWarning) as e:
             messages.append(str(e))
         except Exception as e:
-            logger.error(f"Error validating typing for property {p_code}: {e}")
+            logger.exception("Error validating typing for property %s", p_code)
             messages.append(f"Error validating typing for property {p_code}: {e}")
 
     return messages
 
 
 def validate_batch_typing(
-    entities: list[CRMEntity],
-    severity: ValidationSeverity = ValidationSeverity.WARN
+    entities: list[CRMEntity], severity: ValidationSeverity = ValidationSeverity.WARN
 ) -> dict[str, list[str]]:
     """
     Validate typing rules for a batch of entities.
-    
+
     Args:
         entities: List of CRM entities to validate
         severity: How to handle violations
-        
+
     Returns:
         Dictionary mapping entity IDs to validation messages
     """
@@ -126,11 +132,11 @@ def validate_batch_typing(
 def _is_class_compatible(entity_class: str, expected_class: str) -> bool:
     """
     Check if an entity class is compatible with an expected class.
-    
+
     Args:
         entity_class: The entity's class code
         expected_class: The expected class code
-        
+
     Returns:
         True if compatible, False otherwise
     """
@@ -239,7 +245,7 @@ def _is_class_compatible(entity_class: str, expected_class: str) -> bool:
         "E96": ["E92", "E1"],
         "E97": ["E28", "E23", "E1"],
         "E98": ["E55", "E28", "E23", "E1"],
-        "E99": ["E55", "E28", "E23", "E1"]
+        "E99": ["E55", "E28", "E23", "E1"],
     }
 
     # Check if expected_class is in the inheritance chain
@@ -250,11 +256,11 @@ def _is_class_compatible(entity_class: str, expected_class: str) -> bool:
 def _get_property_target_ids(entity: CRMEntity, p_code: str) -> list[str]:
     """
     Get target entity IDs for a property from an entity.
-    
+
     Args:
         entity: The CRM entity
         p_code: P-property code
-        
+
     Returns:
         List of target entity IDs
     """
@@ -269,7 +275,7 @@ def _get_property_target_ids(entity: CRMEntity, p_code: str) -> list[str]:
         "P53": "current_location",
         "P79": "begin_of_the_begin",
         "P80": "end_of_the_end",
-        "P108": "produced_by"
+        "P108": "produced_by",
     }
 
     field_name = p_to_field.get(p_code)
@@ -292,11 +298,11 @@ def _handle_violation(
     severity: ValidationSeverity,
     source_entity: CRMEntity,
     target_entity: CRMEntity,
-    p_code: str
+    p_code: str,
 ) -> None:
     """
     Handle a typing violation based on severity.
-    
+
     Args:
         message: Violation message
         severity: How to handle the violation
@@ -312,17 +318,18 @@ def _handle_violation(
         logger.warning(full_message)
         # Also issue a warning that can be caught
         import warnings
-        warnings.warn(full_message, CRMValidationWarning)
+
+        warnings.warn(full_message, CRMValidationWarning, stacklevel=2)
     # IGNORE is handled in the calling function
 
 
 def get_typing_summary(entities: list[CRMEntity]) -> dict[str, Any]:
     """
     Get a summary of typing validation results.
-    
+
     Args:
         entities: List of CRM entities to analyze
-        
+
     Returns:
         Summary dictionary with validation statistics
     """
@@ -336,5 +343,5 @@ def get_typing_summary(entities: list[CRMEntity]) -> dict[str, Any]:
         "total_entities": total_entities,
         "entities_with_issues": entities_with_issues,
         "total_issues": total_issues,
-        "validation_results": validation_results
+        "validation_results": validation_results,
     }

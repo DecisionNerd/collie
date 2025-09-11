@@ -16,13 +16,17 @@ from ...models.generated.e_classes import (
     EE53_Place,
     EE61_TimePrimitive,
 )
+from ...validators.quantifiers import ValidationSeverity, validate_batch_quantifiers
+from ...validators.typing_rules import validate_batch_typing
 
 
 def test_museum_object_workflow():
     """Test the complete museum object workflow."""
     # Load the example data
-    example_file = Path(__file__).parent.parent.parent / "examples" / "museum_object.json"
-    with open(example_file) as f:
+    example_file = (
+        Path(__file__).parent.parent.parent / "examples" / "museum_object.json"
+    )
+    with example_file.open() as f:
         data = json.load(f)
 
     # Create entities from JSON
@@ -48,7 +52,9 @@ def test_museum_object_workflow():
     markdown_card = to_markdown(vase, MarkdownStyle.CARD)
     markdown_detailed = to_markdown(vase, MarkdownStyle.DETAILED)
     markdown_table = render_table(entities)
-    markdown_narrative = to_markdown(entities[1], MarkdownStyle.NARRATIVE)  # EE12_Production
+    markdown_narrative = to_markdown(
+        entities[1], MarkdownStyle.NARRATIVE
+    )  # EE12_Production
 
     # Verify Markdown output contains expected elements
     assert "### E22 · Human-Made Object · Ancient Greek Vase" in markdown_card
@@ -59,7 +65,10 @@ def test_museum_object_workflow():
     assert "**Notes** (`notes`): A beautifully preserved amphora" in markdown_detailed
 
     assert "| id | class_code | label | type |" in markdown_table
-    assert "| E22 | Ancient Greek Vase |" in markdown_table or "Ancient Greek Vase" in markdown_table
+    assert (
+        "| E22 | Ancient Greek Vase |" in markdown_table
+        or "Ancient Greek Vase" in markdown_table
+    )
 
     assert "**Vase Production**" in markdown_narrative
     assert "is a production" in markdown_narrative
@@ -71,7 +80,10 @@ def test_museum_object_workflow():
 
     # Verify Cypher output contains expected elements
     assert "-- Create constraints" in cypher_script
-    assert "CREATE CONSTRAINT crm_id IF NOT EXISTS FOR (n:CRM) REQUIRE n.id IS UNIQUE;" in cypher_script
+    assert (
+        "CREATE CONSTRAINT crm_id IF NOT EXISTS FOR (n:CRM) REQUIRE n.id IS UNIQUE;"
+        in cypher_script
+    )
     assert "-- Create nodes" in cypher_script
     assert "UNWIND $nodes_0 AS n" in cypher_script
     assert "MERGE (x:CRM {id: n.id})" in cypher_script
@@ -114,12 +126,11 @@ def test_museum_object_workflow():
 
 def test_museum_object_validation():
     """Test validation of the museum object example."""
-    from ...validators.quantifiers import ValidationSeverity, validate_batch_quantifiers
-    from ...validators.typing_rules import validate_batch_typing
-
     # Load and create entities
-    example_file = Path(__file__).parent.parent.parent / "examples" / "museum_object.json"
-    with open(example_file) as f:
+    example_file = (
+        Path(__file__).parent.parent.parent / "examples" / "museum_object.json"
+    )
+    with example_file.open() as f:
         data = json.load(f)
 
     entities = []
@@ -151,8 +162,10 @@ def test_museum_object_validation():
 def test_museum_object_roundtrip():
     """Test roundtrip conversion from JSON to entities and back."""
     # Load the example data
-    example_file = Path(__file__).parent.parent.parent / "examples" / "museum_object.json"
-    with open(example_file) as f:
+    example_file = (
+        Path(__file__).parent.parent.parent / "examples" / "museum_object.json"
+    )
+    with example_file.open() as f:
         original_data = json.load(f)
 
     # Create entities from JSON
@@ -180,12 +193,18 @@ def test_museum_object_roundtrip():
     assert len(converted_data["entities"]) == len(original_data["entities"])
 
     # Check specific entity (E22 Human-Made Object)
-    original_vase = next(e for e in original_data["entities"] if e["class_code"] == "E22")
-    converted_vase = next(e for e in converted_data["entities"] if e["class_code"] == "E22")
+    original_vase = next(
+        e for e in original_data["entities"] if e["class_code"] == "E22"
+    )
+    converted_vase = next(
+        e for e in converted_data["entities"] if e["class_code"] == "E22"
+    )
 
     assert original_vase["class_code"] == converted_vase["class_code"]
     assert original_vase["label"] == converted_vase["label"]
     assert original_vase["type"] == converted_vase["type"]
     # Convert UUID objects to strings for comparison
-    assert str(original_vase["current_location"]) == str(converted_vase["current_location"])
+    assert str(original_vase["current_location"]) == str(
+        converted_vase["current_location"]
+    )
     assert str(original_vase["produced_by"]) == str(converted_vase["produced_by"])

@@ -8,7 +8,7 @@ This module provides:
 - RANGE: Lookup table from E-class to properties with that range
 """
 
-from typing import Any, Dict, List
+# No imports needed for this file
 
 P = {
     "P1": {
@@ -18,7 +18,7 @@ P = {
         "inverse": "P1i",
         "quantifier": "0..*",
         "aliases": ["IS_IDENTIFIED_BY"],
-        "notes": "Identifies an entity with an appellation"
+        "notes": "Identifies an entity with an appellation",
     },
     "P2": {
         "label": "has type",
@@ -27,7 +27,7 @@ P = {
         "inverse": "P2i",
         "quantifier": "0..*",
         "aliases": ["HAS_TYPE"],
-        "notes": "Assigns a type to an entity"
+        "notes": "Assigns a type to an entity",
     },
     "P3": {
         "label": "has note",
@@ -36,7 +36,7 @@ P = {
         "inverse": "P3i",
         "quantifier": "0..*",
         "aliases": ["HAS_NOTE"],
-        "notes": "Adds a textual note to an entity"
+        "notes": "Adds a textual note to an entity",
     },
     "P4": {
         "label": "has time-span",
@@ -45,7 +45,7 @@ P = {
         "inverse": "P4i",
         "quantifier": "0..1",
         "aliases": ["HAS_TIME_SPAN"],
-        "notes": "Associates a temporal entity with its time-span"
+        "notes": "Associates a temporal entity with its time-span",
     },
     "P7": {
         "label": "took place at",
@@ -54,7 +54,7 @@ P = {
         "inverse": "P7i",
         "quantifier": "0..*",
         "aliases": ["TOOK_PLACE_AT"],
-        "notes": "Specifies where an event took place"
+        "notes": "Specifies where an event took place",
     },
     "P11": {
         "label": "had participant",
@@ -63,7 +63,7 @@ P = {
         "inverse": "P11i",
         "quantifier": "0..*",
         "aliases": ["HAD_PARTICIPANT"],
-        "notes": "Identifies participants in an event"
+        "notes": "Identifies participants in an event",
     },
     "P53": {
         "label": "has current or former location",
@@ -72,7 +72,7 @@ P = {
         "inverse": "P53i",
         "quantifier": "0..*",
         "aliases": ["HAS_CURRENT_LOCATION"],
-        "notes": "Specifies the current or former location of a physical thing"
+        "notes": "Specifies the current or former location of a physical thing",
     },
     "P79": {
         "label": "beginning is qualified by",
@@ -81,7 +81,7 @@ P = {
         "inverse": "P79i",
         "quantifier": "0..1",
         "aliases": ["BEGIN_OF_THE_BEGIN"],
-        "notes": "Qualifies the beginning of a time-span"
+        "notes": "Qualifies the beginning of a time-span",
     },
     "P80": {
         "label": "end is qualified by",
@@ -90,7 +90,7 @@ P = {
         "inverse": "P80i",
         "quantifier": "0..1",
         "aliases": ["END_OF_THE_END"],
-        "notes": "Qualifies the end of a time-span"
+        "notes": "Qualifies the end of a time-span",
     },
     "P108": {
         "label": "was produced by",
@@ -99,7 +99,7 @@ P = {
         "inverse": "P108i",
         "quantifier": "0..1",
         "aliases": ["WAS_PRODUCED_BY"],
-        "notes": "Links a human-made object to its production event"
+        "notes": "Links a human-made object to its production event",
     },
     "P108i": {
         "label": "produced",
@@ -108,7 +108,7 @@ P = {
         "inverse": "P108",
         "quantifier": "0..*",
         "aliases": ["PRODUCED"],
-        "notes": "Inverse of was produced by"
+        "notes": "Inverse of was produced by",
     },
     "P1i": {
         "label": "identifies",
@@ -117,7 +117,7 @@ P = {
         "inverse": "P1",
         "quantifier": "0..*",
         "aliases": ["IDENTIFIES"],
-        "notes": "Inverse of is identified by"
+        "notes": "Inverse of is identified by",
     },
     "P2i": {
         "label": "is type of",
@@ -126,7 +126,7 @@ P = {
         "inverse": "P2",
         "quantifier": "0..*",
         "aliases": ["IS_TYPE_OF"],
-        "notes": "Inverse of has type"
+        "notes": "Inverse of has type",
     },
     "P3i": {
         "label": "is note of",
@@ -135,7 +135,7 @@ P = {
         "inverse": "P3",
         "quantifier": "0..*",
         "aliases": ["IS_NOTE_OF"],
-        "notes": "Inverse of has note"
+        "notes": "Inverse of has note",
     },
     "P4i": {
         "label": "is time-span of",
@@ -144,7 +144,7 @@ P = {
         "inverse": "P4",
         "quantifier": "0..*",
         "aliases": ["IS_TIME_SPAN_OF"],
-        "notes": "Inverse of has time-span"
+        "notes": "Inverse of has time-span",
     },
     "P7i": {
         "label": "witnessed",
@@ -153,7 +153,7 @@ P = {
         "inverse": "P7",
         "quantifier": "0..*",
         "aliases": ["WITNESSED"],
-        "notes": "Inverse of took place at"
+        "notes": "Inverse of took place at",
     },
     "P11i": {
         "label": "participated in",
@@ -162,7 +162,7 @@ P = {
         "inverse": "P11",
         "quantifier": "0..*",
         "aliases": ["PARTICIPATED_IN"],
-        "notes": "Inverse of had participant"
+        "notes": "Inverse of had participant",
     },
     "P53i": {
         "label": "is current or former location of",
@@ -171,7 +171,7 @@ P = {
         "inverse": "P53",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_LOCATION_OF"],
-        "notes": "Inverse of has current or former location"
+        "notes": "Inverse of has current or former location",
     },
     "P79i": {
         "label": "qualifies beginning of",
@@ -180,7 +180,7 @@ P = {
         "inverse": "P79",
         "quantifier": "0..*",
         "aliases": ["QUALIFIES_BEGINNING_OF"],
-        "notes": "Inverse of beginning is qualified by"
+        "notes": "Inverse of beginning is qualified by",
     },
     "P80i": {
         "label": "qualifies end of",
@@ -189,7 +189,7 @@ P = {
         "inverse": "P80",
         "quantifier": "0..*",
         "aliases": ["QUALIFIES_END_OF"],
-        "notes": "Inverse of end is qualified by"
+        "notes": "Inverse of end is qualified by",
     },
     "P5": {
         "label": "consists of",
@@ -198,7 +198,7 @@ P = {
         "inverse": "P5i",
         "quantifier": "0..*",
         "aliases": ["CONSISTS_OF"],
-        "notes": "Physical thing consists of other physical things"
+        "notes": "Physical thing consists of other physical things",
     },
     "P5i": {
         "label": "forms part of",
@@ -207,7 +207,7 @@ P = {
         "inverse": "P5",
         "quantifier": "0..*",
         "aliases": ["FORMS_PART_OF"],
-        "notes": "Inverse of consists of"
+        "notes": "Inverse of consists of",
     },
     "P8": {
         "label": "took place on or before",
@@ -216,7 +216,7 @@ P = {
         "inverse": "P8i",
         "quantifier": "0..*",
         "aliases": ["TOOK_PLACE_ON_OR_BEFORE"],
-        "notes": "Event took place on or before a specific time"
+        "notes": "Event took place on or before a specific time",
     },
     "P8i": {
         "label": "was the latest time of",
@@ -225,7 +225,7 @@ P = {
         "inverse": "P8",
         "quantifier": "0..*",
         "aliases": ["WAS_THE_LATEST_TIME_OF"],
-        "notes": "Inverse of took place on or before"
+        "notes": "Inverse of took place on or before",
     },
     "P9": {
         "label": "consists of",
@@ -234,7 +234,7 @@ P = {
         "inverse": "P9i",
         "quantifier": "0..*",
         "aliases": ["CONSISTS_OF"],
-        "notes": "Period consists of other periods"
+        "notes": "Period consists of other periods",
     },
     "P9i": {
         "label": "forms part of",
@@ -243,7 +243,7 @@ P = {
         "inverse": "P9",
         "quantifier": "0..*",
         "aliases": ["FORMS_PART_OF"],
-        "notes": "Inverse of consists of"
+        "notes": "Inverse of consists of",
     },
     "P10": {
         "label": "falls within",
@@ -252,7 +252,7 @@ P = {
         "inverse": "P10i",
         "quantifier": "0..*",
         "aliases": ["FALLS_WITHIN"],
-        "notes": "Period falls within another period"
+        "notes": "Period falls within another period",
     },
     "P10i": {
         "label": "contains",
@@ -261,7 +261,7 @@ P = {
         "inverse": "P10",
         "quantifier": "0..*",
         "aliases": ["CONTAINS"],
-        "notes": "Inverse of falls within"
+        "notes": "Inverse of falls within",
     },
     "P12": {
         "label": "occurred in the presence of",
@@ -270,7 +270,7 @@ P = {
         "inverse": "P12i",
         "quantifier": "0..*",
         "aliases": ["OCCURRED_IN_THE_PRESENCE_OF"],
-        "notes": "Event occurred in the presence of a persistent item"
+        "notes": "Event occurred in the presence of a persistent item",
     },
     "P12i": {
         "label": "was present at",
@@ -279,7 +279,7 @@ P = {
         "inverse": "P12",
         "quantifier": "0..*",
         "aliases": ["WAS_PRESENT_AT"],
-        "notes": "Inverse of occurred in the presence of"
+        "notes": "Inverse of occurred in the presence of",
     },
     "P13": {
         "label": "destroyed",
@@ -288,7 +288,7 @@ P = {
         "inverse": "P13i",
         "quantifier": "0..*",
         "aliases": ["DESTROYED"],
-        "notes": "Destruction event destroyed a physical thing"
+        "notes": "Destruction event destroyed a physical thing",
     },
     "P13i": {
         "label": "was destroyed by",
@@ -297,7 +297,7 @@ P = {
         "inverse": "P13",
         "quantifier": "0..*",
         "aliases": ["WAS_DESTROYED_BY"],
-        "notes": "Inverse of destroyed"
+        "notes": "Inverse of destroyed",
     },
     "P14": {
         "label": "carried out by",
@@ -306,7 +306,7 @@ P = {
         "inverse": "P14i",
         "quantifier": "0..*",
         "aliases": ["CARRIED_OUT_BY"],
-        "notes": "Activity was carried out by an actor"
+        "notes": "Activity was carried out by an actor",
     },
     "P14i": {
         "label": "performed",
@@ -315,7 +315,7 @@ P = {
         "inverse": "P14",
         "quantifier": "0..*",
         "aliases": ["PERFORMED"],
-        "notes": "Inverse of carried out by"
+        "notes": "Inverse of carried out by",
     },
     "P15": {
         "label": "was influenced by",
@@ -324,7 +324,7 @@ P = {
         "inverse": "P15i",
         "quantifier": "0..*",
         "aliases": ["WAS_INFLUENCED_BY"],
-        "notes": "Activity was influenced by another entity"
+        "notes": "Activity was influenced by another entity",
     },
     "P15i": {
         "label": "influenced",
@@ -333,7 +333,7 @@ P = {
         "inverse": "P15",
         "quantifier": "0..*",
         "aliases": ["INFLUENCED"],
-        "notes": "Inverse of was influenced by"
+        "notes": "Inverse of was influenced by",
     },
     "P16": {
         "label": "used specific object",
@@ -342,7 +342,7 @@ P = {
         "inverse": "P16i",
         "quantifier": "0..*",
         "aliases": ["USED_SPECIFIC_OBJECT"],
-        "notes": "Activity used a specific physical object"
+        "notes": "Activity used a specific physical object",
     },
     "P16i": {
         "label": "was used for",
@@ -351,7 +351,7 @@ P = {
         "inverse": "P16",
         "quantifier": "0..*",
         "aliases": ["WAS_USED_FOR"],
-        "notes": "Inverse of used specific object"
+        "notes": "Inverse of used specific object",
     },
     "P17": {
         "label": "was motivated by",
@@ -360,7 +360,7 @@ P = {
         "inverse": "P17i",
         "quantifier": "0..*",
         "aliases": ["WAS_MOTIVATED_BY"],
-        "notes": "Activity was motivated by another entity"
+        "notes": "Activity was motivated by another entity",
     },
     "P17i": {
         "label": "motivated",
@@ -369,7 +369,7 @@ P = {
         "inverse": "P17",
         "quantifier": "0..*",
         "aliases": ["MOTIVATED"],
-        "notes": "Inverse of was motivated by"
+        "notes": "Inverse of was motivated by",
     },
     "P19": {
         "label": "was intended use",
@@ -378,7 +378,7 @@ P = {
         "inverse": "P19i",
         "quantifier": "0..*",
         "aliases": ["WAS_INTENDED_USE"],
-        "notes": "Activity was intended for a specific use"
+        "notes": "Activity was intended for a specific use",
     },
     "P19i": {
         "label": "was use of",
@@ -387,7 +387,7 @@ P = {
         "inverse": "P19",
         "quantifier": "0..*",
         "aliases": ["WAS_USE_OF"],
-        "notes": "Inverse of was intended use"
+        "notes": "Inverse of was intended use",
     },
     "P20": {
         "label": "had specific purpose",
@@ -396,7 +396,7 @@ P = {
         "inverse": "P20i",
         "quantifier": "0..*",
         "aliases": ["HAD_SPECIFIC_PURPOSE"],
-        "notes": "Activity had a specific purpose"
+        "notes": "Activity had a specific purpose",
     },
     "P20i": {
         "label": "was purpose of",
@@ -405,7 +405,7 @@ P = {
         "inverse": "P20",
         "quantifier": "0..*",
         "aliases": ["WAS_PURPOSE_OF"],
-        "notes": "Inverse of had specific purpose"
+        "notes": "Inverse of had specific purpose",
     },
     "P21": {
         "label": "had general purpose",
@@ -414,7 +414,7 @@ P = {
         "inverse": "P21i",
         "quantifier": "0..*",
         "aliases": ["HAD_GENERAL_PURPOSE"],
-        "notes": "Activity had a general purpose"
+        "notes": "Activity had a general purpose",
     },
     "P21i": {
         "label": "was purpose of",
@@ -423,7 +423,7 @@ P = {
         "inverse": "P21",
         "quantifier": "0..*",
         "aliases": ["WAS_PURPOSE_OF"],
-        "notes": "Inverse of had general purpose"
+        "notes": "Inverse of had general purpose",
     },
     "P22": {
         "label": "transferred title to",
@@ -432,7 +432,7 @@ P = {
         "inverse": "P22i",
         "quantifier": "0..*",
         "aliases": ["TRANSFERRED_TITLE_TO"],
-        "notes": "Acquisition transferred title to an actor"
+        "notes": "Acquisition transferred title to an actor",
     },
     "P22i": {
         "label": "acquired title through",
@@ -441,7 +441,7 @@ P = {
         "inverse": "P22",
         "quantifier": "0..*",
         "aliases": ["ACQUIRED_TITLE_THROUGH"],
-        "notes": "Inverse of transferred title to"
+        "notes": "Inverse of transferred title to",
     },
     "P23": {
         "label": "transferred title from",
@@ -450,7 +450,7 @@ P = {
         "inverse": "P23i",
         "quantifier": "0..*",
         "aliases": ["TRANSFERRED_TITLE_FROM"],
-        "notes": "Acquisition transferred title from an actor"
+        "notes": "Acquisition transferred title from an actor",
     },
     "P23i": {
         "label": "surrendered title through",
@@ -459,7 +459,7 @@ P = {
         "inverse": "P23",
         "quantifier": "0..*",
         "aliases": ["SURRENDERED_TITLE_THROUGH"],
-        "notes": "Inverse of transferred title from"
+        "notes": "Inverse of transferred title from",
     },
     "P24": {
         "label": "transferred title of",
@@ -468,7 +468,7 @@ P = {
         "inverse": "P24i",
         "quantifier": "0..*",
         "aliases": ["TRANSFERRED_TITLE_OF"],
-        "notes": "Acquisition transferred title of a physical thing"
+        "notes": "Acquisition transferred title of a physical thing",
     },
     "P24i": {
         "label": "changed ownership through",
@@ -477,7 +477,7 @@ P = {
         "inverse": "P24",
         "quantifier": "0..*",
         "aliases": ["CHANGED_OWNERSHIP_THROUGH"],
-        "notes": "Inverse of transferred title of"
+        "notes": "Inverse of transferred title of",
     },
     "P25": {
         "label": "moved",
@@ -486,7 +486,7 @@ P = {
         "inverse": "P25i",
         "quantifier": "0..*",
         "aliases": ["MOVED"],
-        "notes": "Move event moved a physical thing"
+        "notes": "Move event moved a physical thing",
     },
     "P25i": {
         "label": "moved by",
@@ -495,7 +495,7 @@ P = {
         "inverse": "P25",
         "quantifier": "0..*",
         "aliases": ["MOVED_BY"],
-        "notes": "Inverse of moved"
+        "notes": "Inverse of moved",
     },
     "P26": {
         "label": "moved to",
@@ -504,7 +504,7 @@ P = {
         "inverse": "P26i",
         "quantifier": "0..*",
         "aliases": ["MOVED_TO"],
-        "notes": "Move event moved to a place"
+        "notes": "Move event moved to a place",
     },
     "P26i": {
         "label": "was destination of",
@@ -513,7 +513,7 @@ P = {
         "inverse": "P26",
         "quantifier": "0..*",
         "aliases": ["WAS_DESTINATION_OF"],
-        "notes": "Inverse of moved to"
+        "notes": "Inverse of moved to",
     },
     "P27": {
         "label": "moved from",
@@ -522,7 +522,7 @@ P = {
         "inverse": "P27i",
         "quantifier": "0..*",
         "aliases": ["MOVED_FROM"],
-        "notes": "Move event moved from a place"
+        "notes": "Move event moved from a place",
     },
     "P27i": {
         "label": "was origin of",
@@ -531,7 +531,7 @@ P = {
         "inverse": "P27",
         "quantifier": "0..*",
         "aliases": ["WAS_ORIGIN_OF"],
-        "notes": "Inverse of moved from"
+        "notes": "Inverse of moved from",
     },
     "P28": {
         "label": "custody surrendered by",
@@ -540,7 +540,7 @@ P = {
         "inverse": "P28i",
         "quantifier": "0..*",
         "aliases": ["CUSTODY_SURRENDERED_BY"],
-        "notes": "Transfer of custody surrendered by an actor"
+        "notes": "Transfer of custody surrendered by an actor",
     },
     "P28i": {
         "label": "surrendered custody through",
@@ -549,7 +549,7 @@ P = {
         "inverse": "P28",
         "quantifier": "0..*",
         "aliases": ["SURRENDERED_CUSTODY_THROUGH"],
-        "notes": "Inverse of custody surrendered by"
+        "notes": "Inverse of custody surrendered by",
     },
     "P29": {
         "label": "custody received by",
@@ -558,7 +558,7 @@ P = {
         "inverse": "P29i",
         "quantifier": "0..*",
         "aliases": ["CUSTODY_RECEIVED_BY"],
-        "notes": "Transfer of custody received by an actor"
+        "notes": "Transfer of custody received by an actor",
     },
     "P29i": {
         "label": "received custody through",
@@ -567,7 +567,7 @@ P = {
         "inverse": "P29",
         "quantifier": "0..*",
         "aliases": ["RECEIVED_CUSTODY_THROUGH"],
-        "notes": "Inverse of custody received by"
+        "notes": "Inverse of custody received by",
     },
     "P30": {
         "label": "transferred custody of",
@@ -576,7 +576,7 @@ P = {
         "inverse": "P30i",
         "quantifier": "0..*",
         "aliases": ["TRANSFERRED_CUSTODY_OF"],
-        "notes": "Transfer of custody transferred custody of a physical thing"
+        "notes": "Transfer of custody transferred custody of a physical thing",
     },
     "P30i": {
         "label": "custody transferred through",
@@ -585,7 +585,7 @@ P = {
         "inverse": "P30",
         "quantifier": "0..*",
         "aliases": ["CUSTODY_TRANSFERRED_THROUGH"],
-        "notes": "Inverse of transferred custody of"
+        "notes": "Inverse of transferred custody of",
     },
     "P31": {
         "label": "has modified",
@@ -594,7 +594,7 @@ P = {
         "inverse": "P31i",
         "quantifier": "0..*",
         "aliases": ["HAS_MODIFIED"],
-        "notes": "Modification event has modified a physical thing"
+        "notes": "Modification event has modified a physical thing",
     },
     "P31i": {
         "label": "was modified by",
@@ -603,7 +603,7 @@ P = {
         "inverse": "P31",
         "quantifier": "0..*",
         "aliases": ["WAS_MODIFIED_BY"],
-        "notes": "Inverse of has modified"
+        "notes": "Inverse of has modified",
     },
     "P32": {
         "label": "used general technique",
@@ -612,7 +612,7 @@ P = {
         "inverse": "P32i",
         "quantifier": "0..*",
         "aliases": ["USED_GENERAL_TECHNIQUE"],
-        "notes": "Activity used a general technique"
+        "notes": "Activity used a general technique",
     },
     "P32i": {
         "label": "was technique of",
@@ -621,7 +621,7 @@ P = {
         "inverse": "P32",
         "quantifier": "0..*",
         "aliases": ["WAS_TECHNIQUE_OF"],
-        "notes": "Inverse of used general technique"
+        "notes": "Inverse of used general technique",
     },
     "P33": {
         "label": "used specific technique",
@@ -630,7 +630,7 @@ P = {
         "inverse": "P33i",
         "quantifier": "0..*",
         "aliases": ["USED_SPECIFIC_TECHNIQUE"],
-        "notes": "Activity used a specific technique"
+        "notes": "Activity used a specific technique",
     },
     "P33i": {
         "label": "was used by",
@@ -639,7 +639,7 @@ P = {
         "inverse": "P33",
         "quantifier": "0..*",
         "aliases": ["WAS_USED_BY"],
-        "notes": "Inverse of used specific technique"
+        "notes": "Inverse of used specific technique",
     },
     "P34": {
         "label": "concerned",
@@ -648,7 +648,7 @@ P = {
         "inverse": "P34i",
         "quantifier": "0..*",
         "aliases": ["CONCERNED"],
-        "notes": "Condition assessment concerned a physical thing"
+        "notes": "Condition assessment concerned a physical thing",
     },
     "P34i": {
         "label": "was assessed by",
@@ -657,7 +657,7 @@ P = {
         "inverse": "P34",
         "quantifier": "0..*",
         "aliases": ["WAS_ASSESSED_BY"],
-        "notes": "Inverse of concerned"
+        "notes": "Inverse of concerned",
     },
     "P35": {
         "label": "has identified",
@@ -666,7 +666,7 @@ P = {
         "inverse": "P35i",
         "quantifier": "0..*",
         "aliases": ["HAS_IDENTIFIED"],
-        "notes": "Identifier assignment has identified an entity"
+        "notes": "Identifier assignment has identified an entity",
     },
     "P35i": {
         "label": "was identified by",
@@ -675,7 +675,7 @@ P = {
         "inverse": "P35",
         "quantifier": "0..*",
         "aliases": ["WAS_IDENTIFIED_BY"],
-        "notes": "Inverse of has identified"
+        "notes": "Inverse of has identified",
     },
     "P37": {
         "label": "assigned",
@@ -684,7 +684,7 @@ P = {
         "inverse": "P37i",
         "quantifier": "0..*",
         "aliases": ["ASSIGNED"],
-        "notes": "Attribute assignment assigned to an entity"
+        "notes": "Attribute assignment assigned to an entity",
     },
     "P37i": {
         "label": "was assigned by",
@@ -693,7 +693,7 @@ P = {
         "inverse": "P37",
         "quantifier": "0..*",
         "aliases": ["WAS_ASSIGNED_BY"],
-        "notes": "Inverse of assigned"
+        "notes": "Inverse of assigned",
     },
     "P38": {
         "label": "deassigned",
@@ -702,7 +702,7 @@ P = {
         "inverse": "P38i",
         "quantifier": "0..*",
         "aliases": ["DEASSIGNED"],
-        "notes": "Attribute assignment deassigned from an entity"
+        "notes": "Attribute assignment deassigned from an entity",
     },
     "P38i": {
         "label": "was deassigned by",
@@ -711,7 +711,7 @@ P = {
         "inverse": "P38",
         "quantifier": "0..*",
         "aliases": ["WAS_DEASSIGNED_BY"],
-        "notes": "Inverse of deassigned"
+        "notes": "Inverse of deassigned",
     },
     "P39": {
         "label": "measured",
@@ -720,7 +720,7 @@ P = {
         "inverse": "P39i",
         "quantifier": "0..*",
         "aliases": ["MEASURED"],
-        "notes": "Measurement measured an entity"
+        "notes": "Measurement measured an entity",
     },
     "P39i": {
         "label": "was measured by",
@@ -729,7 +729,7 @@ P = {
         "inverse": "P39",
         "quantifier": "0..*",
         "aliases": ["WAS_MEASURED_BY"],
-        "notes": "Inverse of measured"
+        "notes": "Inverse of measured",
     },
     "P40": {
         "label": "observed dimension",
@@ -738,7 +738,7 @@ P = {
         "inverse": "P40i",
         "quantifier": "0..*",
         "aliases": ["OBSERVED_DIMENSION"],
-        "notes": "Measurement observed a dimension"
+        "notes": "Measurement observed a dimension",
     },
     "P40i": {
         "label": "was observed in",
@@ -747,7 +747,7 @@ P = {
         "inverse": "P40",
         "quantifier": "0..*",
         "aliases": ["WAS_OBSERVED_IN"],
-        "notes": "Inverse of observed dimension"
+        "notes": "Inverse of observed dimension",
     },
     "P41": {
         "label": "classified",
@@ -756,7 +756,7 @@ P = {
         "inverse": "P41i",
         "quantifier": "0..*",
         "aliases": ["CLASSIFIED"],
-        "notes": "Type assignment classified an entity"
+        "notes": "Type assignment classified an entity",
     },
     "P41i": {
         "label": "was classified by",
@@ -765,7 +765,7 @@ P = {
         "inverse": "P41",
         "quantifier": "0..*",
         "aliases": ["WAS_CLASSIFIED_BY"],
-        "notes": "Inverse of classified"
+        "notes": "Inverse of classified",
     },
     "P42": {
         "label": "assigned",
@@ -774,7 +774,7 @@ P = {
         "inverse": "P42i",
         "quantifier": "0..*",
         "aliases": ["ASSIGNED"],
-        "notes": "Type assignment assigned a type"
+        "notes": "Type assignment assigned a type",
     },
     "P42i": {
         "label": "was assigned by",
@@ -783,7 +783,7 @@ P = {
         "inverse": "P42",
         "quantifier": "0..*",
         "aliases": ["WAS_ASSIGNED_BY"],
-        "notes": "Inverse of assigned"
+        "notes": "Inverse of assigned",
     },
     "P43": {
         "label": "has dimension",
@@ -792,7 +792,7 @@ P = {
         "inverse": "P43i",
         "quantifier": "0..*",
         "aliases": ["HAS_DIMENSION"],
-        "notes": "Thing has a dimension"
+        "notes": "Thing has a dimension",
     },
     "P43i": {
         "label": "is dimension of",
@@ -801,7 +801,7 @@ P = {
         "inverse": "P43",
         "quantifier": "0..*",
         "aliases": ["IS_DIMENSION_OF"],
-        "notes": "Inverse of has dimension"
+        "notes": "Inverse of has dimension",
     },
     "P44": {
         "label": "has condition",
@@ -810,7 +810,7 @@ P = {
         "inverse": "P44i",
         "quantifier": "0..*",
         "aliases": ["HAS_CONDITION"],
-        "notes": "Physical thing has a condition"
+        "notes": "Physical thing has a condition",
     },
     "P44i": {
         "label": "is condition of",
@@ -819,7 +819,7 @@ P = {
         "inverse": "P44",
         "quantifier": "0..*",
         "aliases": ["IS_CONDITION_OF"],
-        "notes": "Inverse of has condition"
+        "notes": "Inverse of has condition",
     },
     "P45": {
         "label": "consists of",
@@ -828,7 +828,7 @@ P = {
         "inverse": "P45i",
         "quantifier": "0..*",
         "aliases": ["CONSISTS_OF"],
-        "notes": "Physical thing consists of other physical things"
+        "notes": "Physical thing consists of other physical things",
     },
     "P45i": {
         "label": "is incorporated in",
@@ -837,7 +837,7 @@ P = {
         "inverse": "P45",
         "quantifier": "0..*",
         "aliases": ["IS_INCORPORATED_IN"],
-        "notes": "Inverse of consists of"
+        "notes": "Inverse of consists of",
     },
     "P46": {
         "label": "is composed of",
@@ -846,7 +846,7 @@ P = {
         "inverse": "P46i",
         "quantifier": "0..*",
         "aliases": ["IS_COMPOSED_OF"],
-        "notes": "Physical thing is composed of other physical things"
+        "notes": "Physical thing is composed of other physical things",
     },
     "P46i": {
         "label": "forms part of",
@@ -855,7 +855,7 @@ P = {
         "inverse": "P46",
         "quantifier": "0..*",
         "aliases": ["FORMS_PART_OF"],
-        "notes": "Inverse of is composed of"
+        "notes": "Inverse of is composed of",
     },
     "P48": {
         "label": "has preferred identifier",
@@ -864,7 +864,7 @@ P = {
         "inverse": "P48i",
         "quantifier": "0..1",
         "aliases": ["HAS_PREFERRED_IDENTIFIER"],
-        "notes": "Entity has a preferred identifier"
+        "notes": "Entity has a preferred identifier",
     },
     "P48i": {
         "label": "is preferred identifier of",
@@ -873,7 +873,7 @@ P = {
         "inverse": "P48",
         "quantifier": "0..*",
         "aliases": ["IS_PREFERRED_IDENTIFIER_OF"],
-        "notes": "Inverse of has preferred identifier"
+        "notes": "Inverse of has preferred identifier",
     },
     "P49": {
         "label": "has former or current keeper",
@@ -882,7 +882,7 @@ P = {
         "inverse": "P49i",
         "quantifier": "0..*",
         "aliases": ["HAS_FORMER_OR_CURRENT_KEEPER"],
-        "notes": "Physical thing has former or current keeper"
+        "notes": "Physical thing has former or current keeper",
     },
     "P49i": {
         "label": "is former or current keeper of",
@@ -891,7 +891,7 @@ P = {
         "inverse": "P49",
         "quantifier": "0..*",
         "aliases": ["IS_FORMER_OR_CURRENT_KEEPER_OF"],
-        "notes": "Inverse of has former or current keeper"
+        "notes": "Inverse of has former or current keeper",
     },
     "P50": {
         "label": "has current keeper",
@@ -900,7 +900,7 @@ P = {
         "inverse": "P50i",
         "quantifier": "0..1",
         "aliases": ["HAS_CURRENT_KEEPER"],
-        "notes": "Physical thing has current keeper"
+        "notes": "Physical thing has current keeper",
     },
     "P50i": {
         "label": "is current keeper of",
@@ -909,7 +909,7 @@ P = {
         "inverse": "P50",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_KEEPER_OF"],
-        "notes": "Inverse of has current keeper"
+        "notes": "Inverse of has current keeper",
     },
     "P51": {
         "label": "has former or current owner",
@@ -918,7 +918,7 @@ P = {
         "inverse": "P51i",
         "quantifier": "0..*",
         "aliases": ["HAS_FORMER_OR_CURRENT_OWNER"],
-        "notes": "Physical thing has former or current owner"
+        "notes": "Physical thing has former or current owner",
     },
     "P51i": {
         "label": "is former or current owner of",
@@ -927,7 +927,7 @@ P = {
         "inverse": "P51",
         "quantifier": "0..*",
         "aliases": ["IS_FORMER_OR_CURRENT_OWNER_OF"],
-        "notes": "Inverse of has former or current owner"
+        "notes": "Inverse of has former or current owner",
     },
     "P52": {
         "label": "has current owner",
@@ -936,7 +936,7 @@ P = {
         "inverse": "P52i",
         "quantifier": "0..1",
         "aliases": ["HAS_CURRENT_OWNER"],
-        "notes": "Physical thing has current owner"
+        "notes": "Physical thing has current owner",
     },
     "P52i": {
         "label": "is current owner of",
@@ -945,7 +945,7 @@ P = {
         "inverse": "P52",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_OWNER_OF"],
-        "notes": "Inverse of has current owner"
+        "notes": "Inverse of has current owner",
     },
     "P54": {
         "label": "has current permanent location",
@@ -954,7 +954,7 @@ P = {
         "inverse": "P54i",
         "quantifier": "0..1",
         "aliases": ["HAS_CURRENT_PERMANENT_LOCATION"],
-        "notes": "Physical object has current permanent location"
+        "notes": "Physical object has current permanent location",
     },
     "P54i": {
         "label": "is current permanent location of",
@@ -963,7 +963,7 @@ P = {
         "inverse": "P54",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_PERMANENT_LOCATION_OF"],
-        "notes": "Inverse of has current permanent location"
+        "notes": "Inverse of has current permanent location",
     },
     "P55": {
         "label": "has current location",
@@ -972,7 +972,7 @@ P = {
         "inverse": "P55i",
         "quantifier": "0..1",
         "aliases": ["HAS_CURRENT_LOCATION"],
-        "notes": "Physical object has current location"
+        "notes": "Physical object has current location",
     },
     "P55i": {
         "label": "is current location of",
@@ -981,7 +981,7 @@ P = {
         "inverse": "P55",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_LOCATION_OF"],
-        "notes": "Inverse of has current location"
+        "notes": "Inverse of has current location",
     },
     "P56": {
         "label": "bears feature",
@@ -990,7 +990,7 @@ P = {
         "inverse": "P56i",
         "quantifier": "0..*",
         "aliases": ["BEARS_FEATURE"],
-        "notes": "Physical object bears a physical feature"
+        "notes": "Physical object bears a physical feature",
     },
     "P56i": {
         "label": "is feature of",
@@ -999,7 +999,7 @@ P = {
         "inverse": "P56",
         "quantifier": "0..*",
         "aliases": ["IS_FEATURE_OF"],
-        "notes": "Inverse of bears feature"
+        "notes": "Inverse of bears feature",
     },
     "P57": {
         "label": "has number of parts",
@@ -1008,7 +1008,7 @@ P = {
         "inverse": "P57i",
         "quantifier": "0..*",
         "aliases": ["HAS_NUMBER_OF_PARTS"],
-        "notes": "Physical object has number of parts"
+        "notes": "Physical object has number of parts",
     },
     "P57i": {
         "label": "is number of parts of",
@@ -1017,7 +1017,7 @@ P = {
         "inverse": "P57",
         "quantifier": "0..*",
         "aliases": ["IS_NUMBER_OF_PARTS_OF"],
-        "notes": "Inverse of has number of parts"
+        "notes": "Inverse of has number of parts",
     },
     "P59": {
         "label": "has section",
@@ -1026,7 +1026,7 @@ P = {
         "inverse": "P59i",
         "quantifier": "0..*",
         "aliases": ["HAS_SECTION"],
-        "notes": "Place has a section"
+        "notes": "Place has a section",
     },
     "P59i": {
         "label": "is located on or within",
@@ -1035,7 +1035,7 @@ P = {
         "inverse": "P59",
         "quantifier": "0..*",
         "aliases": ["IS_LOCATED_ON_OR_WITHIN"],
-        "notes": "Inverse of has section"
+        "notes": "Inverse of has section",
     },
     "P62": {
         "label": "depicts",
@@ -1044,7 +1044,7 @@ P = {
         "inverse": "P62i",
         "quantifier": "0..*",
         "aliases": ["DEPICTS"],
-        "notes": "Visual item depicts an entity"
+        "notes": "Visual item depicts an entity",
     },
     "P62i": {
         "label": "is depicted by",
@@ -1053,7 +1053,7 @@ P = {
         "inverse": "P62",
         "quantifier": "0..*",
         "aliases": ["IS_DEPICTED_BY"],
-        "notes": "Inverse of depicts"
+        "notes": "Inverse of depicts",
     },
     "P65": {
         "label": "shows visual item",
@@ -1062,7 +1062,7 @@ P = {
         "inverse": "P65i",
         "quantifier": "0..*",
         "aliases": ["SHOWS_VISUAL_ITEM"],
-        "notes": "Visual item shows another visual item"
+        "notes": "Visual item shows another visual item",
     },
     "P65i": {
         "label": "is shown by",
@@ -1071,7 +1071,7 @@ P = {
         "inverse": "P65",
         "quantifier": "0..*",
         "aliases": ["IS_SHOWN_BY"],
-        "notes": "Inverse of shows visual item"
+        "notes": "Inverse of shows visual item",
     },
     "P67": {
         "label": "refers to",
@@ -1080,7 +1080,7 @@ P = {
         "inverse": "P67i",
         "quantifier": "0..*",
         "aliases": ["REFERS_TO"],
-        "notes": "Information object refers to an entity"
+        "notes": "Information object refers to an entity",
     },
     "P67i": {
         "label": "is referred to by",
@@ -1089,7 +1089,7 @@ P = {
         "inverse": "P67",
         "quantifier": "0..*",
         "aliases": ["IS_REFERRED_TO_BY"],
-        "notes": "Inverse of refers to"
+        "notes": "Inverse of refers to",
     },
     "P68": {
         "label": "foresees use of",
@@ -1098,7 +1098,7 @@ P = {
         "inverse": "P68i",
         "quantifier": "0..*",
         "aliases": ["FORESEES_USE_OF"],
-        "notes": "Design or procedure foresees use of physical object"
+        "notes": "Design or procedure foresees use of physical object",
     },
     "P68i": {
         "label": "use foreseen by",
@@ -1107,7 +1107,7 @@ P = {
         "inverse": "P68",
         "quantifier": "0..*",
         "aliases": ["USE_FORESEEN_BY"],
-        "notes": "Inverse of foresees use of"
+        "notes": "Inverse of foresees use of",
     },
     "P69": {
         "label": "has association with",
@@ -1116,7 +1116,7 @@ P = {
         "inverse": "P69i",
         "quantifier": "0..*",
         "aliases": ["HAS_ASSOCIATION_WITH"],
-        "notes": "Actor has association with another actor"
+        "notes": "Actor has association with another actor",
     },
     "P69i": {
         "label": "is associated with",
@@ -1125,7 +1125,7 @@ P = {
         "inverse": "P69",
         "quantifier": "0..*",
         "aliases": ["IS_ASSOCIATED_WITH"],
-        "notes": "Inverse of has association with"
+        "notes": "Inverse of has association with",
     },
     "P70": {
         "label": "lists",
@@ -1134,7 +1134,7 @@ P = {
         "inverse": "P70i",
         "quantifier": "0..*",
         "aliases": ["LISTS"],
-        "notes": "Document lists an entity"
+        "notes": "Document lists an entity",
     },
     "P70i": {
         "label": "is listed in",
@@ -1143,7 +1143,7 @@ P = {
         "inverse": "P70",
         "quantifier": "0..*",
         "aliases": ["IS_LISTED_IN"],
-        "notes": "Inverse of lists"
+        "notes": "Inverse of lists",
     },
     "P71": {
         "label": "lists",
@@ -1152,7 +1152,7 @@ P = {
         "inverse": "P71i",
         "quantifier": "0..*",
         "aliases": ["LISTS"],
-        "notes": "Document lists an entity"
+        "notes": "Document lists an entity",
     },
     "P71i": {
         "label": "is listed in",
@@ -1161,7 +1161,7 @@ P = {
         "inverse": "P71",
         "quantifier": "0..*",
         "aliases": ["IS_LISTED_IN"],
-        "notes": "Inverse of lists"
+        "notes": "Inverse of lists",
     },
     "P72": {
         "label": "has language",
@@ -1170,7 +1170,7 @@ P = {
         "inverse": "P72i",
         "quantifier": "0..*",
         "aliases": ["HAS_LANGUAGE"],
-        "notes": "Linguistic object has language"
+        "notes": "Linguistic object has language",
     },
     "P72i": {
         "label": "is language of",
@@ -1179,7 +1179,7 @@ P = {
         "inverse": "P72",
         "quantifier": "0..*",
         "aliases": ["IS_LANGUAGE_OF"],
-        "notes": "Inverse of has language"
+        "notes": "Inverse of has language",
     },
     "P73": {
         "label": "has translation",
@@ -1188,7 +1188,7 @@ P = {
         "inverse": "P73i",
         "quantifier": "0..*",
         "aliases": ["HAS_TRANSLATION"],
-        "notes": "Linguistic object has translation"
+        "notes": "Linguistic object has translation",
     },
     "P73i": {
         "label": "is translation of",
@@ -1197,7 +1197,7 @@ P = {
         "inverse": "P73",
         "quantifier": "0..*",
         "aliases": ["IS_TRANSLATION_OF"],
-        "notes": "Inverse of has translation"
+        "notes": "Inverse of has translation",
     },
     "P74": {
         "label": "has current or former residence",
@@ -1206,7 +1206,7 @@ P = {
         "inverse": "P74i",
         "quantifier": "0..*",
         "aliases": ["HAS_CURRENT_OR_FORMER_RESIDENCE"],
-        "notes": "Actor has current or former residence"
+        "notes": "Actor has current or former residence",
     },
     "P74i": {
         "label": "is current or former residence of",
@@ -1215,7 +1215,7 @@ P = {
         "inverse": "P74",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_OR_FORMER_RESIDENCE_OF"],
-        "notes": "Inverse of has current or former residence"
+        "notes": "Inverse of has current or former residence",
     },
     "P75": {
         "label": "possesses",
@@ -1224,7 +1224,7 @@ P = {
         "inverse": "P75i",
         "quantifier": "0..*",
         "aliases": ["POSSESSES"],
-        "notes": "Actor possesses a physical thing"
+        "notes": "Actor possesses a physical thing",
     },
     "P75i": {
         "label": "is possessed by",
@@ -1233,7 +1233,7 @@ P = {
         "inverse": "P75",
         "quantifier": "0..*",
         "aliases": ["IS_POSSESSED_BY"],
-        "notes": "Inverse of possesses"
+        "notes": "Inverse of possesses",
     },
     "P76": {
         "label": "has contact point",
@@ -1242,7 +1242,7 @@ P = {
         "inverse": "P76i",
         "quantifier": "0..*",
         "aliases": ["HAS_CONTACT_POINT"],
-        "notes": "Actor has contact point"
+        "notes": "Actor has contact point",
     },
     "P76i": {
         "label": "is contact point of",
@@ -1251,7 +1251,7 @@ P = {
         "inverse": "P76",
         "quantifier": "0..*",
         "aliases": ["IS_CONTACT_POINT_OF"],
-        "notes": "Inverse of has contact point"
+        "notes": "Inverse of has contact point",
     },
     "P81": {
         "label": "ongoing through",
@@ -1260,7 +1260,7 @@ P = {
         "inverse": "P81i",
         "quantifier": "0..*",
         "aliases": ["ONGOING_THROUGH"],
-        "notes": "Temporal entity ongoing through time"
+        "notes": "Temporal entity ongoing through time",
     },
     "P81i": {
         "label": "ongoing through",
@@ -1269,7 +1269,7 @@ P = {
         "inverse": "P81",
         "quantifier": "0..*",
         "aliases": ["ONGOING_THROUGH"],
-        "notes": "Inverse of ongoing through"
+        "notes": "Inverse of ongoing through",
     },
     "P82": {
         "label": "at some time within",
@@ -1278,7 +1278,7 @@ P = {
         "inverse": "P82i",
         "quantifier": "0..*",
         "aliases": ["AT_SOME_TIME_WITHIN"],
-        "notes": "Temporal entity at some time within"
+        "notes": "Temporal entity at some time within",
     },
     "P82i": {
         "label": "at some time within",
@@ -1287,7 +1287,7 @@ P = {
         "inverse": "P82",
         "quantifier": "0..*",
         "aliases": ["AT_SOME_TIME_WITHIN"],
-        "notes": "Inverse of at some time within"
+        "notes": "Inverse of at some time within",
     },
     "P86": {
         "label": "falls within",
@@ -1296,7 +1296,7 @@ P = {
         "inverse": "P86i",
         "quantifier": "0..*",
         "aliases": ["FALLS_WITHIN"],
-        "notes": "Period falls within another period"
+        "notes": "Period falls within another period",
     },
     "P86i": {
         "label": "contains",
@@ -1305,7 +1305,7 @@ P = {
         "inverse": "P86",
         "quantifier": "0..*",
         "aliases": ["CONTAINS"],
-        "notes": "Inverse of falls within"
+        "notes": "Inverse of falls within",
     },
     "P89": {
         "label": "falls within",
@@ -1314,7 +1314,7 @@ P = {
         "inverse": "P89i",
         "quantifier": "0..*",
         "aliases": ["FALLS_WITHIN"],
-        "notes": "Place falls within another place"
+        "notes": "Place falls within another place",
     },
     "P89i": {
         "label": "contains",
@@ -1323,7 +1323,7 @@ P = {
         "inverse": "P89",
         "quantifier": "0..*",
         "aliases": ["CONTAINS"],
-        "notes": "Inverse of falls within"
+        "notes": "Inverse of falls within",
     },
     "P90": {
         "label": "has value",
@@ -1332,7 +1332,7 @@ P = {
         "inverse": "P90i",
         "quantifier": "0..*",
         "aliases": ["HAS_VALUE"],
-        "notes": "Dimension has value"
+        "notes": "Dimension has value",
     },
     "P90i": {
         "label": "is value of",
@@ -1341,7 +1341,7 @@ P = {
         "inverse": "P90",
         "quantifier": "0..*",
         "aliases": ["IS_VALUE_OF"],
-        "notes": "Inverse of has value"
+        "notes": "Inverse of has value",
     },
     "P91": {
         "label": "has unit",
@@ -1350,7 +1350,7 @@ P = {
         "inverse": "P91i",
         "quantifier": "0..1",
         "aliases": ["HAS_UNIT"],
-        "notes": "Dimension has unit"
+        "notes": "Dimension has unit",
     },
     "P91i": {
         "label": "is unit of",
@@ -1359,7 +1359,7 @@ P = {
         "inverse": "P91",
         "quantifier": "0..*",
         "aliases": ["IS_UNIT_OF"],
-        "notes": "Inverse of has unit"
+        "notes": "Inverse of has unit",
     },
     "P92": {
         "label": "brought into existence",
@@ -1368,7 +1368,7 @@ P = {
         "inverse": "P92i",
         "quantifier": "0..*",
         "aliases": ["BROUGHT_INTO_EXISTENCE"],
-        "notes": "Beginning of existence brought into existence"
+        "notes": "Beginning of existence brought into existence",
     },
     "P92i": {
         "label": "was brought into existence by",
@@ -1377,7 +1377,7 @@ P = {
         "inverse": "P92",
         "quantifier": "0..*",
         "aliases": ["WAS_BROUGHT_INTO_EXISTENCE_BY"],
-        "notes": "Inverse of brought into existence"
+        "notes": "Inverse of brought into existence",
     },
     "P93": {
         "label": "took out of existence",
@@ -1386,7 +1386,7 @@ P = {
         "inverse": "P93i",
         "quantifier": "0..*",
         "aliases": ["TOOK_OUT_OF_EXISTENCE"],
-        "notes": "End of existence took out of existence"
+        "notes": "End of existence took out of existence",
     },
     "P93i": {
         "label": "was taken out of existence by",
@@ -1395,7 +1395,7 @@ P = {
         "inverse": "P93",
         "quantifier": "0..*",
         "aliases": ["WAS_TAKEN_OUT_OF_EXISTENCE_BY"],
-        "notes": "Inverse of took out of existence"
+        "notes": "Inverse of took out of existence",
     },
     "P94": {
         "label": "has created",
@@ -1404,7 +1404,7 @@ P = {
         "inverse": "P94i",
         "quantifier": "0..*",
         "aliases": ["HAS_CREATED"],
-        "notes": "Creation has created"
+        "notes": "Creation has created",
     },
     "P94i": {
         "label": "was created by",
@@ -1413,7 +1413,7 @@ P = {
         "inverse": "P94",
         "quantifier": "0..*",
         "aliases": ["WAS_CREATED_BY"],
-        "notes": "Inverse of has created"
+        "notes": "Inverse of has created",
     },
     "P95": {
         "label": "has formed",
@@ -1422,7 +1422,7 @@ P = {
         "inverse": "P95i",
         "quantifier": "0..*",
         "aliases": ["HAS_FORMED"],
-        "notes": "Formation has formed"
+        "notes": "Formation has formed",
     },
     "P95i": {
         "label": "was formed by",
@@ -1431,7 +1431,7 @@ P = {
         "inverse": "P95",
         "quantifier": "0..*",
         "aliases": ["WAS_FORMED_BY"],
-        "notes": "Inverse of has formed"
+        "notes": "Inverse of has formed",
     },
     "P96": {
         "label": "by mother",
@@ -1440,7 +1440,7 @@ P = {
         "inverse": "P96i",
         "quantifier": "0..1",
         "aliases": ["BY_MOTHER"],
-        "notes": "Birth by mother"
+        "notes": "Birth by mother",
     },
     "P96i": {
         "label": "gave birth to",
@@ -1449,7 +1449,7 @@ P = {
         "inverse": "P96",
         "quantifier": "0..*",
         "aliases": ["GAVE_BIRTH_TO"],
-        "notes": "Inverse of by mother"
+        "notes": "Inverse of by mother",
     },
     "P97": {
         "label": "from father",
@@ -1458,7 +1458,7 @@ P = {
         "inverse": "P97i",
         "quantifier": "0..1",
         "aliases": ["FROM_FATHER"],
-        "notes": "Birth from father"
+        "notes": "Birth from father",
     },
     "P97i": {
         "label": "was father of",
@@ -1467,7 +1467,7 @@ P = {
         "inverse": "P97",
         "quantifier": "0..*",
         "aliases": ["WAS_FATHER_OF"],
-        "notes": "Inverse of from father"
+        "notes": "Inverse of from father",
     },
     "P98": {
         "label": "brought into existence",
@@ -1476,7 +1476,7 @@ P = {
         "inverse": "P98i",
         "quantifier": "0..*",
         "aliases": ["BROUGHT_INTO_EXISTENCE"],
-        "notes": "Formation brought into existence"
+        "notes": "Formation brought into existence",
     },
     "P98i": {
         "label": "was brought into existence by",
@@ -1485,7 +1485,7 @@ P = {
         "inverse": "P98",
         "quantifier": "0..*",
         "aliases": ["WAS_BROUGHT_INTO_EXISTENCE_BY"],
-        "notes": "Inverse of brought into existence"
+        "notes": "Inverse of brought into existence",
     },
     "P99": {
         "label": "dissolved",
@@ -1494,7 +1494,7 @@ P = {
         "inverse": "P99i",
         "quantifier": "0..*",
         "aliases": ["DISSOLVED"],
-        "notes": "Death dissolved"
+        "notes": "Death dissolved",
     },
     "P99i": {
         "label": "was dissolved by",
@@ -1503,7 +1503,7 @@ P = {
         "inverse": "P99",
         "quantifier": "0..*",
         "aliases": ["WAS_DISSOLVED_BY"],
-        "notes": "Inverse of dissolved"
+        "notes": "Inverse of dissolved",
     },
     "P100": {
         "label": "was death of",
@@ -1512,7 +1512,7 @@ P = {
         "inverse": "P100i",
         "quantifier": "0..*",
         "aliases": ["WAS_DEATH_OF"],
-        "notes": "Death was death of"
+        "notes": "Death was death of",
     },
     "P100i": {
         "label": "died in",
@@ -1521,7 +1521,7 @@ P = {
         "inverse": "P100",
         "quantifier": "0..*",
         "aliases": ["DIED_IN"],
-        "notes": "Inverse of was death of"
+        "notes": "Inverse of was death of",
     },
     "P101": {
         "label": "had as general use",
@@ -1530,7 +1530,7 @@ P = {
         "inverse": "P101i",
         "quantifier": "0..*",
         "aliases": ["HAD_AS_GENERAL_USE"],
-        "notes": "Activity had as general use"
+        "notes": "Activity had as general use",
     },
     "P101i": {
         "label": "was use of",
@@ -1539,7 +1539,7 @@ P = {
         "inverse": "P101",
         "quantifier": "0..*",
         "aliases": ["WAS_USE_OF"],
-        "notes": "Inverse of had as general use"
+        "notes": "Inverse of had as general use",
     },
     "P102": {
         "label": "has title",
@@ -1548,7 +1548,7 @@ P = {
         "inverse": "P102i",
         "quantifier": "0..*",
         "aliases": ["HAS_TITLE"],
-        "notes": "Title has title"
+        "notes": "Title has title",
     },
     "P102i": {
         "label": "is title of",
@@ -1557,7 +1557,7 @@ P = {
         "inverse": "P102",
         "quantifier": "0..*",
         "aliases": ["IS_TITLE_OF"],
-        "notes": "Inverse of has title"
+        "notes": "Inverse of has title",
     },
     "P103": {
         "label": "was intended for",
@@ -1566,7 +1566,7 @@ P = {
         "inverse": "P103i",
         "quantifier": "0..*",
         "aliases": ["WAS_INTENDED_FOR"],
-        "notes": "Activity was intended for"
+        "notes": "Activity was intended for",
     },
     "P103i": {
         "label": "was intention of",
@@ -1575,7 +1575,7 @@ P = {
         "inverse": "P103",
         "quantifier": "0..*",
         "aliases": ["WAS_INTENTION_OF"],
-        "notes": "Inverse of was intended for"
+        "notes": "Inverse of was intended for",
     },
     "P104": {
         "label": "is subject to",
@@ -1584,7 +1584,7 @@ P = {
         "inverse": "P104i",
         "quantifier": "0..*",
         "aliases": ["IS_SUBJECT_TO"],
-        "notes": "Right is subject to"
+        "notes": "Right is subject to",
     },
     "P104i": {
         "label": "is subject of",
@@ -1593,7 +1593,7 @@ P = {
         "inverse": "P104",
         "quantifier": "0..*",
         "aliases": ["IS_SUBJECT_OF"],
-        "notes": "Inverse of is subject to"
+        "notes": "Inverse of is subject to",
     },
     "P105": {
         "label": "right held by",
@@ -1602,7 +1602,7 @@ P = {
         "inverse": "P105i",
         "quantifier": "0..*",
         "aliases": ["RIGHT_HELD_BY"],
-        "notes": "Right held by"
+        "notes": "Right held by",
     },
     "P105i": {
         "label": "holds right",
@@ -1611,7 +1611,7 @@ P = {
         "inverse": "P105",
         "quantifier": "0..*",
         "aliases": ["HOLDS_RIGHT"],
-        "notes": "Inverse of right held by"
+        "notes": "Inverse of right held by",
     },
     "P106": {
         "label": "is composed of",
@@ -1620,7 +1620,7 @@ P = {
         "inverse": "P106i",
         "quantifier": "0..*",
         "aliases": ["IS_COMPOSED_OF"],
-        "notes": "Thing is composed of"
+        "notes": "Thing is composed of",
     },
     "P106i": {
         "label": "forms part of",
@@ -1629,7 +1629,7 @@ P = {
         "inverse": "P106",
         "quantifier": "0..*",
         "aliases": ["FORMS_PART_OF"],
-        "notes": "Inverse of is composed of"
+        "notes": "Inverse of is composed of",
     },
     "P107": {
         "label": "has current or former member",
@@ -1638,7 +1638,7 @@ P = {
         "inverse": "P107i",
         "quantifier": "0..*",
         "aliases": ["HAS_CURRENT_OR_FORMER_MEMBER"],
-        "notes": "Group has current or former member"
+        "notes": "Group has current or former member",
     },
     "P107i": {
         "label": "is current or former member of",
@@ -1647,7 +1647,7 @@ P = {
         "inverse": "P107",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_OR_FORMER_MEMBER_OF"],
-        "notes": "Inverse of has current or former member"
+        "notes": "Inverse of has current or former member",
     },
     "P109": {
         "label": "has current or former curator",
@@ -1656,7 +1656,7 @@ P = {
         "inverse": "P109i",
         "quantifier": "0..*",
         "aliases": ["HAS_CURRENT_OR_FORMER_CURATOR"],
-        "notes": "Curated holding has current or former curator"
+        "notes": "Curated holding has current or former curator",
     },
     "P109i": {
         "label": "is current or former curator of",
@@ -1665,7 +1665,7 @@ P = {
         "inverse": "P109",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENT_OR_FORMER_CURATOR_OF"],
-        "notes": "Inverse of has current or former curator"
+        "notes": "Inverse of has current or former curator",
     },
     "P110": {
         "label": "augmented",
@@ -1674,7 +1674,7 @@ P = {
         "inverse": "P110i",
         "quantifier": "0..*",
         "aliases": ["AUGMENTED"],
-        "notes": "Part addition augmented"
+        "notes": "Part addition augmented",
     },
     "P110i": {
         "label": "was augmented by",
@@ -1683,7 +1683,7 @@ P = {
         "inverse": "P110",
         "quantifier": "0..*",
         "aliases": ["WAS_AUGMENTED_BY"],
-        "notes": "Inverse of augmented"
+        "notes": "Inverse of augmented",
     },
     "P111": {
         "label": "added",
@@ -1692,7 +1692,7 @@ P = {
         "inverse": "P111i",
         "quantifier": "0..*",
         "aliases": ["ADDED"],
-        "notes": "Part addition added"
+        "notes": "Part addition added",
     },
     "P111i": {
         "label": "was added by",
@@ -1701,7 +1701,7 @@ P = {
         "inverse": "P111",
         "quantifier": "0..*",
         "aliases": ["WAS_ADDED_BY"],
-        "notes": "Inverse of added"
+        "notes": "Inverse of added",
     },
     "P112": {
         "label": "diminished",
@@ -1710,7 +1710,7 @@ P = {
         "inverse": "P112i",
         "quantifier": "0..*",
         "aliases": ["DIMINISHED"],
-        "notes": "Part removal diminished"
+        "notes": "Part removal diminished",
     },
     "P112i": {
         "label": "was diminished by",
@@ -1719,7 +1719,7 @@ P = {
         "inverse": "P112",
         "quantifier": "0..*",
         "aliases": ["WAS_DIMINISHED_BY"],
-        "notes": "Inverse of diminished"
+        "notes": "Inverse of diminished",
     },
     "P113": {
         "label": "removed",
@@ -1728,7 +1728,7 @@ P = {
         "inverse": "P113i",
         "quantifier": "0..*",
         "aliases": ["REMOVED"],
-        "notes": "Part removal removed"
+        "notes": "Part removal removed",
     },
     "P113i": {
         "label": "was removed by",
@@ -1737,7 +1737,7 @@ P = {
         "inverse": "P113",
         "quantifier": "0..*",
         "aliases": ["WAS_REMOVED_BY"],
-        "notes": "Inverse of removed"
+        "notes": "Inverse of removed",
     },
     "P120": {
         "label": "occurs before",
@@ -1746,7 +1746,7 @@ P = {
         "inverse": "P120i",
         "quantifier": "0..*",
         "aliases": ["OCCURS_BEFORE"],
-        "notes": "Temporal entity occurs before another temporal entity"
+        "notes": "Temporal entity occurs before another temporal entity",
     },
     "P120i": {
         "label": "occurs after",
@@ -1755,7 +1755,7 @@ P = {
         "inverse": "P120",
         "quantifier": "0..*",
         "aliases": ["OCCURS_AFTER"],
-        "notes": "Inverse of occurs before"
+        "notes": "Inverse of occurs before",
     },
     "P121": {
         "label": "overlaps with",
@@ -1764,7 +1764,7 @@ P = {
         "inverse": "P121i",
         "quantifier": "0..*",
         "aliases": ["OVERLAPS_WITH"],
-        "notes": "Place overlaps with another place"
+        "notes": "Place overlaps with another place",
     },
     "P121i": {
         "label": "overlaps with",
@@ -1773,7 +1773,7 @@ P = {
         "inverse": "P121",
         "quantifier": "0..*",
         "aliases": ["OVERLAPS_WITH"],
-        "notes": "Inverse of overlaps with"
+        "notes": "Inverse of overlaps with",
     },
     "P122": {
         "label": "borders with",
@@ -1782,7 +1782,7 @@ P = {
         "inverse": "P122i",
         "quantifier": "0..*",
         "aliases": ["BORDERS_WITH"],
-        "notes": "Place borders with another place"
+        "notes": "Place borders with another place",
     },
     "P122i": {
         "label": "borders with",
@@ -1791,7 +1791,7 @@ P = {
         "inverse": "P122",
         "quantifier": "0..*",
         "aliases": ["BORDERS_WITH"],
-        "notes": "Inverse of borders with"
+        "notes": "Inverse of borders with",
     },
     "P123": {
         "label": "resulted in",
@@ -1800,7 +1800,7 @@ P = {
         "inverse": "P123i",
         "quantifier": "0..*",
         "aliases": ["RESULTED_IN"],
-        "notes": "Event resulted in an entity"
+        "notes": "Event resulted in an entity",
     },
     "P123i": {
         "label": "was result of",
@@ -1809,7 +1809,7 @@ P = {
         "inverse": "P123",
         "quantifier": "0..*",
         "aliases": ["WAS_RESULT_OF"],
-        "notes": "Inverse of resulted in"
+        "notes": "Inverse of resulted in",
     },
     "P124": {
         "label": "transformed",
@@ -1818,7 +1818,7 @@ P = {
         "inverse": "P124i",
         "quantifier": "0..*",
         "aliases": ["TRANSFORMED"],
-        "notes": "Transformation transformed"
+        "notes": "Transformation transformed",
     },
     "P124i": {
         "label": "was transformed by",
@@ -1827,7 +1827,7 @@ P = {
         "inverse": "P124",
         "quantifier": "0..*",
         "aliases": ["WAS_TRANSFORMED_BY"],
-        "notes": "Inverse of transformed"
+        "notes": "Inverse of transformed",
     },
     "P125": {
         "label": "used object of type",
@@ -1836,7 +1836,7 @@ P = {
         "inverse": "P125i",
         "quantifier": "0..*",
         "aliases": ["USED_OBJECT_OF_TYPE"],
-        "notes": "Activity used object of type"
+        "notes": "Activity used object of type",
     },
     "P125i": {
         "label": "was used by",
@@ -1845,7 +1845,7 @@ P = {
         "inverse": "P125",
         "quantifier": "0..*",
         "aliases": ["WAS_USED_BY"],
-        "notes": "Inverse of used object of type"
+        "notes": "Inverse of used object of type",
     },
     "P126": {
         "label": "employed",
@@ -1854,7 +1854,7 @@ P = {
         "inverse": "P126i",
         "quantifier": "0..*",
         "aliases": ["EMPLOYED"],
-        "notes": "Activity employed"
+        "notes": "Activity employed",
     },
     "P126i": {
         "label": "was employed in",
@@ -1863,7 +1863,7 @@ P = {
         "inverse": "P126",
         "quantifier": "0..*",
         "aliases": ["WAS_EMPLOYED_IN"],
-        "notes": "Inverse of employed"
+        "notes": "Inverse of employed",
     },
     "P127": {
         "label": "has broader term",
@@ -1872,7 +1872,7 @@ P = {
         "inverse": "P127i",
         "quantifier": "0..*",
         "aliases": ["HAS_BROADER_TERM"],
-        "notes": "Type has broader term"
+        "notes": "Type has broader term",
     },
     "P127i": {
         "label": "has narrower term",
@@ -1881,7 +1881,7 @@ P = {
         "inverse": "P127",
         "quantifier": "0..*",
         "aliases": ["HAS_NARROWER_TERM"],
-        "notes": "Inverse of has broader term"
+        "notes": "Inverse of has broader term",
     },
     "P128": {
         "label": "carries",
@@ -1890,7 +1890,7 @@ P = {
         "inverse": "P128i",
         "quantifier": "0..*",
         "aliases": ["CARRIES"],
-        "notes": "Information carrier carries"
+        "notes": "Information carrier carries",
     },
     "P128i": {
         "label": "is carried by",
@@ -1899,7 +1899,7 @@ P = {
         "inverse": "P128",
         "quantifier": "0..*",
         "aliases": ["IS_CARRIED_BY"],
-        "notes": "Inverse of carries"
+        "notes": "Inverse of carries",
     },
     "P129": {
         "label": "is about",
@@ -1908,7 +1908,7 @@ P = {
         "inverse": "P129i",
         "quantifier": "0..*",
         "aliases": ["IS_ABOUT"],
-        "notes": "Information object is about"
+        "notes": "Information object is about",
     },
     "P129i": {
         "label": "is subject of",
@@ -1917,7 +1917,7 @@ P = {
         "inverse": "P129",
         "quantifier": "0..*",
         "aliases": ["IS_SUBJECT_OF"],
-        "notes": "Inverse of is about"
+        "notes": "Inverse of is about",
     },
     "P130": {
         "label": "shows features of",
@@ -1926,7 +1926,7 @@ P = {
         "inverse": "P130i",
         "quantifier": "0..*",
         "aliases": ["SHOWS_FEATURES_OF"],
-        "notes": "Visual item shows features of"
+        "notes": "Visual item shows features of",
     },
     "P130i": {
         "label": "features are also shown on",
@@ -1935,7 +1935,7 @@ P = {
         "inverse": "P130",
         "quantifier": "0..*",
         "aliases": ["FEATURES_ARE_ALSO_SHOWN_ON"],
-        "notes": "Inverse of shows features of"
+        "notes": "Inverse of shows features of",
     },
     "P132": {
         "label": "spatiotemporally overlaps with",
@@ -1944,7 +1944,7 @@ P = {
         "inverse": "P132i",
         "quantifier": "0..*",
         "aliases": ["SPATIOTEMPORALLY_OVERLAPS_WITH"],
-        "notes": "Spacetime volume spatiotemporally overlaps with"
+        "notes": "Spacetime volume spatiotemporally overlaps with",
     },
     "P132i": {
         "label": "spatiotemporally overlaps with",
@@ -1953,7 +1953,7 @@ P = {
         "inverse": "P132",
         "quantifier": "0..*",
         "aliases": ["SPATIOTEMPORALLY_OVERLAPS_WITH"],
-        "notes": "Inverse of spatiotemporally overlaps with"
+        "notes": "Inverse of spatiotemporally overlaps with",
     },
     "P133": {
         "label": "is spatiotemporally separated from",
@@ -1962,7 +1962,7 @@ P = {
         "inverse": "P133i",
         "quantifier": "0..*",
         "aliases": ["IS_SPATIOTEMPORALLY_SEPARATED_FROM"],
-        "notes": "Spacetime volume is spatiotemporally separated from"
+        "notes": "Spacetime volume is spatiotemporally separated from",
     },
     "P133i": {
         "label": "is spatiotemporally separated from",
@@ -1971,7 +1971,7 @@ P = {
         "inverse": "P133",
         "quantifier": "0..*",
         "aliases": ["IS_SPATIOTEMPORALLY_SEPARATED_FROM"],
-        "notes": "Inverse of is spatiotemporally separated from"
+        "notes": "Inverse of is spatiotemporally separated from",
     },
     "P134": {
         "label": "continued",
@@ -1980,7 +1980,7 @@ P = {
         "inverse": "P134i",
         "quantifier": "0..*",
         "aliases": ["CONTINUED"],
-        "notes": "Activity continued"
+        "notes": "Activity continued",
     },
     "P134i": {
         "label": "was continued by",
@@ -1989,7 +1989,7 @@ P = {
         "inverse": "P134",
         "quantifier": "0..*",
         "aliases": ["WAS_CONTINUED_BY"],
-        "notes": "Inverse of continued"
+        "notes": "Inverse of continued",
     },
     "P135": {
         "label": "created type",
@@ -1998,7 +1998,7 @@ P = {
         "inverse": "P135i",
         "quantifier": "0..*",
         "aliases": ["CREATED_TYPE"],
-        "notes": "Type creation created type"
+        "notes": "Type creation created type",
     },
     "P135i": {
         "label": "was created by",
@@ -2007,7 +2007,7 @@ P = {
         "inverse": "P135",
         "quantifier": "0..*",
         "aliases": ["WAS_CREATED_BY"],
-        "notes": "Inverse of created type"
+        "notes": "Inverse of created type",
     },
     "P136": {
         "label": "was based on",
@@ -2016,7 +2016,7 @@ P = {
         "inverse": "P136i",
         "quantifier": "0..*",
         "aliases": ["WAS_BASED_ON"],
-        "notes": "Information object was based on"
+        "notes": "Information object was based on",
     },
     "P136i": {
         "label": "was basis for",
@@ -2025,7 +2025,7 @@ P = {
         "inverse": "P136",
         "quantifier": "0..*",
         "aliases": ["WAS_BASIS_FOR"],
-        "notes": "Inverse of was based on"
+        "notes": "Inverse of was based on",
     },
     "P137": {
         "label": "exemplifies",
@@ -2034,7 +2034,7 @@ P = {
         "inverse": "P137i",
         "quantifier": "0..*",
         "aliases": ["EXEMPLIFIES"],
-        "notes": "Type exemplifies"
+        "notes": "Type exemplifies",
     },
     "P137i": {
         "label": "is exemplified by",
@@ -2043,7 +2043,7 @@ P = {
         "inverse": "P137",
         "quantifier": "0..*",
         "aliases": ["IS_EXEMPLIFIED_BY"],
-        "notes": "Inverse of exemplifies"
+        "notes": "Inverse of exemplifies",
     },
     "P138": {
         "label": "represents",
@@ -2052,7 +2052,7 @@ P = {
         "inverse": "P138i",
         "quantifier": "0..*",
         "aliases": ["REPRESENTS"],
-        "notes": "Information object represents"
+        "notes": "Information object represents",
     },
     "P138i": {
         "label": "is represented by",
@@ -2061,7 +2061,7 @@ P = {
         "inverse": "P138",
         "quantifier": "0..*",
         "aliases": ["IS_REPRESENTED_BY"],
-        "notes": "Inverse of represents"
+        "notes": "Inverse of represents",
     },
     "P139": {
         "label": "has alternative form",
@@ -2070,7 +2070,7 @@ P = {
         "inverse": "P139i",
         "quantifier": "0..*",
         "aliases": ["HAS_ALTERNATIVE_FORM"],
-        "notes": "Appellation has alternative form"
+        "notes": "Appellation has alternative form",
     },
     "P139i": {
         "label": "is alternative form of",
@@ -2079,7 +2079,7 @@ P = {
         "inverse": "P139",
         "quantifier": "0..*",
         "aliases": ["IS_ALTERNATIVE_FORM_OF"],
-        "notes": "Inverse of has alternative form"
+        "notes": "Inverse of has alternative form",
     },
     "P140": {
         "label": "assigned attribute to",
@@ -2088,7 +2088,7 @@ P = {
         "inverse": "P140i",
         "quantifier": "0..*",
         "aliases": ["ASSIGNED_ATTRIBUTE_TO"],
-        "notes": "Attribute assignment assigned attribute to"
+        "notes": "Attribute assignment assigned attribute to",
     },
     "P140i": {
         "label": "was attributed by",
@@ -2097,7 +2097,7 @@ P = {
         "inverse": "P140",
         "quantifier": "0..*",
         "aliases": ["WAS_ATTRIBUTED_BY"],
-        "notes": "Inverse of assigned attribute to"
+        "notes": "Inverse of assigned attribute to",
     },
     "P141": {
         "label": "assigned",
@@ -2106,7 +2106,7 @@ P = {
         "inverse": "P141i",
         "quantifier": "0..*",
         "aliases": ["ASSIGNED"],
-        "notes": "Attribute assignment assigned"
+        "notes": "Attribute assignment assigned",
     },
     "P141i": {
         "label": "was assigned by",
@@ -2115,7 +2115,7 @@ P = {
         "inverse": "P141",
         "quantifier": "0..*",
         "aliases": ["WAS_ASSIGNED_BY"],
-        "notes": "Inverse of assigned"
+        "notes": "Inverse of assigned",
     },
     "P142": {
         "label": "used constituent",
@@ -2124,7 +2124,7 @@ P = {
         "inverse": "P142i",
         "quantifier": "0..*",
         "aliases": ["USED_CONSTITUENT"],
-        "notes": "Activity used constituent"
+        "notes": "Activity used constituent",
     },
     "P142i": {
         "label": "was used in",
@@ -2133,7 +2133,7 @@ P = {
         "inverse": "P142",
         "quantifier": "0..*",
         "aliases": ["WAS_USED_IN"],
-        "notes": "Inverse of used constituent"
+        "notes": "Inverse of used constituent",
     },
     "P143": {
         "label": "joined",
@@ -2142,7 +2142,7 @@ P = {
         "inverse": "P143i",
         "quantifier": "0..*",
         "aliases": ["JOINED"],
-        "notes": "Joining joined"
+        "notes": "Joining joined",
     },
     "P143i": {
         "label": "was joined by",
@@ -2151,7 +2151,7 @@ P = {
         "inverse": "P143",
         "quantifier": "0..*",
         "aliases": ["WAS_JOINED_BY"],
-        "notes": "Inverse of joined"
+        "notes": "Inverse of joined",
     },
     "P144": {
         "label": "joined with",
@@ -2160,7 +2160,7 @@ P = {
         "inverse": "P144i",
         "quantifier": "0..*",
         "aliases": ["JOINED_WITH"],
-        "notes": "Joining joined with"
+        "notes": "Joining joined with",
     },
     "P144i": {
         "label": "was joined with by",
@@ -2169,7 +2169,7 @@ P = {
         "inverse": "P144",
         "quantifier": "0..*",
         "aliases": ["WAS_JOINED_WITH_BY"],
-        "notes": "Inverse of joined with"
+        "notes": "Inverse of joined with",
     },
     "P145": {
         "label": "separated",
@@ -2178,7 +2178,7 @@ P = {
         "inverse": "P145i",
         "quantifier": "0..*",
         "aliases": ["SEPARATED"],
-        "notes": "Leaving separated"
+        "notes": "Leaving separated",
     },
     "P145i": {
         "label": "was separated by",
@@ -2187,7 +2187,7 @@ P = {
         "inverse": "P145",
         "quantifier": "0..*",
         "aliases": ["WAS_SEPARATED_BY"],
-        "notes": "Inverse of separated"
+        "notes": "Inverse of separated",
     },
     "P146": {
         "label": "separated from",
@@ -2196,7 +2196,7 @@ P = {
         "inverse": "P146i",
         "quantifier": "0..*",
         "aliases": ["SEPARATED_FROM"],
-        "notes": "Leaving separated from"
+        "notes": "Leaving separated from",
     },
     "P146i": {
         "label": "was separated from by",
@@ -2205,7 +2205,7 @@ P = {
         "inverse": "P146",
         "quantifier": "0..*",
         "aliases": ["WAS_SEPARATED_FROM_BY"],
-        "notes": "Inverse of separated from"
+        "notes": "Inverse of separated from",
     },
     "P147": {
         "label": "curated",
@@ -2214,7 +2214,7 @@ P = {
         "inverse": "P147i",
         "quantifier": "0..*",
         "aliases": ["CURATED"],
-        "notes": "Curation activity curated"
+        "notes": "Curation activity curated",
     },
     "P147i": {
         "label": "was curated by",
@@ -2223,7 +2223,7 @@ P = {
         "inverse": "P147",
         "quantifier": "0..*",
         "aliases": ["WAS_CURATED_BY"],
-        "notes": "Inverse of curated"
+        "notes": "Inverse of curated",
     },
     "P148": {
         "label": "has component",
@@ -2232,7 +2232,7 @@ P = {
         "inverse": "P148i",
         "quantifier": "0..*",
         "aliases": ["HAS_COMPONENT"],
-        "notes": "Propositional statement has component"
+        "notes": "Propositional statement has component",
     },
     "P148i": {
         "label": "is component of",
@@ -2241,7 +2241,7 @@ P = {
         "inverse": "P148",
         "quantifier": "0..*",
         "aliases": ["IS_COMPONENT_OF"],
-        "notes": "Inverse of has component"
+        "notes": "Inverse of has component",
     },
     "P150": {
         "label": "defines typical parts",
@@ -2250,7 +2250,7 @@ P = {
         "inverse": "P150i",
         "quantifier": "0..*",
         "aliases": ["DEFINES_TYPICAL_PARTS"],
-        "notes": "Type defines typical parts"
+        "notes": "Type defines typical parts",
     },
     "P150i": {
         "label": "defines typical wholes",
@@ -2259,7 +2259,7 @@ P = {
         "inverse": "P150",
         "quantifier": "0..*",
         "aliases": ["DEFINES_TYPICAL_WHOLES"],
-        "notes": "Inverse of defines typical parts"
+        "notes": "Inverse of defines typical parts",
     },
     "P151": {
         "label": "was formed from",
@@ -2268,7 +2268,7 @@ P = {
         "inverse": "P151i",
         "quantifier": "0..*",
         "aliases": ["WAS_FORMED_FROM"],
-        "notes": "Formation was formed from"
+        "notes": "Formation was formed from",
     },
     "P151i": {
         "label": "participated in",
@@ -2277,7 +2277,7 @@ P = {
         "inverse": "P151",
         "quantifier": "0..*",
         "aliases": ["PARTICIPATED_IN"],
-        "notes": "Inverse of was formed from"
+        "notes": "Inverse of was formed from",
     },
     "P152": {
         "label": "has parent",
@@ -2286,7 +2286,7 @@ P = {
         "inverse": "P152i",
         "quantifier": "0..*",
         "aliases": ["HAS_PARENT"],
-        "notes": "Person has parent"
+        "notes": "Person has parent",
     },
     "P152i": {
         "label": "is parent of",
@@ -2295,7 +2295,7 @@ P = {
         "inverse": "P152",
         "quantifier": "0..*",
         "aliases": ["IS_PARENT_OF"],
-        "notes": "Inverse of has parent"
+        "notes": "Inverse of has parent",
     },
     "P156": {
         "label": "occupies",
@@ -2304,7 +2304,7 @@ P = {
         "inverse": "P156i",
         "quantifier": "0..*",
         "aliases": ["OCCUPIES"],
-        "notes": "Presence occupies"
+        "notes": "Presence occupies",
     },
     "P156i": {
         "label": "is occupied by",
@@ -2313,7 +2313,7 @@ P = {
         "inverse": "P156",
         "quantifier": "0..*",
         "aliases": ["IS_OCCUPIED_BY"],
-        "notes": "Inverse of occupies"
+        "notes": "Inverse of occupies",
     },
     "P157": {
         "label": "is at rest relative to",
@@ -2322,7 +2322,7 @@ P = {
         "inverse": "P157i",
         "quantifier": "0..*",
         "aliases": ["IS_AT_REST_RELATIVE_TO"],
-        "notes": "Presence is at rest relative to"
+        "notes": "Presence is at rest relative to",
     },
     "P157i": {
         "label": "provides reference space for",
@@ -2331,7 +2331,7 @@ P = {
         "inverse": "P157",
         "quantifier": "0..*",
         "aliases": ["PROVIDES_REFERENCE_SPACE_FOR"],
-        "notes": "Inverse of is at rest relative to"
+        "notes": "Inverse of is at rest relative to",
     },
     "P160": {
         "label": "has temporal projection",
@@ -2340,7 +2340,7 @@ P = {
         "inverse": "P160i",
         "quantifier": "0..1",
         "aliases": ["HAS_TEMPORAL_PROJECTION"],
-        "notes": "Spacetime volume has temporal projection"
+        "notes": "Spacetime volume has temporal projection",
     },
     "P160i": {
         "label": "is temporal projection of",
@@ -2349,7 +2349,7 @@ P = {
         "inverse": "P160",
         "quantifier": "0..*",
         "aliases": ["IS_TEMPORAL_PROJECTION_OF"],
-        "notes": "Inverse of has temporal projection"
+        "notes": "Inverse of has temporal projection",
     },
     "P161": {
         "label": "has spatial projection",
@@ -2358,7 +2358,7 @@ P = {
         "inverse": "P161i",
         "quantifier": "0..1",
         "aliases": ["HAS_SPATIAL_PROJECTION"],
-        "notes": "Spacetime volume has spatial projection"
+        "notes": "Spacetime volume has spatial projection",
     },
     "P161i": {
         "label": "is spatial projection of",
@@ -2367,7 +2367,7 @@ P = {
         "inverse": "P161",
         "quantifier": "0..*",
         "aliases": ["IS_SPATIAL_PROJECTION_OF"],
-        "notes": "Inverse of has spatial projection"
+        "notes": "Inverse of has spatial projection",
     },
     "P164": {
         "label": "is temporally specified by",
@@ -2376,7 +2376,7 @@ P = {
         "inverse": "P164i",
         "quantifier": "0..*",
         "aliases": ["IS_TEMPORALLY_SPECIFIED_BY"],
-        "notes": "Spacetime volume is temporally specified by"
+        "notes": "Spacetime volume is temporally specified by",
     },
     "P164i": {
         "label": "temporally specifies",
@@ -2385,7 +2385,7 @@ P = {
         "inverse": "P164",
         "quantifier": "0..*",
         "aliases": ["TEMPORALLY_SPECIFIES"],
-        "notes": "Inverse of is temporally specified by"
+        "notes": "Inverse of is temporally specified by",
     },
     "P165": {
         "label": "incorporates",
@@ -2394,7 +2394,7 @@ P = {
         "inverse": "P165i",
         "quantifier": "0..*",
         "aliases": ["INCORPORATES"],
-        "notes": "Spacetime volume incorporates"
+        "notes": "Spacetime volume incorporates",
     },
     "P165i": {
         "label": "is incorporated in",
@@ -2403,7 +2403,7 @@ P = {
         "inverse": "P165",
         "quantifier": "0..*",
         "aliases": ["IS_INCORPORATED_IN"],
-        "notes": "Inverse of incorporates"
+        "notes": "Inverse of incorporates",
     },
     "P166": {
         "label": "was a presence of",
@@ -2412,7 +2412,7 @@ P = {
         "inverse": "P166i",
         "quantifier": "0..*",
         "aliases": ["WAS_A_PRESENCE_OF"],
-        "notes": "Presence was a presence of"
+        "notes": "Presence was a presence of",
     },
     "P166i": {
         "label": "had presence",
@@ -2421,7 +2421,7 @@ P = {
         "inverse": "P166",
         "quantifier": "0..*",
         "aliases": ["HAD_PRESENCE"],
-        "notes": "Inverse of was a presence of"
+        "notes": "Inverse of was a presence of",
     },
     "P167": {
         "label": "was within",
@@ -2430,7 +2430,7 @@ P = {
         "inverse": "P167i",
         "quantifier": "0..*",
         "aliases": ["WAS_WITHIN"],
-        "notes": "Presence was within"
+        "notes": "Presence was within",
     },
     "P167i": {
         "label": "contains",
@@ -2439,7 +2439,7 @@ P = {
         "inverse": "P167",
         "quantifier": "0..*",
         "aliases": ["CONTAINS"],
-        "notes": "Inverse of was within"
+        "notes": "Inverse of was within",
     },
     "P168": {
         "label": "place is defined by",
@@ -2448,7 +2448,7 @@ P = {
         "inverse": "P168i",
         "quantifier": "0..*",
         "aliases": ["PLACE_IS_DEFINED_BY"],
-        "notes": "Place is defined by"
+        "notes": "Place is defined by",
     },
     "P168i": {
         "label": "defines",
@@ -2457,7 +2457,7 @@ P = {
         "inverse": "P168",
         "quantifier": "0..*",
         "aliases": ["DEFINES"],
-        "notes": "Inverse of place is defined by"
+        "notes": "Inverse of place is defined by",
     },
     "P169": {
         "label": "defines spacetime volume",
@@ -2466,7 +2466,7 @@ P = {
         "inverse": "P169i",
         "quantifier": "0..*",
         "aliases": ["DEFINES_SPACETIME_VOLUME"],
-        "notes": "Space defines spacetime volume"
+        "notes": "Space defines spacetime volume",
     },
     "P169i": {
         "label": "spacetime volume is defined by",
@@ -2475,7 +2475,7 @@ P = {
         "inverse": "P169",
         "quantifier": "0..*",
         "aliases": ["SPACETIME_VOLUME_IS_DEFINED_BY"],
-        "notes": "Inverse of defines spacetime volume"
+        "notes": "Inverse of defines spacetime volume",
     },
     "P170": {
         "label": "defines time",
@@ -2484,7 +2484,7 @@ P = {
         "inverse": "P170i",
         "quantifier": "0..*",
         "aliases": ["DEFINES_TIME"],
-        "notes": "Time-span defines time"
+        "notes": "Time-span defines time",
     },
     "P170i": {
         "label": "time is defined by",
@@ -2493,7 +2493,7 @@ P = {
         "inverse": "P170",
         "quantifier": "0..*",
         "aliases": ["TIME_IS_DEFINED_BY"],
-        "notes": "Inverse of defines time"
+        "notes": "Inverse of defines time",
     },
     "P171": {
         "label": "at some place within",
@@ -2502,7 +2502,7 @@ P = {
         "inverse": "P171i",
         "quantifier": "0..*",
         "aliases": ["AT_SOME_PLACE_WITHIN"],
-        "notes": "Presence at some place within"
+        "notes": "Presence at some place within",
     },
     "P171i": {
         "label": "contains",
@@ -2511,7 +2511,7 @@ P = {
         "inverse": "P171",
         "quantifier": "0..*",
         "aliases": ["CONTAINS"],
-        "notes": "Inverse of at some place within"
+        "notes": "Inverse of at some place within",
     },
     "P172": {
         "label": "contains",
@@ -2520,7 +2520,7 @@ P = {
         "inverse": "P172i",
         "quantifier": "0..*",
         "aliases": ["CONTAINS"],
-        "notes": "Place contains"
+        "notes": "Place contains",
     },
     "P172i": {
         "label": "is contained in",
@@ -2529,7 +2529,7 @@ P = {
         "inverse": "P172",
         "quantifier": "0..*",
         "aliases": ["IS_CONTAINED_IN"],
-        "notes": "Inverse of contains"
+        "notes": "Inverse of contains",
     },
     "P173": {
         "label": "starts before or with the end of",
@@ -2538,7 +2538,7 @@ P = {
         "inverse": "P173i",
         "quantifier": "0..*",
         "aliases": ["STARTS_BEFORE_OR_WITH_THE_END_OF"],
-        "notes": "Temporal entity starts before or with the end of"
+        "notes": "Temporal entity starts before or with the end of",
     },
     "P173i": {
         "label": "ends after or with the start of",
@@ -2547,7 +2547,7 @@ P = {
         "inverse": "P173",
         "quantifier": "0..*",
         "aliases": ["ENDS_AFTER_OR_WITH_THE_START_OF"],
-        "notes": "Inverse of starts before or with the end of"
+        "notes": "Inverse of starts before or with the end of",
     },
     "P174": {
         "label": "starts before the end of",
@@ -2556,7 +2556,7 @@ P = {
         "inverse": "P174i",
         "quantifier": "0..*",
         "aliases": ["STARTS_BEFORE_THE_END_OF"],
-        "notes": "Temporal entity starts before the end of"
+        "notes": "Temporal entity starts before the end of",
     },
     "P174i": {
         "label": "ends after the start of",
@@ -2565,7 +2565,7 @@ P = {
         "inverse": "P174",
         "quantifier": "0..*",
         "aliases": ["ENDS_AFTER_THE_START_OF"],
-        "notes": "Inverse of starts before the end of"
+        "notes": "Inverse of starts before the end of",
     },
     "P175": {
         "label": "starts before or with the start of",
@@ -2574,7 +2574,7 @@ P = {
         "inverse": "P175i",
         "quantifier": "0..*",
         "aliases": ["STARTS_BEFORE_OR_WITH_THE_START_OF"],
-        "notes": "Temporal entity starts before or with the start of"
+        "notes": "Temporal entity starts before or with the start of",
     },
     "P175i": {
         "label": "starts after or with the start of",
@@ -2583,7 +2583,7 @@ P = {
         "inverse": "P175",
         "quantifier": "0..*",
         "aliases": ["STARTS_AFTER_OR_WITH_THE_START_OF"],
-        "notes": "Inverse of starts before or with the start of"
+        "notes": "Inverse of starts before or with the start of",
     },
     "P176": {
         "label": "starts before the start of",
@@ -2592,7 +2592,7 @@ P = {
         "inverse": "P176i",
         "quantifier": "0..*",
         "aliases": ["STARTS_BEFORE_THE_START_OF"],
-        "notes": "Temporal entity starts before the start of"
+        "notes": "Temporal entity starts before the start of",
     },
     "P176i": {
         "label": "starts after the start of",
@@ -2601,7 +2601,7 @@ P = {
         "inverse": "P176",
         "quantifier": "0..*",
         "aliases": ["STARTS_AFTER_THE_START_OF"],
-        "notes": "Inverse of starts before the start of"
+        "notes": "Inverse of starts before the start of",
     },
     "P177": {
         "label": "assigned",
@@ -2610,7 +2610,7 @@ P = {
         "inverse": "P177i",
         "quantifier": "0..*",
         "aliases": ["ASSIGNED"],
-        "notes": "Attribute assignment assigned"
+        "notes": "Attribute assignment assigned",
     },
     "P177i": {
         "label": "was assigned by",
@@ -2619,7 +2619,7 @@ P = {
         "inverse": "P177",
         "quantifier": "0..*",
         "aliases": ["WAS_ASSIGNED_BY"],
-        "notes": "Inverse of assigned"
+        "notes": "Inverse of assigned",
     },
     "P179": {
         "label": "had sales price",
@@ -2628,7 +2628,7 @@ P = {
         "inverse": "P179i",
         "quantifier": "0..*",
         "aliases": ["HAD_SALES_PRICE"],
-        "notes": "Acquisition had sales price"
+        "notes": "Acquisition had sales price",
     },
     "P179i": {
         "label": "was sales price of",
@@ -2637,7 +2637,7 @@ P = {
         "inverse": "P179",
         "quantifier": "0..*",
         "aliases": ["WAS_SALES_PRICE_OF"],
-        "notes": "Inverse of had sales price"
+        "notes": "Inverse of had sales price",
     },
     "P180": {
         "label": "has currency",
@@ -2646,7 +2646,7 @@ P = {
         "inverse": "P180i",
         "quantifier": "0..1",
         "aliases": ["HAS_CURRENCY"],
-        "notes": "Monetary amount has currency"
+        "notes": "Monetary amount has currency",
     },
     "P180i": {
         "label": "is currency of",
@@ -2655,7 +2655,7 @@ P = {
         "inverse": "P180",
         "quantifier": "0..*",
         "aliases": ["IS_CURRENCY_OF"],
-        "notes": "Inverse of has currency"
+        "notes": "Inverse of has currency",
     },
     "P182": {
         "label": "ends before or with the start of",
@@ -2664,7 +2664,7 @@ P = {
         "inverse": "P182i",
         "quantifier": "0..*",
         "aliases": ["ENDS_BEFORE_OR_WITH_THE_START_OF"],
-        "notes": "Temporal entity ends before or with the start of"
+        "notes": "Temporal entity ends before or with the start of",
     },
     "P182i": {
         "label": "starts after or with the end of",
@@ -2673,7 +2673,7 @@ P = {
         "inverse": "P182",
         "quantifier": "0..*",
         "aliases": ["STARTS_AFTER_OR_WITH_THE_END_OF"],
-        "notes": "Inverse of ends before or with the start of"
+        "notes": "Inverse of ends before or with the start of",
     },
     "P183": {
         "label": "ends before the start of",
@@ -2682,7 +2682,7 @@ P = {
         "inverse": "P183i",
         "quantifier": "0..*",
         "aliases": ["ENDS_BEFORE_THE_START_OF"],
-        "notes": "Temporal entity ends before the start of"
+        "notes": "Temporal entity ends before the start of",
     },
     "P183i": {
         "label": "starts after the end of",
@@ -2691,7 +2691,7 @@ P = {
         "inverse": "P183",
         "quantifier": "0..*",
         "aliases": ["STARTS_AFTER_THE_END_OF"],
-        "notes": "Inverse of ends before the start of"
+        "notes": "Inverse of ends before the start of",
     },
     "P184": {
         "label": "ends before or with the end of",
@@ -2700,7 +2700,7 @@ P = {
         "inverse": "P184i",
         "quantifier": "0..*",
         "aliases": ["ENDS_BEFORE_OR_WITH_THE_END_OF"],
-        "notes": "Temporal entity ends before or with the end of"
+        "notes": "Temporal entity ends before or with the end of",
     },
     "P184i": {
         "label": "ends after or with the end of",
@@ -2709,7 +2709,7 @@ P = {
         "inverse": "P184",
         "quantifier": "0..*",
         "aliases": ["ENDS_AFTER_OR_WITH_THE_END_OF"],
-        "notes": "Inverse of ends before or with the end of"
+        "notes": "Inverse of ends before or with the end of",
     },
     "P185": {
         "label": "ends before the end of",
@@ -2718,7 +2718,7 @@ P = {
         "inverse": "P185i",
         "quantifier": "0..*",
         "aliases": ["ENDS_BEFORE_THE_END_OF"],
-        "notes": "Temporal entity ends before the end of"
+        "notes": "Temporal entity ends before the end of",
     },
     "P185i": {
         "label": "ends after the end of",
@@ -2727,7 +2727,7 @@ P = {
         "inverse": "P185",
         "quantifier": "0..*",
         "aliases": ["ENDS_AFTER_THE_END_OF"],
-        "notes": "Inverse of ends before the end of"
+        "notes": "Inverse of ends before the end of",
     },
     "P186": {
         "label": "produced thing of type",
@@ -2736,7 +2736,7 @@ P = {
         "inverse": "P186i",
         "quantifier": "0..*",
         "aliases": ["PRODUCED_THING_OF_TYPE"],
-        "notes": "Production produced thing of type"
+        "notes": "Production produced thing of type",
     },
     "P186i": {
         "label": "was produced by",
@@ -2745,7 +2745,7 @@ P = {
         "inverse": "P186",
         "quantifier": "0..*",
         "aliases": ["WAS_PRODUCED_BY"],
-        "notes": "Inverse of produced thing of type"
+        "notes": "Inverse of produced thing of type",
     },
     "P187": {
         "label": "has production plan",
@@ -2754,7 +2754,7 @@ P = {
         "inverse": "P187i",
         "quantifier": "0..*",
         "aliases": ["HAS_PRODUCTION_PLAN"],
-        "notes": "Production has production plan"
+        "notes": "Production has production plan",
     },
     "P187i": {
         "label": "was production plan for",
@@ -2763,7 +2763,7 @@ P = {
         "inverse": "P187",
         "quantifier": "0..*",
         "aliases": ["WAS_PRODUCTION_PLAN_FOR"],
-        "notes": "Inverse of has production plan"
+        "notes": "Inverse of has production plan",
     },
     "P188": {
         "label": "requires",
@@ -2772,7 +2772,7 @@ P = {
         "inverse": "P188i",
         "quantifier": "0..*",
         "aliases": ["REQUIRES"],
-        "notes": "Design or procedure requires"
+        "notes": "Design or procedure requires",
     },
     "P188i": {
         "label": "is required by",
@@ -2781,7 +2781,7 @@ P = {
         "inverse": "P188",
         "quantifier": "0..*",
         "aliases": ["IS_REQUIRED_BY"],
-        "notes": "Inverse of requires"
+        "notes": "Inverse of requires",
     },
     "P189": {
         "label": "approximates",
@@ -2790,7 +2790,7 @@ P = {
         "inverse": "P189i",
         "quantifier": "0..*",
         "aliases": ["APPROXIMATES"],
-        "notes": "Spacetime primitive approximates"
+        "notes": "Spacetime primitive approximates",
     },
     "P189i": {
         "label": "approximates",
@@ -2799,7 +2799,7 @@ P = {
         "inverse": "P189",
         "quantifier": "0..*",
         "aliases": ["APPROXIMATES"],
-        "notes": "Inverse of approximates"
+        "notes": "Inverse of approximates",
     },
     "P190": {
         "label": "has symbolic content",
@@ -2808,7 +2808,7 @@ P = {
         "inverse": "P190i",
         "quantifier": "0..*",
         "aliases": ["HAS_SYMBOLIC_CONTENT"],
-        "notes": "Symbolic object has symbolic content"
+        "notes": "Symbolic object has symbolic content",
     },
     "P190i": {
         "label": "is symbolic content of",
@@ -2817,7 +2817,7 @@ P = {
         "inverse": "P190",
         "quantifier": "0..*",
         "aliases": ["IS_SYMBOLIC_CONTENT_OF"],
-        "notes": "Inverse of has symbolic content"
+        "notes": "Inverse of has symbolic content",
     },
     "P191": {
         "label": "had duration",
@@ -2826,7 +2826,7 @@ P = {
         "inverse": "P191i",
         "quantifier": "0..1",
         "aliases": ["HAD_DURATION"],
-        "notes": "Temporal entity had duration"
+        "notes": "Temporal entity had duration",
     },
     "P191i": {
         "label": "was duration of",
@@ -2835,7 +2835,7 @@ P = {
         "inverse": "P191",
         "quantifier": "0..*",
         "aliases": ["WAS_DURATION_OF"],
-        "notes": "Inverse of had duration"
+        "notes": "Inverse of had duration",
     },
     "P195": {
         "label": "was a presence of",
@@ -2844,7 +2844,7 @@ P = {
         "inverse": "P195i",
         "quantifier": "0..*",
         "aliases": ["WAS_A_PRESENCE_OF"],
-        "notes": "Presence was a presence of"
+        "notes": "Presence was a presence of",
     },
     "P195i": {
         "label": "had presence",
@@ -2853,7 +2853,7 @@ P = {
         "inverse": "P195",
         "quantifier": "0..*",
         "aliases": ["HAD_PRESENCE"],
-        "notes": "Inverse of was a presence of"
+        "notes": "Inverse of was a presence of",
     },
     "P196": {
         "label": "defines",
@@ -2862,7 +2862,7 @@ P = {
         "inverse": "P196i",
         "quantifier": "0..*",
         "aliases": ["DEFINES"],
-        "notes": "Space defines"
+        "notes": "Space defines",
     },
     "P196i": {
         "label": "is defined by",
@@ -2871,7 +2871,7 @@ P = {
         "inverse": "P196",
         "quantifier": "0..*",
         "aliases": ["IS_DEFINED_BY"],
-        "notes": "Inverse of defines"
+        "notes": "Inverse of defines",
     },
     "P197": {
         "label": "covered parts of",
@@ -2880,7 +2880,7 @@ P = {
         "inverse": "P197i",
         "quantifier": "0..*",
         "aliases": ["COVERED_PARTS_OF"],
-        "notes": "Presence covered parts of"
+        "notes": "Presence covered parts of",
     },
     "P197i": {
         "label": "was covered by",
@@ -2889,7 +2889,7 @@ P = {
         "inverse": "P197",
         "quantifier": "0..*",
         "aliases": ["WAS_COVERED_BY"],
-        "notes": "Inverse of covered parts of"
+        "notes": "Inverse of covered parts of",
     },
     "P198": {
         "label": "holds or supports",
@@ -2898,7 +2898,7 @@ P = {
         "inverse": "P198i",
         "quantifier": "0..*",
         "aliases": ["HOLDS_OR_SUPPORTS"],
-        "notes": "Presence holds or supports"
+        "notes": "Presence holds or supports",
     },
     "P198i": {
         "label": "is held or supported by",
@@ -2907,28 +2907,184 @@ P = {
         "inverse": "P198",
         "quantifier": "0..*",
         "aliases": ["IS_HELD_OR_SUPPORTED_BY"],
-        "notes": "Inverse of holds or supports"
-    }
+        "notes": "Inverse of holds or supports",
+    },
 }
 
 DOMAIN = {
-    "E1": ["P1", "P2", "P3", "P15i", "P17i", "P35i", "P37i", "P38i", "P39i", "P41i", "P48", "P62i", "P67i", "P70i", "P71i", "P102i", "P123i", "P129i", "P130i", "P137i", "P138i", "P140i", "P141i", "P177i"],
-    "E2": ["P4", "P81", "P82", "P120", "P120i", "P173", "P173i", "P174", "P174i", "P175", "P175i", "P176", "P176i", "P182", "P182i", "P183", "P183i", "P184", "P184i", "P185", "P185i", "P191"],
+    "E1": [
+        "P1",
+        "P2",
+        "P3",
+        "P15i",
+        "P17i",
+        "P35i",
+        "P37i",
+        "P38i",
+        "P39i",
+        "P41i",
+        "P48",
+        "P62i",
+        "P67i",
+        "P70i",
+        "P71i",
+        "P102i",
+        "P123i",
+        "P129i",
+        "P130i",
+        "P137i",
+        "P138i",
+        "P140i",
+        "P141i",
+        "P177i",
+    ],
+    "E2": [
+        "P4",
+        "P81",
+        "P82",
+        "P120",
+        "P120i",
+        "P173",
+        "P173i",
+        "P174",
+        "P174i",
+        "P175",
+        "P175i",
+        "P176",
+        "P176i",
+        "P182",
+        "P182i",
+        "P183",
+        "P183i",
+        "P184",
+        "P184i",
+        "P185",
+        "P185i",
+        "P191",
+    ],
     "E5": ["P7", "P11", "P8", "P12", "P20i", "P123"],
-    "E18": ["P53", "P5", "P5i", "P13i", "P24i", "P25i", "P30i", "P31i", "P34i", "P44", "P45", "P45i", "P46", "P46i", "P49", "P50", "P51", "P52", "P75i", "P110i", "P111i", "P112i", "P113i", "P124i", "P142i", "P198i"],
+    "E18": [
+        "P53",
+        "P5",
+        "P5i",
+        "P13i",
+        "P24i",
+        "P25i",
+        "P30i",
+        "P31i",
+        "P34i",
+        "P44",
+        "P45",
+        "P45i",
+        "P46",
+        "P46i",
+        "P49",
+        "P50",
+        "P51",
+        "P52",
+        "P75i",
+        "P110i",
+        "P111i",
+        "P112i",
+        "P113i",
+        "P124i",
+        "P142i",
+        "P198i",
+    ],
     "E52": ["P79", "P80", "P4i", "P160i", "P164i", "P170"],
     "E22": ["P108"],
     "E12": ["P108i", "P186", "P187"],
     "E41": ["P1i", "P139", "P139i"],
-    "E55": ["P2i", "P19i", "P21i", "P32i", "P42i", "P101i", "P103i", "P125i", "P127", "P127i", "P135i", "P137", "P150", "P150i", "P186i"],
+    "E55": [
+        "P2i",
+        "P19i",
+        "P21i",
+        "P32i",
+        "P42i",
+        "P101i",
+        "P103i",
+        "P125i",
+        "P127",
+        "P127i",
+        "P135i",
+        "P137",
+        "P150",
+        "P150i",
+        "P186i",
+    ],
     "E62": ["P3i", "P190i"],
-    "E53": ["P7i", "P53i", "P26i", "P27i", "P54i", "P55i", "P59", "P59i", "P74i", "P89", "P89i", "P121", "P121i", "P122", "P122i", "P156i", "P157i", "P161i", "P168", "P171i", "P172", "P172i", "P197i"],
-    "E39": ["P11i", "P14i", "P22i", "P23i", "P28i", "P29i", "P49i", "P50i", "P51i", "P52i", "P69", "P69i", "P74", "P75", "P76", "P104i", "P105i", "P107i", "P109i", "P143i", "P144i", "P145i", "P146i"],
+    "E53": [
+        "P7i",
+        "P53i",
+        "P26i",
+        "P27i",
+        "P54i",
+        "P55i",
+        "P59",
+        "P59i",
+        "P74i",
+        "P89",
+        "P89i",
+        "P121",
+        "P121i",
+        "P122",
+        "P122i",
+        "P156i",
+        "P157i",
+        "P161i",
+        "P168",
+        "P171i",
+        "P172",
+        "P172i",
+        "P197i",
+    ],
+    "E39": [
+        "P11i",
+        "P14i",
+        "P22i",
+        "P23i",
+        "P28i",
+        "P29i",
+        "P49i",
+        "P50i",
+        "P51i",
+        "P52i",
+        "P69",
+        "P69i",
+        "P74",
+        "P75",
+        "P76",
+        "P104i",
+        "P105i",
+        "P107i",
+        "P109i",
+        "P143i",
+        "P144i",
+        "P145i",
+        "P146i",
+    ],
     "E61": ["P79i", "P80i", "P8i", "P81i", "P82i", "P170i"],
     "E4": ["P9", "P9i", "P10", "P10i", "P86", "P86i"],
     "E77": ["P12i", "P92i", "P93i", "P94i", "P95i", "P98i", "P151i", "P166i", "P195i"],
     "E6": ["P13"],
-    "E7": ["P14", "P15", "P16", "P17", "P19", "P20", "P21", "P32", "P33", "P101", "P103", "P125", "P126", "P134", "P134i", "P142"],
+    "E7": [
+        "P14",
+        "P15",
+        "P16",
+        "P17",
+        "P19",
+        "P20",
+        "P21",
+        "P32",
+        "P33",
+        "P101",
+        "P103",
+        "P125",
+        "P126",
+        "P134",
+        "P134i",
+        "P142",
+    ],
     "E19": ["P16i", "P54", "P55", "P56", "P57", "P68i", "P126i", "P188i"],
     "E8": ["P22", "P23", "P24", "P179"],
     "E9": ["P25", "P26", "P27"],
@@ -2968,7 +3124,20 @@ DOMAIN = {
     "E80": ["P112", "P113"],
     "E81": ["P124"],
     "E84": ["P128"],
-    "E92": ["P132", "P132i", "P133", "P133i", "P160", "P161", "P164", "P165", "P165i", "P167i", "P169i", "P196i"],
+    "E92": [
+        "P132",
+        "P132i",
+        "P133",
+        "P133i",
+        "P160",
+        "P161",
+        "P164",
+        "P165",
+        "P165i",
+        "P167i",
+        "P169i",
+        "P196i",
+    ],
     "E83": ["P135"],
     "E85": ["P143", "P144"],
     "E86": ["P145", "P146"],
@@ -2979,27 +3148,183 @@ DOMAIN = {
     "E97": ["P179i", "P180"],
     "E98": ["P180i"],
     "E95": ["P189", "P189i"],
-    "E90": ["P190"]
+    "E90": ["P190"],
 }
 
 RANGE = {
     "E41": ["P1", "P139", "P139i"],
-    "E55": ["P2", "P19", "P21", "P32", "P42", "P101", "P103", "P125", "P127", "P127i", "P135", "P137i", "P150", "P150i", "P186"],
+    "E55": [
+        "P2",
+        "P19",
+        "P21",
+        "P32",
+        "P42",
+        "P101",
+        "P103",
+        "P125",
+        "P127",
+        "P127i",
+        "P135",
+        "P137i",
+        "P150",
+        "P150i",
+        "P186",
+    ],
     "E62": ["P3", "P190"],
     "E52": ["P4", "P79i", "P80i", "P160", "P164", "P170i"],
-    "E53": ["P7", "P53", "P26", "P27", "P54", "P55", "P59", "P59i", "P74", "P89", "P89i", "P121", "P121i", "P122", "P122i", "P156", "P157", "P161", "P168i", "P171", "P172", "P172i", "P197"],
-    "E39": ["P11", "P14", "P22", "P23", "P28", "P29", "P49", "P50", "P51", "P52", "P69", "P69i", "P74i", "P75i", "P76i", "P104", "P105", "P107", "P109", "P143", "P144", "P145", "P146"],
+    "E53": [
+        "P7",
+        "P53",
+        "P26",
+        "P27",
+        "P54",
+        "P55",
+        "P59",
+        "P59i",
+        "P74",
+        "P89",
+        "P89i",
+        "P121",
+        "P121i",
+        "P122",
+        "P122i",
+        "P156",
+        "P157",
+        "P161",
+        "P168i",
+        "P171",
+        "P172",
+        "P172i",
+        "P197",
+    ],
+    "E39": [
+        "P11",
+        "P14",
+        "P22",
+        "P23",
+        "P28",
+        "P29",
+        "P49",
+        "P50",
+        "P51",
+        "P52",
+        "P69",
+        "P69i",
+        "P74i",
+        "P75i",
+        "P76i",
+        "P104",
+        "P105",
+        "P107",
+        "P109",
+        "P143",
+        "P144",
+        "P145",
+        "P146",
+    ],
     "E61": ["P79", "P80", "P8", "P81", "P82", "P170"],
     "E12": ["P108", "P186i", "P187i"],
     "E22": ["P108i"],
-    "E1": ["P1i", "P2i", "P3i", "P15", "P17", "P35", "P37", "P38", "P39", "P41", "P48i", "P62", "P67", "P70", "P71", "P102", "P123", "P129", "P130", "P137", "P138", "P140", "P141", "P177"],
-    "E2": ["P4i", "P81i", "P82i", "P120", "P120i", "P173", "P173i", "P174", "P174i", "P175", "P175i", "P176", "P176i", "P182", "P182i", "P183", "P183i", "P184", "P184i", "P185", "P185i", "P191i"],
+    "E1": [
+        "P1i",
+        "P2i",
+        "P3i",
+        "P15",
+        "P17",
+        "P35",
+        "P37",
+        "P38",
+        "P39",
+        "P41",
+        "P48i",
+        "P62",
+        "P67",
+        "P70",
+        "P71",
+        "P102",
+        "P123",
+        "P129",
+        "P130",
+        "P137",
+        "P138",
+        "P140",
+        "P141",
+        "P177",
+    ],
+    "E2": [
+        "P4i",
+        "P81i",
+        "P82i",
+        "P120",
+        "P120i",
+        "P173",
+        "P173i",
+        "P174",
+        "P174i",
+        "P175",
+        "P175i",
+        "P176",
+        "P176i",
+        "P182",
+        "P182i",
+        "P183",
+        "P183i",
+        "P184",
+        "P184i",
+        "P185",
+        "P185i",
+        "P191i",
+    ],
     "E5": ["P7i", "P11i", "P8i", "P12i", "P20", "P123i"],
-    "E18": ["P53i", "P5", "P5i", "P13", "P24", "P25", "P30", "P31", "P34", "P44i", "P45", "P45i", "P46", "P46i", "P49i", "P50i", "P51i", "P52i", "P75", "P110", "P111", "P112", "P113", "P124", "P142", "P198"],
+    "E18": [
+        "P53i",
+        "P5",
+        "P5i",
+        "P13",
+        "P24",
+        "P25",
+        "P30",
+        "P31",
+        "P34",
+        "P44i",
+        "P45",
+        "P45i",
+        "P46",
+        "P46i",
+        "P49i",
+        "P50i",
+        "P51i",
+        "P52i",
+        "P75",
+        "P110",
+        "P111",
+        "P112",
+        "P113",
+        "P124",
+        "P142",
+        "P198",
+    ],
     "E4": ["P9", "P9i", "P10", "P10i", "P86", "P86i"],
     "E77": ["P12", "P92", "P93", "P94", "P95", "P98", "P151", "P166", "P195"],
     "E6": ["P13i"],
-    "E7": ["P14i", "P15i", "P16i", "P17i", "P19i", "P20i", "P21i", "P32i", "P33i", "P101i", "P103i", "P125i", "P126i", "P134", "P134i", "P142i"],
+    "E7": [
+        "P14i",
+        "P15i",
+        "P16i",
+        "P17i",
+        "P19i",
+        "P20i",
+        "P21i",
+        "P32i",
+        "P33i",
+        "P101i",
+        "P103i",
+        "P125i",
+        "P126i",
+        "P134",
+        "P134i",
+        "P142i",
+    ],
     "E19": ["P16", "P54i", "P55i", "P56i", "P57i", "P68", "P126", "P188"],
     "E8": ["P22i", "P23i", "P24i", "P179i"],
     "E9": ["P25i", "P26i", "P27i"],
@@ -3039,7 +3364,20 @@ RANGE = {
     "E80": ["P112i", "P113i"],
     "E81": ["P124i"],
     "E84": ["P128i"],
-    "E92": ["P132", "P132i", "P133", "P133i", "P160i", "P161i", "P164i", "P165", "P165i", "P167", "P169", "P196"],
+    "E92": [
+        "P132",
+        "P132i",
+        "P133",
+        "P133i",
+        "P160i",
+        "P161i",
+        "P164i",
+        "P165",
+        "P165i",
+        "P167",
+        "P169",
+        "P196",
+    ],
     "E83": ["P135i"],
     "E85": ["P143i", "P144i"],
     "E86": ["P145i", "P146i"],
@@ -3050,5 +3388,5 @@ RANGE = {
     "E97": ["P179", "P180i"],
     "E98": ["P180"],
     "E95": ["P189", "P189i"],
-    "E90": ["P190i"]
+    "E90": ["P190i"],
 }
