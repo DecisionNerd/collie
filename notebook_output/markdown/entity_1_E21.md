@@ -1,4 +1,4 @@
-### E21 · Person · Albert Einstein · (b050cb3e...)
+### E21 · Person · Albert Einstein · (153f9261...)
 
 - **Label** (`label`): Albert Einstein
 - **Type** (`type`): ['E21']
