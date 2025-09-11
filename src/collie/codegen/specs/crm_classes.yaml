@@ -1,0 +1,1253 @@
+# CIDOC CRM v7.1.3 E-classes specification
+# Source of truth for generating Pydantic models
+
+- code: E1
+  label: CRM Entity
+  abstract: true
+  parents: []
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E2
+  label: Temporal Entity
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E3
+  label: Condition State
+  abstract: false
+  parents: [E2]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E4
+  label: Period
+  abstract: false
+  parents: [E2]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E5
+  label: Event
+  abstract: false
+  parents: [E2]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E6
+  label: Destruction
+  abstract: false
+  parents: [E5]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E7
+  label: Activity
+  abstract: false
+  parents: [E5]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E8
+  label: Acquisition
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E9
+  label: Move
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E10
+  label: Transfer of Custody
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E11
+  label: Modification
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E12
+  label: Production
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E13
+  label: Attribute Assignment
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E14
+  label: Condition Assessment
+  abstract: false
+  parents: [E13]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E15
+  label: Identifier Assignment
+  abstract: false
+  parents: [E13]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E16
+  label: Measurement
+  abstract: false
+  parents: [E13]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E17
+  label: Type Assignment
+  abstract: false
+  parents: [E13]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E18
+  label: Physical Thing
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E19
+  label: Physical Object
+  abstract: false
+  parents: [E18]
+  canonical_fields: [label, type, notes, current_location]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+
+- code: E20
+  label: Biological Object
+  abstract: false
+  parents: [E19]
+  canonical_fields: [label, type, notes, current_location]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+
+- code: E21
+  label: Person
+  abstract: false
+  parents: [E20]
+  canonical_fields: [label, type, notes, current_location]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+
+- code: E22
+  label: Human-Made Object
+  abstract: false
+  parents: [E19]
+  canonical_fields: [label, type, notes, current_location, produced_by]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+    - property: P108
+      alias_field: produced_by
+
+- code: E23
+  label: Conceptual Object
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E24
+  label: Physical Man-Made Thing
+  abstract: false
+  parents: [E18]
+  canonical_fields: [label, type, notes, current_location]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+
+- code: E25
+  label: Man-Made Feature
+  abstract: false
+  parents: [E24]
+  canonical_fields: [label, type, notes, current_location]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+
+- code: E26
+  label: Physical Feature
+  abstract: false
+  parents: [E18]
+  canonical_fields: [label, type, notes, current_location]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+
+- code: E27
+  label: Site
+  abstract: false
+  parents: [E26]
+  canonical_fields: [label, type, notes, current_location]
+  shortcuts:
+    - property: P53
+      alias_field: current_location
+
+- code: E28
+  label: Conceptual Object
+  abstract: false
+  parents: [E23]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E29
+  label: Design or Procedure
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E30
+  label: Right
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E31
+  label: Document
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E32
+  label: Authority Document
+  abstract: false
+  parents: [E31]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E33
+  label: Linguistic Object
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E34
+  label: Inscription
+  abstract: false
+  parents: [E33]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E35
+  label: Title
+  abstract: false
+  parents: [E33]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E36
+  label: Visual Item
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E37
+  label: Mark
+  abstract: false
+  parents: [E36]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E38
+  label: Image
+  abstract: false
+  parents: [E36]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E39
+  label: Actor
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E40
+  label: Legal Body
+  abstract: false
+  parents: [E39]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E41
+  label: Appellation
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E42
+  label: Identifier
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E43
+  label: Place
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E44
+  label: Place Appellation
+  abstract: false
+  parents: [E41]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E45
+  label: Address
+  abstract: false
+  parents: [E44]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E46
+  label: Section
+  abstract: false
+  parents: [E43]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E47
+  label: Spatial Coordinates
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E48
+  label: Place Name
+  abstract: false
+  parents: [E44]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E49
+  label: Time Appellation
+  abstract: false
+  parents: [E41]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E50
+  label: Date
+  abstract: false
+  parents: [E49]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E51
+  label: Contact Point
+  abstract: false
+  parents: [E45]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E52
+  label: Time-Span
+  abstract: false
+  parents: [E1]
+  canonical_fields: [label, type, notes, begin_of_the_begin, end_of_the_end]
+  shortcuts:
+    - property: P79
+      alias_field: begin_of_the_begin
+    - property: P80
+      alias_field: end_of_the_end
+
+- code: E53
+  label: Place
+  abstract: false
+  parents: [E43]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E54
+  label: Dimension
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E55
+  label: Type
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E56
+  label: Language
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E57
+  label: Material
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E58
+  label: Measurement Unit
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E59
+  label: Primitive Value
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E60
+  label: Number
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E61
+  label: Time Primitive
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E62
+  label: String
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E63
+  label: Beginning of Existence
+  abstract: false
+  parents: [E5]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E64
+  label: End of Existence
+  abstract: false
+  parents: [E5]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E65
+  label: Creation
+  abstract: false
+  parents: [E63]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E66
+  label: Formation
+  abstract: false
+  parents: [E63]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E67
+  label: Birth
+  abstract: false
+  parents: [E66]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E68
+  label: Death
+  abstract: false
+  parents: [E64]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E69
+  label: Death
+  abstract: false
+  parents: [E64]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E70
+  label: Thing
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E71
+  label: Human-Made Thing
+  abstract: false
+  parents: [E70]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E72
+  label: Legal Object
+  abstract: false
+  parents: [E70]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E73
+  label: Information Object
+  abstract: false
+  parents: [E70]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E74
+  label: Group
+  abstract: false
+  parents: [E39]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E75
+  label: Conceptual Object Appellation
+  abstract: false
+  parents: [E41]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E76
+  label: Conceptual Object Identifier
+  abstract: false
+  parents: [E42]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E77
+  label: Persistent Item
+  abstract: false
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E78
+  label: Curated Holding
+  abstract: false
+  parents: [E77]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E79
+  label: Part Addition
+  abstract: false
+  parents: [E11]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E80
+  label: Part Removal
+  abstract: false
+  parents: [E11]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E81
+  label: Transformation
+  abstract: false
+  parents: [E11]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E82
+  label: Actor Appellation
+  abstract: false
+  parents: [E75]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E83
+  label: Type Creation
+  abstract: false
+  parents: [E65]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E84
+  label: Information Carrier
+  abstract: false
+  parents: [E73]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E85
+  label: Joining
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E86
+  label: Leaving
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E87
+  label: Curation Activity
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E88
+  label: Propositional Object
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E89
+  label: Propositional Statement
+  abstract: false
+  parents: [E88]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E90
+  label: Symbolic Object
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E91
+  label: Knowledge Object
+  abstract: false
+  parents: [E90]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E92
+  label: Spacetime Volume
+  abstract: false
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E93
+  label: Presence
+  abstract: false
+  parents: [E92]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E94
+  label: Space
+  abstract: false
+  parents: [E92]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E95
+  label: Spacetime Primitive
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E96
+  label: Spacetime Volume
+  abstract: false
+  parents: [E92]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E97
+  label: Monetary Amount
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E98
+  label: Currency
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E99
+  label: Product Type
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+# Additional classes from CIDOC CRM 7.1.3 standard
+- code: E23
+  label: Conceptual Object
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E38
+  label: Image
+  abstract: false
+  parents: [E36]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E40
+  label: Legal Body
+  abstract: false
+  parents: [E39]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E44
+  label: Place Appellation
+  abstract: false
+  parents: [E41]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E45
+  label: Address
+  abstract: false
+  parents: [E44]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E46
+  label: Section
+  abstract: false
+  parents: [E43]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E47
+  label: Spatial Coordinates
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E48
+  label: Place Name
+  abstract: false
+  parents: [E44]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E49
+  label: Time Appellation
+  abstract: false
+  parents: [E41]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E50
+  label: Date
+  abstract: false
+  parents: [E49]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E51
+  label: Contact Point
+  abstract: false
+  parents: [E45]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E54
+  label: Dimension
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E56
+  label: Language
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E57
+  label: Material
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E58
+  label: Measurement Unit
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E60
+  label: Number
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E61
+  label: Time Primitive
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E62
+  label: String
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E63
+  label: Beginning of Existence
+  abstract: false
+  parents: [E5]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E64
+  label: End of Existence
+  abstract: false
+  parents: [E5]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E65
+  label: Creation
+  abstract: false
+  parents: [E63]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E66
+  label: Formation
+  abstract: false
+  parents: [E63]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E67
+  label: Birth
+  abstract: false
+  parents: [E66]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E68
+  label: Death
+  abstract: false
+  parents: [E64]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E69
+  label: Death
+  abstract: false
+  parents: [E64]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E70
+  label: Thing
+  abstract: true
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E71
+  label: Human-Made Thing
+  abstract: false
+  parents: [E70]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E72
+  label: Legal Object
+  abstract: false
+  parents: [E70]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E73
+  label: Information Object
+  abstract: false
+  parents: [E70]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E75
+  label: Conceptual Object Appellation
+  abstract: false
+  parents: [E41]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E76
+  label: Conceptual Object Identifier
+  abstract: false
+  parents: [E42]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E77
+  label: Persistent Item
+  abstract: false
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E78
+  label: Curated Holding
+  abstract: false
+  parents: [E77]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E79
+  label: Part Addition
+  abstract: false
+  parents: [E11]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E80
+  label: Part Removal
+  abstract: false
+  parents: [E11]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E81
+  label: Transformation
+  abstract: false
+  parents: [E11]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E82
+  label: Actor Appellation
+  abstract: false
+  parents: [E75]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E83
+  label: Type Creation
+  abstract: false
+  parents: [E65]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E84
+  label: Information Carrier
+  abstract: false
+  parents: [E73]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E85
+  label: Joining
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E86
+  label: Leaving
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E87
+  label: Curation Activity
+  abstract: false
+  parents: [E7]
+  canonical_fields: [label, type, notes, timespan, took_place_at]
+  shortcuts:
+    - property: P4
+      alias_field: timespan
+    - property: P7
+      alias_field: took_place_at
+
+- code: E88
+  label: Propositional Object
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E89
+  label: Propositional Statement
+  abstract: false
+  parents: [E88]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E90
+  label: Symbolic Object
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E91
+  label: Knowledge Object
+  abstract: false
+  parents: [E90]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E92
+  label: Spacetime Volume
+  abstract: false
+  parents: [E1]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E93
+  label: Presence
+  abstract: false
+  parents: [E92]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E94
+  label: Space
+  abstract: false
+  parents: [E92]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E95
+  label: Spacetime Primitive
+  abstract: false
+  parents: [E59]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E96
+  label: Spacetime Volume
+  abstract: false
+  parents: [E92]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E97
+  label: Monetary Amount
+  abstract: false
+  parents: [E28]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
+
+- code: E98
+  label: Currency
+  abstract: false
+  parents: [E55]
+  canonical_fields: [label, type, notes]
+  shortcuts: []
