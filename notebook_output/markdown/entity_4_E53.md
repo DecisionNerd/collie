@@ -1,6 +1,5 @@
-### E53 · Place · Princeton · (5663a6d5...)
+### E53 · Place · Ulm · (64502329...)
 
-- **Label** (`label`): Princeton
+- **Label** (`label`): Ulm
 - **Type** (`type`): ['E53']
-- **Notes**: Place mentioned in context: ein worked at the Institute for Advanced Study in Princeton, New Jersey.
-He is best known for his mass-energy
+- **Notes**: Place mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Württemberg, Germany. He grew up in a secular Je

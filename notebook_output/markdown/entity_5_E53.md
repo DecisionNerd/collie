@@ -1,6 +1,5 @@
-### E53 · Place · Princeton · (081cf839...)
+### E53 · Place · Munich · (9d34e357...)
 
-- **Label** (`label`): Princeton
+- **Label** (`label`): Munich
 - **Type** (`type`): ['E53']
-- **Notes**: Place mentioned in context: time, and gravity.
-He died on April 18, 1955, in Princeton, New Jersey.
+- **Notes**: Place mentioned in context: ded Elektrotechnische Fabrik J. Einstein & Cie, a Munich-based company that mass-produced electrical equip

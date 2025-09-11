@@ -1,7 +1,7 @@
-### E21 · Person · relativity and · (10d1feb9...)
+### E21 · Person · in Philadelphia · (720a3369...)
 
-- **Label** (`label`): relativity and
+- **Label** (`label`): in Philadelphia
 - **Type** (`type`): ['E21']
-- **Notes**: Person mentioned in context: Albert Einstein was born on March 14, 1879, in Ulm, Germany. 
-He developed the theory of relativity and won the Nobel Prize in Physics in 1921.
-Einstein worked at the Institute for Advanced Study in Princeton
+- **Notes**: Person mentioned in context: earchers believe it might help explain why Einstein was so intelligent.
+
+In 2011, the Mütter Museum in Philadelphia received thin slices of Einstein's brain from Dr. Lucy Rorke-Adams, a neuropathologist at the Children's Hosp

@@ -3,18 +3,16 @@
 ## Input Text
 
 
-Albert Einstein was born on March 14, 1879, in Ulm, Germany. 
-He developed the theory of relativity and won the Nobel Prize in Physics in 1921.
-Einstein worked at the Institute for Advanced Study in ...
+Albert Einstein was born on March 14, 1879, in Ulm, Württemberg, Germany. He grew up in a secular Jewish family. His father, Hermann Einstein, was a salesman and engineer who, with his brother, found...
 
 ## Extraction Results
 
-- Entities extracted: 14
+- Entities extracted: 87
 - Relationships extracted: 0
 
 ## Network Analysis
 
-- Nodes: 14
+- Nodes: 87
 - Edges: 0
 - Density: 0.000
 - Communities: 0

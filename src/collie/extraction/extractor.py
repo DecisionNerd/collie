@@ -45,7 +45,7 @@ class InformationExtractor:
             raise ValueError("Google API key is required. Set GOOGLE_API_KEY environment variable.")
         
         self.provider = GoogleProvider(api_key=self.api_key)
-        self.model = GoogleModel("gemini-2.0-flash-001", provider=self.provider)
+        self.model = GoogleModel("gemini-2.5-flash", provider=self.provider)
         self.agent = Agent(self.model)
     
     async def extract_from_text(self, text: str) -> ExtractionResult:
@@ -149,7 +149,7 @@ class InformationExtractor:
             extraction_metadata={
                 "source_text_length": len(source_text),
                 "extraction_method": "pydantic_ai_structured",
-                "model": "gemini-2.0-flash-001"
+                "model": "gemini-2.5-flash"
             }
         )
     
