@@ -118,6 +118,87 @@ collie/
 - **`codegen/`**: Tools for generating models from YAML specs
 - **`tests/`**: Comprehensive test suite (32 tests, 100% pass rate)
 
+### Documentation Organization
+
+COLLIE follows a clear documentation organization pattern that separates user-facing documentation from internal implementation details:
+
+#### Global `docs/` Directory (Project-Level Documentation)
+
+The root `docs/` directory contains all **user-facing and project-level documentation**:
+
+```
+docs/
+├── mission.md                    # Project mission and goals
+├── todo.md                      # Development roadmap and tasks
+├── HOWTOs.md                    # User tutorials and modeling guide
+├── developer-experience.md      # This file - contributor guide
+├── testing.md                   # Testing guidelines and practices
+├── plan.md                      # Technical architecture and design
+└── cidoc-crm-standard.md        # CIDOC CRM specification reference
+```
+
+**Purpose**: These documents are intended for:
+- **End users** learning to use COLLIE
+- **Contributors** understanding the project
+- **Maintainers** managing development
+- **Stakeholders** understanding project goals
+
+#### Package `src/collie/` Directory (Implementation)
+
+The `src/collie/` directory contains **only code implementation**:
+
+```
+src/collie/
+├── __init__.py                  # Package initialization
+├── main.py                      # CLI entry point
+├── models/                      # Pydantic models
+├── io/                         # I/O modules
+├── validators/                 # Validation framework
+├── codegen/                    # Code generation tools
+├── tests/                      # Test suite
+└── examples/                   # Sample data files
+```
+
+**Purpose**: This directory contains:
+- **Source code** and implementation
+- **Internal package structure**
+- **Test files** and example data
+- **No user-facing documentation**
+
+#### Documentation Best Practices
+
+1. **User-Facing Guides** → `docs/`
+   - Tutorials, HOWTOs, and usage guides
+   - Project mission, roadmap, and architecture
+   - Developer experience and contribution guides
+
+2. **Implementation Details** → `src/collie/`
+   - API documentation (auto-generated from docstrings)
+   - Internal technical documentation
+   - Package-specific implementation notes
+
+3. **Clear Separation**
+   - Users should never need to navigate into `src/collie/` for documentation
+   - All discoverable documentation is in the root `docs/` directory
+   - Package documentation is generated from code docstrings
+
+#### Why This Organization Matters
+
+- **User Experience**: Users expect tutorials and guides in `docs/`
+- **Discoverability**: All project documentation is in one logical place
+- **Maintainability**: Clear separation between user docs and implementation
+- **Standards Compliance**: Follows established Python project conventions
+- **Contributor Onboarding**: New contributors know exactly where to find information
+
+#### Historical Note: Documentation Migration
+
+During development, `HOWTOs.md` was initially placed in `src/collie/docs/`. This was corrected to follow best practices:
+
+- **Before**: `src/collie/docs/HOWTOs.md` ❌
+- **After**: `docs/HOWTOs.md` ✅
+
+This change improved user experience and follows standard Python project documentation conventions.
+
 ### Code Generation
 
 COLLIE uses automated code generation to maintain consistency between YAML specifications and Python models.

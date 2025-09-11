@@ -1,6 +1,6 @@
 # CIDOC CRM Modeling Guide
 
-This guide provides practical examples and patterns for modeling cultural heritage data using the Collie toolkit.
+This guide provides practical examples and patterns for modeling cultural heritage data using the Collie toolkit with NetworkX integration for social network analysis.
 
 ## Table of Contents
 
@@ -11,9 +11,10 @@ This guide provides practical examples and patterns for modeling cultural herita
 5. [Modeling People and Groups](#modeling-people-and-groups)
 6. [Modeling Places and Time](#modeling-places-and-time)
 7. [Working with Relationships](#working-with-relationships)
-8. [Validation and Quality Control](#validation-and-quality-control)
-9. [Exporting to Markdown](#exporting-to-markdown)
-10. [Exporting to Cypher](#exporting-to-cypher)
+8. [NetworkX Integration](#networkx-integration)
+9. [Validation and Quality Control](#validation-and-quality-control)
+10. [Exporting to Markdown](#exporting-to-markdown)
+11. [Exporting to Cypher](#exporting-to-cypher)
 
 ## Understanding Class Naming
 
@@ -320,6 +321,69 @@ relationship = CRMRelation(
 )
 ```
 
+## NetworkX Integration
+
+### Converting to NetworkX Graph
+
+```python
+import networkx as nx
+from collie.io.to_networkx import to_networkx_graph
+
+# Create entities
+entities = [vase, production, place, artist]
+
+# Convert to NetworkX graph
+G = to_networkx_graph(entities)
+
+# Now you can use all NetworkX algorithms
+print(f"Number of nodes: {G.number_of_nodes()}")
+print(f"Number of edges: {G.number_of_edges()}")
+```
+
+### Social Network Analysis
+
+```python
+# Calculate centrality measures
+centrality = nx.degree_centrality(G)
+betweenness = nx.betweenness_centrality(G)
+closeness = nx.closeness_centrality(G)
+
+# Find communities
+communities = nx.community.greedy_modularity_communities(G)
+
+# Calculate shortest paths
+shortest_path = nx.shortest_path(G, source="obj_001", target="person_001")
+```
+
+### Graph Visualization
+
+```python
+import matplotlib.pyplot as plt
+
+# Basic visualization
+pos = nx.spring_layout(G)
+nx.draw(G, pos, with_labels=True, node_size=1000, font_size=8)
+plt.title("Cultural Heritage Network")
+plt.show()
+
+# Advanced visualization with attributes
+node_colors = [G.nodes[node].get('class_code', 'E1') for node in G.nodes()]
+nx.draw(G, pos, node_color=node_colors, with_labels=True)
+plt.show()
+```
+
+### NetworkX Export/Import
+
+```python
+# Export to various formats
+nx.write_graphml(G, "cultural_network.graphml")
+nx.write_gexf(G, "cultural_network.gexf")
+nx.write_edgelist(G, "cultural_network.edgelist")
+
+# Import from formats
+G_imported = nx.read_graphml("cultural_network.graphml")
+```
+
 ## Validation and Quality Control
 
 ### Quantifier Validation
@@ -447,7 +511,20 @@ vase = E22_HumanMadeObject(id="obj_001")
 relationship = CRMRelation(src="obj_001", type="P53", tgt="place_001")
 ```
 
-### 3. Validate Early and Often
+### 3. NetworkX-First Workflow
+
+Prioritize NetworkX for analysis, use Cypher only when persistence is needed:
+
+```python
+# Good - NetworkX for analysis
+G = to_networkx_graph(entities)
+analysis_results = nx.pagerank(G)
+
+# Optional - Cypher for persistence
+cypher_script = generate_cypher_script(entities)
+```
+
+### 4. Validate Early and Often
 
 Run validation during development:
 
@@ -458,7 +535,7 @@ if messages:
     print("Validation failed:", messages)
 ```
 
-### 4. Use Appropriate Class Codes
+### 5. Use Appropriate Class Codes
 
 Choose the most specific class code available:
 
@@ -470,7 +547,7 @@ person = E21_Person(id="person_001", label="Leonardo da Vinci")
 person = CRMEntity(id="person_001", class_code="E1", label="Leonardo da Vinci")
 ```
 
-### 5. Document with Notes
+### 6. Document with Notes
 
 Add meaningful notes to entities:
 
@@ -518,6 +595,27 @@ place = E53_Place(
 )
 ```
 
+### Social Network Analysis Workflow
+
+```python
+# 1. Create entities with relationships
+entities = [vase, production, place, artist, museum]
+
+# 2. Convert to NetworkX graph
+G = to_networkx_graph(entities)
+
+# 3. Perform social network analysis
+centrality = nx.degree_centrality(G)
+communities = nx.community.greedy_modularity_communities(G)
+
+# 4. Visualize results
+nx.draw(G, with_labels=True)
+plt.show()
+
+# 5. Export for persistence (optional)
+cypher_script = generate_cypher_script(entities)
+```
+
 ### Event Participation
 
 ```python
@@ -533,4 +631,4 @@ exhibition = E7_Activity(
 # participants = ["person_001", "person_002", "group_001"]
 ```
 
-This guide should help you get started with modeling cultural heritage data using the Collie toolkit. For more advanced patterns and examples, refer to the test cases in the `tests/` directory.
+This guide should help you get started with modeling cultural heritage data using the Collie toolkit with NetworkX integration for social network analysis. For more advanced patterns and examples, refer to the test cases in the `tests/` directory.

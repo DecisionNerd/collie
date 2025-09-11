@@ -22,18 +22,23 @@
 - [x] Fix all test failures and improve test robustness
 - [x] Implement flexible UUID handling for better developer ergonomics
 - [x] Modernize GitHub Actions workflow with uv and ruff
+- [x] Refactor mission to emphasize NetworkX for social network analysis workflows
+- [ ] Implement NetworkX integration utilities (JSON → NetworkX graph construction)
+- [ ] Add NetworkX analysis examples and algorithms
 - [ ] Implement advanced validation features (completeness profiles)
 - [ ] Add performance testing for large batches
 - [ ] Create additional example datasets
 - [ ] Add CLI tools for code generation and validation
 
 ### Future Enhancements (Phase 3)
+- [ ] NetworkX visualization utilities and interactive plots
 - [ ] Profile packs (Linked.Art-like profiles)
 - [ ] Graph diff utilities
 - [ ] LLM prompt packs for extraction tasks
 - [ ] Importers for common museum/archive formats
-- [ ] Web interface for entity browsing
+- [ ] Web interface for entity browsing with NetworkX visualizations
 - [ ] API endpoints for programmatic access
+- [ ] Advanced NetworkX algorithms integration (community detection, centrality measures)
 
 ## Completed Tasks
 - [x] Create agent workflow rule for documentation-driven development
@@ -65,11 +70,12 @@
 
 ## Project Status
 - **Phase 1 Complete**: Core CIDOC CRM implementation is scaffolded and ready for development
-- **Phase 2 Complete**: Comprehensive YAML coverage, code generation, UUID refactoring, complete CIDOC CRM v7.1.3 coverage, and robust testing implemented
+- **Phase 2 In Progress**: Comprehensive YAML coverage, code generation, UUID refactoring, complete CIDOC CRM v7.1.3 coverage, and robust testing implemented. Mission refactored for NetworkX focus.
 - **Architecture**: Follows plan.md exactly with codegen/, models/, io/, validators/, tests/, examples/
 - **Coverage**: Now covers 99 E-classes and 322 P-properties (complete CRM 7.1.3 coverage)
 - **Code Generation**: Automated YAML → Pydantic model generation working
 - **UUID Support**: Flexible UUID handling with deterministic generation from string IDs for better developer ergonomics
+- **NetworkX Integration**: Mission refactored to emphasize NetworkX as primary graph analysis framework
 - **Testing**: All 32 tests passing (unit tests, golden tests, validation tests) with robust assertions
 - **CI/CD**: Modern GitHub Actions workflow with uv package management and ruff linting/formatting
 - **Documentation**: HOWTOs.md provides comprehensive modeling guide
@@ -80,7 +86,9 @@
 - All scaffolding follows the comprehensive plan in docs/plan.md
 - Successfully implemented flexible UUID handling that maintains "IDs first" principle while supporting developer ergonomics
 - All components (models, renderers, emitters, validators, tests) updated for robust UUID support
-- Core functionality: JSON ↔ Markdown ↔ Cypher with CRM validation
+- Core functionality: JSON ↔ NetworkX ↔ Markdown ↔ Cypher with CRM validation
+- Mission refactored to emphasize NetworkX as primary graph analysis framework for database-agnostic workflows
 - No RDF/OWL/JSON-LD dependencies as per mission
 - Modern development workflow with uv package management and ruff code quality tools
 - All tests passing with comprehensive coverage of core functionality
+- Ready for NetworkX integration implementation as next priority
