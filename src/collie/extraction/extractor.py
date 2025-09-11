@@ -234,15 +234,35 @@ class InformationExtractor:
         # Create entity lookup by label
         entity_lookup = {entity.label.lower(): entity for entity in entities}
         
-        # Define relationship patterns
+        # Define relationship patterns with more precise matching
         relationship_patterns = [
-            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+was\s+born\s+in\s+([A-Z][a-z]+)', 'P98', 'was born in'),
-            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+died\s+in\s+([A-Z][a-z]+)', 'P100', 'died in'),
-            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+invented\s+([A-Z][a-z\s]+)', 'P108', 'invented'),
-            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+discovered\s+([A-Z][a-z\s]+)', 'P108', 'discovered'),
-            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+published\s+([A-Z][a-z\s]+)', 'P108', 'published'),
-            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+worked\s+at\s+([A-Z][a-z\s]+)', 'P107', 'worked at'),
-            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+graduated\s+from\s+([A-Z][a-z\s]+)', 'P107', 'graduated from'),
+            # Birth relationships
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+was\s+born\s+in\s+([A-Z][a-z]+)(?:,\s*[A-Z][a-z]+)?', 'P98', 'was born in'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+born\s+in\s+([A-Z][a-z]+)(?:,\s*[A-Z][a-z]+)?', 'P98', 'born in'),
+            
+            # Death relationships
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+died\s+in\s+([A-Z][a-z]+)(?:,\s*[A-Z][a-z\s]+)?', 'P100', 'died in'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+passed away\s+in\s+([A-Z][a-z]+)(?:,\s*[A-Z][a-z\s]+)?', 'P100', 'passed away in'),
+            
+            # Creation/Invention relationships
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+invented\s+([A-Z][a-z\s]+?)(?:\s+theory|\s+effect|\s+principle|\s+law)', 'P108', 'invented'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+discovered\s+([A-Z][a-z\s]+?)(?:\s+theory|\s+effect|\s+principle|\s+law)', 'P108', 'discovered'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+developed\s+([A-Z][a-z\s]+?)(?:\s+theory|\s+effect|\s+principle|\s+law)', 'P108', 'developed'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+created\s+([A-Z][a-z\s]+?)(?:\s+theory|\s+effect|\s+principle|\s+law)', 'P108', 'created'),
+            
+            # Work/Study relationships
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+worked\s+at\s+([A-Z][a-z\s]+?)(?:\s+Institute|\s+University|\s+College|\s+School)', 'P107', 'worked at'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+studied\s+at\s+([A-Z][a-z\s]+?)(?:\s+Institute|\s+University|\s+College|\s+School)', 'P107', 'studied at'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+graduated\s+from\s+([A-Z][a-z\s]+?)(?:\s+Institute|\s+University|\s+College|\s+School)', 'P107', 'graduated from'),
+            
+            # Award relationships
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+won\s+([A-Z][a-z\s]+?)(?:\s+Prize|\s+Award)', 'P108', 'won'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+received\s+([A-Z][a-z\s]+?)(?:\s+Prize|\s+Award)', 'P108', 'received'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+awarded\s+([A-Z][a-z\s]+?)(?:\s+Prize|\s+Award)', 'P108', 'awarded'),
+            
+            # Publication relationships
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+published\s+([A-Z][a-z\s]+?)(?:\s+paper|\s+article|\s+book)', 'P108', 'published'),
+            (r'\b([A-Z][a-z]+ [A-Z][a-z]+)\s+wrote\s+([A-Z][a-z\s]+?)(?:\s+paper|\s+article|\s+book)', 'P108', 'wrote'),
         ]
         
         import re
@@ -250,11 +270,39 @@ class InformationExtractor:
             matches = re.finditer(pattern, text, re.IGNORECASE)
             for match in matches:
                 source_label = match.group(1)
-                target_label = match.group(2)
+                target_label = match.group(2).strip()
                 
-                # Find entities by label
+                # Find entities by label with flexible matching
                 source_entity = entity_lookup.get(source_label.lower())
-                target_entity = entity_lookup.get(target_label.lower())
+                
+                # Try to find target entity with flexible matching
+                target_entity = None
+                target_label_clean = target_label.lower().strip()
+                
+                # First try exact match
+                target_entity = entity_lookup.get(target_label_clean)
+                
+                # If no exact match, try partial matching with better logic
+                if not target_entity:
+                    # Try to find the best matching entity
+                    best_match = None
+                    best_score = 0
+                    
+                    for entity_key, entity in entity_lookup.items():
+                        # Calculate similarity score
+                        if target_label_clean in entity_key:
+                            score = len(target_label_clean) / len(entity_key)
+                        elif entity_key in target_label_clean:
+                            score = len(entity_key) / len(target_label_clean)
+                        else:
+                            score = 0
+                        
+                        # Only consider matches with reasonable similarity
+                        if score > 0.5 and score > best_score:
+                            best_match = entity
+                            best_score = score
+                    
+                    target_entity = best_match
                 
                 if source_entity and target_entity:
                     relationship = ExtractedRelationship(
@@ -264,7 +312,7 @@ class InformationExtractor:
                         property_label=property_label,
                         confidence=0.8,
                         source_text=match.group(0),
-                        properties={"pattern": pattern}
+                        properties={"pattern": pattern, "source_label": source_label, "target_label": target_label}
                     )
                     relationships.append(relationship)
         
