@@ -207,7 +207,7 @@ output/
 │   └── ...
 ├── plots/                      # Visualizations
 │   ├── network_overview.png    # Static network plot
-│   └── interactive_network.html # Interactive Plotly plot
+│   └── network_overview.png # Static network plot
 ├── network.cypher             # Cypher script for graph databases
 └── workflow_summary.md         # Complete analysis summary
 ```
@@ -218,7 +218,7 @@ output/
 - **`canonical_entities.json`**: Canonical JSON format for async/future processing (UUIDs as strings, ready for graph databases)
 - **`extraction_result.md`**: Clean table of extracted entities
 - **`network_overview.png`**: Static visualization of entity relationships
-- **`interactive_network.html`**: Interactive plot you can open in a browser
+- **`network_overview.png`**: Static network visualization
 - **`network.cypher`**: Ready-to-run script for Neo4j or Memgraph
 - **`workflow_summary.md`**: Complete analysis report
 
@@ -266,11 +266,11 @@ COLLIE uses PydanticAI to intelligently extract:
 - Node sizes based on centrality
 - Edge thickness based on relationship strength
 
-### Interactive Plots (Plotly)
-- Zoomable and pannable network graphs
-- Hover tooltips with entity details
-- Click to explore relationships
-- Export to HTML for sharing
+### Static Plots (Matplotlib)
+- High-quality network visualizations
+- Clear entity and relationship display
+- Customizable styling and layouts
+- Export to PNG for sharing
 
 ## 🔗 Integration with Graph Databases
 
@@ -337,7 +337,7 @@ You should see all 47 tests pass, including:
 Now that you're up and running:
 
 1. **Try your own data**: Extract entities from your own texts
-2. **Explore visualizations**: Open the interactive HTML plots
+2. **Explore visualizations**: View the static PNG plots
 3. **Import to graph databases**: Use the Cypher scripts with Neo4j
 4. **Customize analysis**: Adjust confidence thresholds and analysis parameters
 5. **Integrate with workflows**: Use COLLIE in your data processing pipelines

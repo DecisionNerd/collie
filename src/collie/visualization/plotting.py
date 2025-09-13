@@ -12,7 +12,6 @@ import networkx as nx
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
-from plotly.offline import plot
 
 
 def plot_network_graph(
@@ -333,7 +332,10 @@ def create_interactive_plot(
     edge_width_multiplier: float = 2,
 ) -> go.Figure:
     """
-    Create an interactive network plot using Plotly.
+    Create an interactive network plot using Plotly for notebook display.
+    
+    Note: This function is designed for use in Jupyter notebooks only.
+    It creates interactive visualizations that work well in notebook environments.
     
     Args:
         graph: NetworkX graph to plot
@@ -344,7 +346,7 @@ def create_interactive_plot(
         edge_width_multiplier: Multiplier for edge widths
         
     Returns:
-        Plotly figure object
+        Plotly figure object for notebook display
     """
     # Get layout positions
     pos = _get_layout_positions(graph, layout)

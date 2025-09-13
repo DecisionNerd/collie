@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 from collie.extraction import InformationExtractor
 from collie.io.to_markdown import to_markdown, MarkdownStyle, render_table
 from collie.io.to_networkx import to_networkx_graph, calculate_centrality_measures, find_communities
-from collie.visualization import plot_network_graph, create_interactive_plot, create_network_summary
+from collie.visualization import plot_network_graph, create_network_summary
 from collie.io.to_cypher import generate_cypher_script
 
 # Load environment variables from .env file
@@ -176,16 +176,7 @@ async def complete_workflow_demo(text: str, output_dir: str = "output",
             print(f"✅ Generated static plot: {plots_dir / 'network_overview.png'}")
         
         if interactive:
-            # Interactive plot
-            interactive_fig = create_interactive_plot(
-                graph,
-                title="Interactive COLLIE Network"
-            )
-            
-            # Save interactive plot
-            interactive_file = plots_dir / "interactive_network.html"
-            interactive_fig.write_html(str(interactive_file))
-            print(f"✅ Generated interactive plot: {interactive_file}")
+            print("✅ Interactive plotting functionality removed - use static plots instead")
     
     # Step 8: Export to Cypher (Optional)
     if export_cypher:
@@ -372,7 +363,7 @@ async def handle_analyze_command(args):
     print(f"📈 Created NetworkX graph with {graph.number_of_nodes()} nodes and {graph.number_of_edges()} edges")
     
     # Run analysis based on flags
-    if args.centrality or args.all:
+    if args.centrality:
         print("🔍 Calculating centrality measures...")
         centrality_measures = calculate_centrality_measures(graph)
         
@@ -381,7 +372,7 @@ async def handle_analyze_command(args):
             json.dump(centrality_measures, f, indent=2)
         print(f"📄 Saved centrality measures to {output_dir / 'centrality_measures.json'}")
     
-    if args.communities or args.all:
+    if args.communities:
         print("🔍 Finding communities...")
         communities = find_communities(graph)
         
@@ -394,7 +385,7 @@ async def handle_analyze_command(args):
             json.dump(community_data, f, indent=2)
         print(f"📄 Saved community analysis to {output_dir / 'communities.json'}")
     
-    if args.visualize or args.all:
+    if args.visualize:
         print("🎨 Creating visualizations...")
         plot_network_graph(
             graph,
@@ -404,13 +395,10 @@ async def handle_analyze_command(args):
         )
         print(f"📄 Saved static plot to {output_dir / 'network_plot.png'}")
     
-    if args.interactive or args.all:
-        print("🎨 Creating interactive plot...")
-        interactive_fig = create_interactive_plot(graph, title="Interactive CRM Network")
-        interactive_fig.write_html(str(output_dir / "interactive_network.html"))
-        print(f"📄 Saved interactive plot to {output_dir / 'interactive_network.html'}")
+    if args.interactive:
+        print("🎨 Interactive plotting functionality removed - use static plots instead")
     
-    if args.export_cypher or args.all:
+    if args.export_cypher:
         print("🔗 Exporting to Cypher...")
         cypher_script = generate_cypher_script(entities)
         with open(output_dir / "entities.cypher", "w") as f:

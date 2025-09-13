@@ -13,8 +13,6 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import networkx as nx
 import pandas as pd
-import plotly.graph_objects as go
-from plotly.offline import plot
 
 
 def export_plot(
@@ -54,35 +52,6 @@ def export_plot(
     )
 
 
-def save_interactive_html(
-    fig: go.Figure,
-    filepath: str,
-    *,
-    title: str = "Interactive Network Plot",
-    include_plotlyjs: bool = True,
-) -> None:
-    """
-    Save Plotly figure as interactive HTML.
-    
-    Args:
-        fig: Plotly figure object
-        filepath: Output HTML file path
-        title: HTML page title
-        include_plotlyjs: Whether to include Plotly.js in the HTML
-        
-    Returns:
-        None
-    """
-    # Ensure directory exists
-    os.makedirs(os.path.dirname(filepath), exist_ok=True)
-    
-    # Save as HTML
-    plot(
-        fig,
-        filename=filepath,
-        auto_open=False,
-        include_plotlyjs=include_plotlyjs
-    )
 
 
 def create_network_summary(

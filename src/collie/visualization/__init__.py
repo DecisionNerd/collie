@@ -1,8 +1,9 @@
 """
 Visualization utilities for CIDOC CRM networks.
 
-This module provides interactive and static visualization capabilities
+This module provides static and interactive visualization capabilities
 for NetworkX graphs containing CRM entities and relationships.
+Interactive visualizations are designed for Jupyter notebook use.
 """
 
 from .plotting import (
@@ -21,7 +22,6 @@ from .styling import (
 )
 from .export import (
     export_plot,
-    save_interactive_html,
     create_network_summary,
 )
 
@@ -37,6 +37,5 @@ __all__ = [
     "get_layout_positions",
     "create_legend",
     "export_plot",
-    "save_interactive_html",
     "create_network_summary",
 ]
