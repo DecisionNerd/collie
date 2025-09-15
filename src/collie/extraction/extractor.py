@@ -59,7 +59,7 @@ class InformationExtractor:
         self.model = GoogleModel("gemini-2.5-flash", provider=self.provider)
         self.agent = Agent(
             self.model,
-            result_type=CIDOCExtractionResult,
+            output_type=CIDOCExtractionResult,
             system_prompt=self._get_system_prompt()
         )
     
